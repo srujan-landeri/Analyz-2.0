@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Image, Upload, Send, PlusIcon, ChevronUp, ChevronDown, BrainCircuit, Plus, Layers } from 'lucide-react';
+import { Image, Upload, Send, PlusIcon, ChevronUp, ChevronDown, BrainCircuit, Plus, Layers, Text } from 'lucide-react';
 import { FaMicrophone } from "react-icons/fa";
+import { kMaxLength } from 'buffer';
 const { v4: uuidv4 } = require('uuid');
 
 export default function Chat(props: any) {
@@ -8,15 +9,55 @@ export default function Chat(props: any) {
     const [chatDropdown, setChatDropdown] = useState(false);
     const [modelDropdown, setModelDropdown] = useState(false);
 
-    interface modelsMap {
-        [key: string]: string[];
+    // Interface for individual model object with icon and model properties
+    interface Model {
+        icon: string; // 'text' or 'image'
+        model: string;
     }
 
-    const modelsMap : modelsMap={
-        "ollama": ['deepseek-coder-v2:16b', 'codestral:22b', 'gemma2:9b', "mistral:latest"],
-        "groq": ["llama3-groq-70b-8192-tool-use-preview", "llama-3.1-70b-versatile", "llama-3.2-11b-vision-preview"]
+    // Interface for modelsMap where each key points to an array of Model objects
+    interface ModelsMap {
+        [key: string]: Model[]; // The value is an array of Model objects
     }
-    
+
+
+    // The actual modelsMap data
+    const modelsMap: ModelsMap = {
+        ollama: [
+            {
+                icon: 'text',
+                model: 'deepseek-coder-v2:16b'
+            },
+            {
+                icon: 'text',
+                model: 'codestral:22b'
+            },
+            {
+                icon: 'text',
+                model: 'gemma2:9b'
+            },
+            {
+                icon: 'text',
+                model: 'mistral:latest'
+            }
+        ],
+        groq: [
+            {
+                icon: 'text',
+                model: 'llama3-groq-70b-8192-tool-use-preview'
+            },
+            {
+                icon: 'text',
+                model: 'llama-3.1-70b-versatile'
+            },
+            {
+                icon: 'image',
+                model: 'llama-3.2-11b-vision-preview'
+            }
+        ]
+    };
+
+    const [selectedSource, setSelectedSource] = useState('ollama');
     const [selectedModel, setSelectedModel] = useState('mistral:latest');
     const [openKey, setOpenKey] = useState(null); // State for the open accordion
 
@@ -24,6 +65,7 @@ export default function Chat(props: any) {
     const disabled = props.disabled;
 
     const handleToggle = (key: any) => {
+        setSelectedSource(key); 
         setOpenKey(openKey === key ? null : key); // Toggle open/close for the selected key
     };
 
@@ -34,19 +76,18 @@ export default function Chat(props: any) {
         const newMessage = {
             icon: 'user',
             message: inputValue,
-            model: selectedModel,
+            model: {
+                name: selectedModel,
+                source: selectedSource,
+            },
             id: uuidv4(),
         };
         props.addMessage(newMessage);
-        vscode.postMessage({
-            type: 'new-message',
-            value: inputValue,
-        });
         setInputValue('');
-        
+
         const input = document.getElementById('chat-input') as HTMLTextAreaElement;
         input.style.height = `30px`;
-        
+
     };
 
 
@@ -146,44 +187,48 @@ export default function Chat(props: any) {
             </div>
 
             { /* Model Dropdown */}
-
             <div className={`absolute w-[300px] left-0 bottom-[110%] w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${modelDropdown ? 'block' : 'hidden'}`}>
                 <h4 className='text-xs p-2 italic flex gap-1 items-center'>
                     <Layers size={18} className='text-black dark:text-white' />
                     Choose a model
                 </h4>
 
-                 {modelDropdown && (
-                <div className="rounded">
-                    {Object.keys(modelsMap).map((key) => (
-                        <div key={key}>
-                            <div
-                                className={`flex justify-between p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700 ${openKey === key ? 'bg-gray-100 dark:bg-zinc-700' : ''}`}
-                                onClick={() => handleToggle(key)}
-                            >
-                                <p className='text-sm'>{key}</p>
-                                {/* Add a toggle icon (optional) */}
-                                <span>{openKey === key ? '-' : '+'}</span>
-                            </div>
-                            
-                            {openKey === key && (
+                {modelDropdown && (
+                    <div className="rounded">
+                        {Object.keys(modelsMap).map((key) => (
+                            <div key={key}>
+                                <div
+                                    className={`flex justify-between p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700 ${openKey === key ? 'bg-gray-100 dark:bg-zinc-700' : ''}`}
+                                    onClick={() => handleToggle(key)}
+                                >
+                                    <p className='text-sm'>{key}</p>
+                                    {/* Add a toggle icon (optional) */}
+                                    <span>{openKey === key ? '-' : '+'}</span>
+                                </div>
+
+                                {openKey === key && (
                                 <div className="flex flex-col">
-                                    {modelsMap[key].map((model:string, index:number) => (
-                                        <div key={index} className={`flex gap-3 p-2 my-1 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700 ${selectedModel === model ? 'bg-gray-100 dark:bg-zinc-700' : ''}`}
+                                    {modelsMap[key].map((model: Model, index: number) => (
+                                        <div key={index} className={`flex gap-3 p-2 my-1 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700 ${selectedModel === model.model ? 'bg-gray-100 dark:bg-zinc-700' : ''}`}
                                             onClick={() => {
-                                                setSelectedModel(model);
+                                                setSelectedModel(model.model);
                                                 setModelDropdown(false);
                                             }}>
-                                            <BrainCircuit size={18} className='text-black dark:text-white' />
-                                            <p className='text-xs'>{model}</p>
+                                            {model.icon === "text" ? (
+                                                <Text size={18} className='text-black dark:text-white' />
+                                            ) : (
+                                                <Image size={18} className='text-black dark:text-white' />
+                                            )}
+                                            <p className='text-xs'>{model.model}</p> {/* Assuming 'name' is a property */}
                                         </div>
                                     ))}
                                 </div>
-                            )}
-                        </div>
-                    ))}
-                </div>
-            )}
+                                )}
+
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );

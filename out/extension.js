@@ -87,6 +87,12 @@ class AnalyzViewProvider {
                         value: false
                     });
                     return;
+                case 'info':
+                    vscode.window.showInformationMessage(data.message);
+                    return;
+                case 'error':
+                    vscode.window.showErrorMessage(data.message);
+                    return;
             }
         });
     }

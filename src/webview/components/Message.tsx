@@ -1,6 +1,7 @@
 import React, { useState, CSSProperties } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+const { v4: uuidv4 } = require('uuid');
 const { Prism: SyntaxHighlighter } = require('react-syntax-highlighter');
 const { vscDarkPlus } = require('react-syntax-highlighter/dist/cjs/styles/prism');
 const { oneLight } = require('react-syntax-highlighter/dist/cjs/styles/prism');
@@ -19,7 +20,7 @@ export function Logo() {
 }
 
 export default function Message(props: any) {
-    const { icon, theme, user, model, animate } = props;
+    const { icon, theme, vscode, user, model, animate } = props;
 
     const imageSrc = user?.picture;
     const name = user?.name;
@@ -38,8 +39,6 @@ export default function Message(props: any) {
 
     // Replace ol with ul for better styling
     const message = props.message.replace('ol', 'ul');
-
-    const [copyText, setCopyText] = useState<string | null>("Copy");
 
     const customStyle = theme === 'dark' ? {
         ...vscDarkPlus,
@@ -68,14 +67,10 @@ export default function Message(props: any) {
         }
     };
     
-    const handleCopy = (code:any) => {
+    const handleCopy = (code:any, id:any) => {
         navigator.clipboard.writeText(code)
             .then(() => {
-                setCopyText('Copied!');
-
-                setTimeout(() => {
-                    setCopyText('Copy');
-                }, 2000); 
+                vscode.postMessage({ type: 'info', message: 'Code copied to clipboard'});
             })
             .catch((err) => {
                 console.error('Could not copy text: ', err);
@@ -149,7 +144,7 @@ export default function Message(props: any) {
                                 const { children, className, ...rest } = props;
                                 const match = /language-(\w+)/.exec(className || '');
                                 const code = String(children).replace(/\n$/, '');
-
+                                const id = uuidv4();
                                 if (!match) {
                                     // This is inline code
                                     return (
@@ -176,15 +171,11 @@ export default function Message(props: any) {
                                             {code}
                                         </SyntaxHighlighter>
                                         <button
-                                            onClick={() => handleCopy(code)}
+                                            onClick={() => handleCopy(code, id)}
+                                            id = {id}
                                             className="absolute top-2 right-2 bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300 flex items-center"
                                         >
-                                            {copyText === 'Copied!' ? (
-                                                <Check size={16} />
-                                            ) : (
-                                                <Clipboard size={16} />
-                                            )}
-                                            <span className="ml-1">{copyText}</span>
+                                        <Clipboard size={16} />
                                         </button>
                                     </div>
                                 );

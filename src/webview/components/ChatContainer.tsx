@@ -10,14 +10,19 @@ export default function ChatContainer(props: any) {
         id: string;
         icon: string;
         message: string;
-        model: string;
+        model: ModelType;
+    }
+
+    interface ModelType{
+        name: string;
+        source: string;
     }
 
     const [messages, setMessages] = useState<MessageType[]>([]);
     const [loading, setLoading] = useState(false);
 
 
-    const completeChat = async (message: string, model: string) => {
+    const completeChat = async (message: string, model: ModelType) => {
 
         const typingMessageId = uuidv4();
 
@@ -40,7 +45,7 @@ export default function ChatContainer(props: any) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ query: message, model: model }),
+                body: JSON.stringify({ query: message, model: model.name }),
             });
 
             const data = await response.json();
@@ -70,7 +75,7 @@ export default function ChatContainer(props: any) {
         }
     };
 
-    const addMessage = (newMessage: { icon: string; message: string, model: string, id: string }) => {
+    const addMessage = (newMessage: { icon: string; message: string, model: ModelType, id: string }) => {
         setMessages(prevMessages => [...prevMessages, newMessage]);
 
         const { icon, message, model } = newMessage;
@@ -102,7 +107,7 @@ export default function ChatContainer(props: any) {
                                 message={msg.message}
                                 theme={theme}
                                 user={user}
-                                model={msg.model}
+                                model={msg.model.name}
                                 animate={msg.message === "Typing..."}
                             />
 
