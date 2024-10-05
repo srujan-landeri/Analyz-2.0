@@ -201126,73 +201126,6 @@ function StyleToObject(style, iterator) {
 
 /***/ }),
 
-/***/ "./src/webview/components/App.tsx":
-/*!****************************************!*\
-  !*** ./src/webview/components/App.tsx ***!
-  \****************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.App = void 0;
-const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-const react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-const ChatContainer_1 = __importDefault(__webpack_require__(/*! ./ChatContainer */ "./src/webview/components/ChatContainer.tsx"));
-const BounceLoader_1 = __importDefault(__webpack_require__(/*! react-spinners/BounceLoader */ "./node_modules/react-spinners/BounceLoader.js"));
-const vscode = acquireVsCodeApi();
-const App = () => {
-    const [theme, setTheme] = (0, react_1.useState)('light');
-    const [isAuthenticated, setIsAuthenticated] = (0, react_1.useState)(false);
-    const [user, setUser] = (0, react_1.useState)(null);
-    const [loading, setLoading] = (0, react_1.useState)(true);
-    (0, react_1.useEffect)(() => {
-        const handleMessage = (event) => {
-            const message = event.data;
-            switch (message.type) {
-                case 'theme-info':
-                    const theme = message.value;
-                    setTheme(theme === 1 || theme === 4 ? 'light' : 'dark');
-                    break;
-                case 'auth-success':
-                    setIsAuthenticated(true);
-                    setUser(message.user);
-                    break;
-                case 'auth-status':
-                    setIsAuthenticated(message.value);
-                    setLoading(false);
-                    setUser(message.user);
-                    break;
-            }
-        };
-        window.addEventListener('message', handleMessage);
-        // Check auth status on mount
-        vscode.postMessage({ type: 'check-auth-status' });
-        return () => {
-            window.removeEventListener('message', handleMessage);
-        };
-    }, []);
-    return ((0, jsx_runtime_1.jsx)("div", { className: `relative ${theme === 'dark' ? 'dark' : 'light'}`, children: loading ?
-            (0, jsx_runtime_1.jsx)("div", { className: 'flex flex-col justify-center items-center h-[85vh] mt-5', children: (0, jsx_runtime_1.jsx)(BounceLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', size: 45, "aria-label": "Loading Spinner", "data-testid": "loader" }) }) :
-            isAuthenticated ?
-                (0, jsx_runtime_1.jsx)(ChatContainer_1.default, { vscode: vscode, theme: theme, user: user })
-                :
-                    (0, jsx_runtime_1.jsx)(Login, {}) }));
-};
-exports.App = App;
-function Login() {
-    const handleLogin = () => {
-        vscode.postMessage({ type: 'initiate-login' });
-    };
-    return ((0, jsx_runtime_1.jsxs)("div", { className: 'flex flex-col gap-10 justify-center items-center h-[85vh]', children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h1", { className: 'text-4xl text-center font-bold', children: "Welcome to Analyz" }), (0, jsx_runtime_1.jsx)("p", { className: 'text-center text-sm mt-1', children: "Analyz is a code analysis tool that helps you write better code." })] }), (0, jsx_runtime_1.jsx)("button", { onClick: handleLogin, className: "px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600", children: "Sign in with Google" })] }));
-}
-
-
-/***/ }),
-
 /***/ "./src/webview/components/ChatContainer.tsx":
 /*!**************************************************!*\
   !*** ./src/webview/components/ChatContainer.tsx ***!
@@ -201210,7 +201143,7 @@ const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modul
 const react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 const Message_1 = __importDefault(__webpack_require__(/*! ./Message */ "./src/webview/components/Message.tsx"));
 const InputChat_1 = __importDefault(__webpack_require__(/*! ./InputChat */ "./src/webview/components/InputChat.tsx"));
-const Welcome_1 = __importDefault(__webpack_require__(/*! ./Welcome */ "./src/webview/components/Welcome.tsx"));
+const Welcome_1 = __importDefault(__webpack_require__(/*! ../pages/Welcome */ "./src/webview/pages/Welcome.tsx"));
 const { v4: uuidv4 } = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/commonjs-browser/index.js");
 function ChatContainer(props) {
     const { vscode, theme, user } = props;
@@ -201397,10 +201330,10 @@ function Chat(props) {
 
 /***/ }),
 
-/***/ "./src/webview/components/Message.tsx":
-/*!********************************************!*\
-  !*** ./src/webview/components/Message.tsx ***!
-  \********************************************/
+/***/ "./src/webview/components/Markdown.tsx":
+/*!*********************************************!*\
+  !*** ./src/webview/components/Markdown.tsx ***!
+  \*********************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -201409,8 +201342,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Logo = Logo;
-exports["default"] = Message;
+exports["default"] = Markdown;
 const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 const react_markdown_1 = __importDefault(__webpack_require__(/*! react-markdown */ "./node_modules/react-markdown/index.js"));
 const remark_gfm_1 = __importDefault(__webpack_require__(/*! remark-gfm */ "./node_modules/remark-gfm/index.js"));
@@ -201418,27 +201350,12 @@ const { v4: uuidv4 } = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist
 const { Prism: SyntaxHighlighter } = __webpack_require__(/*! react-syntax-highlighter */ "./node_modules/react-syntax-highlighter/dist/esm/index.js");
 const { vscDarkPlus } = __webpack_require__(/*! react-syntax-highlighter/dist/cjs/styles/prism */ "./node_modules/react-syntax-highlighter/dist/cjs/styles/prism/index.js");
 const { oneLight } = __webpack_require__(/*! react-syntax-highlighter/dist/cjs/styles/prism */ "./node_modules/react-syntax-highlighter/dist/cjs/styles/prism/index.js");
-const { Clipboard, Check } = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/lucide-react.js");
-const MoonLoader_1 = __importDefault(__webpack_require__(/*! react-spinners/MoonLoader */ "./node_modules/react-spinners/MoonLoader.js"));
-function Logo() {
-    return ((0, jsx_runtime_1.jsx)("div", { className: "w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-4 h-4 bg-white rounded-full" }) }) }));
-}
-function Message(props) {
-    const { icon, theme, vscode, user, model, animate } = props;
-    const imageSrc = user?.picture;
-    const name = user?.name;
-    const loadingTexts = ["Parsing", "Interpreting", "Generating", "Loading"];
-    if (animate) {
-        setTimeout(() => {
-            let i = 0;
-            setInterval(() => {
-                document.getElementById("loading-text").innerHTML = `${loadingTexts[i % 4]}...`;
-                i++;
-            }, 1000 * (2 * i + 1));
-        }, 1000);
-    }
-    // Replace ol with ul for better styling
-    const message = props.message.replace('ol', 'ul');
+const { Clipboard } = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/lucide-react.js");
+function Markdown(props) {
+    const { theme, vscode, message } = props;
+    console.log("Markdown theme: ", theme);
+    console.log("Markdown vscode: ", vscode);
+    console.log("Markdown message: ", message);
     const customStyle = theme === 'dark' ? {
         ...vscDarkPlus,
         'pre[class*="language-"]': {
@@ -201474,59 +201391,74 @@ function Message(props) {
             console.error('Could not copy text: ', err);
         });
     };
-    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col w-full animate-fade-in", children: [(0, jsx_runtime_1.jsxs)("div", { className: "flex items-center mb-2", children: [(0, jsx_runtime_1.jsx)("div", { className: "flex items-center justify-center", children: icon === 'chatbot' ? ((0, jsx_runtime_1.jsx)(Logo, {})) : ((0, jsx_runtime_1.jsx)("div", { className: "w-8 h-8 overflow-hidden rounded-full bg-gray-200", children: (0, jsx_runtime_1.jsx)("img", { src: imageSrc, alt: "user", className: 'w-full h-full object-cover' }) })) }), (0, jsx_runtime_1.jsx)("span", { className: 'ml-3 font-medium text-sm text-gray-700 dark:text-gray-300', children: icon === 'chatbot' ? 'Analyz' : name })] }), (0, jsx_runtime_1.jsx)("div", { className: `font-normal rounded-md text-black dark:text-white apply-my-2`, children: animate ?
-                    (0, jsx_runtime_1.jsxs)("div", { className: "flex items-center my-5", children: [(0, jsx_runtime_1.jsx)(MoonLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', loading: animate, size: 20, "aria-label": "Loading Spinner", "data-testid": "loader" }), (0, jsx_runtime_1.jsx)("p", { id: "loading-text", className: "ml-3 text-gray-500 dark:text-gray-400", children: "Typing..." })] })
-                    : (0, jsx_runtime_1.jsx)(react_markdown_1.default, { children: message, remarkPlugins: [remark_gfm_1.default], components: {
-                            // Add list styling
-                            ul: ({ children }) => ((0, jsx_runtime_1.jsx)("ul", { className: "list-disc pl-6 space-y-3 my-4", children: children })),
-                            ol: ({ children }) => ((0, jsx_runtime_1.jsx)("ol", { className: "space-y-3 my-4", children: children })),
-                            li: ({ children }) => ((0, jsx_runtime_1.jsx)("li", { className: "my-2", children: children })),
-                            // Add link styling
-                            a: ({ href, children }) => ((0, jsx_runtime_1.jsx)("a", { href: href, className: "text-blue-500 hover:text-blue-600 underline", target: "_blank", rel: "noopener noreferrer", children: children })),
-                            table: ({ children }) => ((0, jsx_runtime_1.jsx)("table", { className: "table-auto my-4 border-collapse border border-gray-500", children: children })),
-                            th: ({ children }) => ((0, jsx_runtime_1.jsx)("th", { className: "border border-gray-500 px-4 py-2", children: children })),
-                            td: ({ children }) => ((0, jsx_runtime_1.jsx)("td", { className: "border border-gray-500 px-4 py-2", children: children })),
-                            // Modify code component to handle both inline and block code
-                            code(props) {
-                                const { children, className, ...rest } = props;
-                                const match = /language-(\w+)/.exec(className || '');
-                                const code = String(children).replace(/\n$/, '');
-                                const id = uuidv4();
-                                if (!match) {
-                                    // This is inline code
-                                    return ((0, jsx_runtime_1.jsx)("code", { ...rest, className: "bg-white dark:bg-zinc-800 \r\n                                            text-orange-400 dark:text-orange-300 \r\n                                            px-1.5 py-0.5 font-mono", children: children }));
-                                }
-                                return ((0, jsx_runtime_1.jsxs)("div", { className: "relative my-4 rounded-md", children: [(0, jsx_runtime_1.jsx)(SyntaxHighlighter, { ...rest, PreTag: "div", language: match[1], style: customStyle, className: "rounded-md text-base", children: code }), (0, jsx_runtime_1.jsx)("button", { onClick: () => handleCopy(code, id), id: id, className: "absolute top-2 right-2 bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300 flex items-center", children: (0, jsx_runtime_1.jsx)(Clipboard, { size: 16 }) })] }));
-                            },
-                        } }) }), icon == "chatbot" ?
-                (0, jsx_runtime_1.jsxs)("p", { className: 'text-[0.7rem] mt-2 text-gray-500 dark:text-gray-400 text-right', children: ["Generated By: ", (0, jsx_runtime_1.jsx)("span", { className: "font-semibold text-[0.8rem] text-gray-700 dark:text-gray-300", children: model })] }) :
-                null] }));
+    return ((0, jsx_runtime_1.jsx)(react_markdown_1.default, { children: message, remarkPlugins: [remark_gfm_1.default], components: {
+            // Add list styling
+            ul: ({ children }) => ((0, jsx_runtime_1.jsx)("ul", { className: "list-disc pl-6 space-y-3 my-4", children: children })),
+            ol: ({ children }) => ((0, jsx_runtime_1.jsx)("ol", { className: "space-y-3 my-4", children: children })),
+            li: ({ children }) => ((0, jsx_runtime_1.jsx)("li", { className: "my-2", children: children })),
+            // Add link styling
+            a: ({ href, children }) => ((0, jsx_runtime_1.jsx)("a", { href: href, className: "text-blue-500 hover:text-blue-600 underline", target: "_blank", rel: "noopener noreferrer", children: children })),
+            table: ({ children }) => ((0, jsx_runtime_1.jsx)("table", { className: "table-auto my-4 border-collapse border border-gray-500", children: children })),
+            th: ({ children }) => ((0, jsx_runtime_1.jsx)("th", { className: "border border-gray-500 px-4 py-2", children: children })),
+            td: ({ children }) => ((0, jsx_runtime_1.jsx)("td", { className: "border border-gray-500 px-4 py-2", children: children })),
+            // Modify code component to handle both inline and block code
+            code(props) {
+                const { children, className, ...rest } = props;
+                const match = /language-(\w+)/.exec(className || '');
+                const code = String(children).replace(/\n$/, '');
+                const id = uuidv4();
+                if (!match) {
+                    // This is inline code
+                    return ((0, jsx_runtime_1.jsx)("code", { ...rest, className: "bg-white dark:bg-zinc-800 \r\n                                            text-orange-400 dark:text-orange-300 \r\n                                            px-1.5 py-0.5 font-mono", children: children }));
+                }
+                return ((0, jsx_runtime_1.jsxs)("div", { className: "relative my-4 rounded-md", children: [(0, jsx_runtime_1.jsx)(SyntaxHighlighter, { ...rest, PreTag: "div", language: match[1], style: customStyle, className: "rounded-md text-base", children: code }), (0, jsx_runtime_1.jsx)("button", { onClick: () => handleCopy(code, id), id: id, className: "absolute top-2 right-2 bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300 flex items-center", children: (0, jsx_runtime_1.jsx)(Clipboard, { size: 16 }) })] }));
+            },
+        } }));
 }
 
 
 /***/ }),
 
-/***/ "./src/webview/components/Welcome.tsx":
+/***/ "./src/webview/components/Message.tsx":
 /*!********************************************!*\
-  !*** ./src/webview/components/Welcome.tsx ***!
+  !*** ./src/webview/components/Message.tsx ***!
   \********************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports["default"] = WelcomeScreen;
+exports.Logo = Logo;
+exports["default"] = Message;
 const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-const lucide_react_1 = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/lucide-react.js");
-function WelcomeScreen() {
-    const features = [
-        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Search, { className: "w-5 h-5" }), text: "Search The Web" },
-        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Globe, { className: "w-5 h-5" }), text: "Scrape Websites" },
-        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.FileText, { className: "w-5 h-5" }), text: "Search Research Papers" },
-        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Image, { className: "w-5 h-5" }), text: "Analyse Images" },
-        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Layers, { className: "w-5 h-5" }), text: "Access to Multiple Models" }
-    ];
-    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col items-center justify-center min-h-[400px] p-8 space-y-6", children: [(0, jsx_runtime_1.jsx)("div", { className: "w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-6 h-6 bg-white rounded-full" }) }) }), (0, jsx_runtime_1.jsxs)("div", { className: "text-center space-y-2", children: [(0, jsx_runtime_1.jsx)("h1", { className: "text-2xl font-bold text-gray-800 dark:text-gray-100", children: "Welcome to Analyz" }), (0, jsx_runtime_1.jsxs)("p", { className: "text-gray-600 dark:text-gray-300", children: ["Your AI-powered ", (0, jsx_runtime_1.jsx)("span", { className: "text-blue-600 dark:text-blue-400 font-bold", children: "coding" }), " assistant"] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "w-full max-w-md", children: [(0, jsx_runtime_1.jsx)("h2", { className: "text-sm font-medium text-gray-500 dark:text-gray-400 mb-4", children: "I can help you with:" }), (0, jsx_runtime_1.jsx)("div", { className: "grid grid-cols-1 gap-4", children: features.map((feature, index) => ((0, jsx_runtime_1.jsxs)("div", { className: "flex items-center space-x-3 p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors", children: [(0, jsx_runtime_1.jsx)("div", { className: "text-blue-500 dark:text-blue-400", children: feature.icon }), (0, jsx_runtime_1.jsx)("span", { className: "text-gray-700 dark:text-gray-300", children: feature.text })] }, index))) })] }), (0, jsx_runtime_1.jsx)("div", { className: "mt-8", children: (0, jsx_runtime_1.jsx)("p", { className: "text-sm text-gray-500 dark:text-gray-400", children: "Type your question to get started!" }) })] }));
+const MoonLoader_1 = __importDefault(__webpack_require__(/*! react-spinners/MoonLoader */ "./node_modules/react-spinners/MoonLoader.js"));
+const Markdown_1 = __importDefault(__webpack_require__(/*! ./Markdown */ "./src/webview/components/Markdown.tsx"));
+function Logo() {
+    return ((0, jsx_runtime_1.jsx)("div", { className: "w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-4 h-4 bg-white rounded-full" }) }) }));
+}
+function Message(props) {
+    const { icon, theme, vscode, user, model, animate, message } = props;
+    const imageSrc = user?.picture;
+    const name = user?.name;
+    console.log("Message in Message.tsx: ", message);
+    const loadingTexts = ["Parsing", "Interpreting", "Generating", "Loading"];
+    if (animate) {
+        setTimeout(() => {
+            let i = 0;
+            setInterval(() => {
+                document.getElementById("loading-text").innerHTML = `${loadingTexts[i % 4]}...`;
+                i++;
+            }, 1000 * (2 * i + 1));
+        }, 1000);
+    }
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col w-full animate-fade-in", children: [(0, jsx_runtime_1.jsxs)("div", { className: "flex items-center mb-2", children: [(0, jsx_runtime_1.jsx)("div", { className: "flex items-center justify-center", children: icon === 'chatbot' ? ((0, jsx_runtime_1.jsx)(Logo, {})) : ((0, jsx_runtime_1.jsx)("div", { className: "w-8 h-8 overflow-hidden rounded-full bg-gray-200", children: (0, jsx_runtime_1.jsx)("img", { src: imageSrc, alt: "user", className: 'w-full h-full object-cover' }) })) }), (0, jsx_runtime_1.jsx)("span", { className: 'ml-3 font-medium text-sm text-gray-700 dark:text-gray-300', children: icon === 'chatbot' ? 'Analyz' : name })] }), (0, jsx_runtime_1.jsx)("div", { className: `font-normal rounded-md text-black dark:text-white apply-my-2`, children: animate ?
+                    (0, jsx_runtime_1.jsxs)("div", { className: "flex items-center my-5", children: [(0, jsx_runtime_1.jsx)(MoonLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', loading: animate, size: 20, "aria-label": "Loading Spinner", "data-testid": "loader" }), (0, jsx_runtime_1.jsx)("p", { id: "loading-text", className: "ml-3 text-gray-500 dark:text-gray-400", children: "Typing..." })] })
+                    : (0, jsx_runtime_1.jsx)(Markdown_1.default, { vscode: vscode, theme: theme, message: message }) }), icon == "chatbot" ?
+                (0, jsx_runtime_1.jsxs)("p", { className: 'text-[0.7rem] mt-2 text-gray-500 dark:text-gray-400 text-right', children: ["Generated By: ", (0, jsx_runtime_1.jsx)("span", { className: "font-semibold text-[0.8rem] text-gray-700 dark:text-gray-300", children: model })] }) :
+                null] }));
 }
 
 
@@ -201546,10 +201478,103 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 const react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
-const App_1 = __webpack_require__(/*! ./components/App */ "./src/webview/components/App.tsx");
+const App_1 = __webpack_require__(/*! ./pages/App */ "./src/webview/pages/App.tsx");
 __webpack_require__(/*! ./styles.css */ "./src/webview/styles.css");
 const google_1 = __webpack_require__(/*! @react-oauth/google */ "./node_modules/@react-oauth/google/dist/index.esm.js");
 react_dom_1.default.render((0, jsx_runtime_1.jsx)(google_1.GoogleOAuthProvider, { clientId: "944125795870-j1vgdubdra1njjjq7t8sumjrn0p1fj3i.apps.googleusercontent.com", children: (0, jsx_runtime_1.jsx)(App_1.App, {}) }), document.getElementById('root'));
+
+
+/***/ }),
+
+/***/ "./src/webview/pages/App.tsx":
+/*!***********************************!*\
+  !*** ./src/webview/pages/App.tsx ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.App = void 0;
+const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+const react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+const ChatContainer_1 = __importDefault(__webpack_require__(/*! ../components/ChatContainer */ "./src/webview/components/ChatContainer.tsx"));
+const BounceLoader_1 = __importDefault(__webpack_require__(/*! react-spinners/BounceLoader */ "./node_modules/react-spinners/BounceLoader.js"));
+const vscode = acquireVsCodeApi();
+const App = () => {
+    const [theme, setTheme] = (0, react_1.useState)('light');
+    const [isAuthenticated, setIsAuthenticated] = (0, react_1.useState)(false);
+    const [user, setUser] = (0, react_1.useState)(null);
+    const [loading, setLoading] = (0, react_1.useState)(true);
+    (0, react_1.useEffect)(() => {
+        const handleMessage = (event) => {
+            const message = event.data;
+            switch (message.type) {
+                case 'theme-info':
+                    const theme = message.value;
+                    setTheme(theme === 1 || theme === 4 ? 'light' : 'dark');
+                    break;
+                case 'auth-success':
+                    setIsAuthenticated(true);
+                    setUser(message.user);
+                    break;
+                case 'auth-status':
+                    setIsAuthenticated(message.value);
+                    setLoading(false);
+                    setUser(message.user);
+                    break;
+            }
+        };
+        window.addEventListener('message', handleMessage);
+        // Check auth status on mount
+        vscode.postMessage({ type: 'check-auth-status' });
+        return () => {
+            window.removeEventListener('message', handleMessage);
+        };
+    }, []);
+    return ((0, jsx_runtime_1.jsx)("div", { className: `relative ${theme === 'dark' ? 'dark' : 'light'}`, children: loading ?
+            (0, jsx_runtime_1.jsx)("div", { className: 'flex flex-col justify-center items-center h-[85vh] mt-5', children: (0, jsx_runtime_1.jsx)(BounceLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', size: 45, "aria-label": "Loading Spinner", "data-testid": "loader" }) }) :
+            isAuthenticated ?
+                (0, jsx_runtime_1.jsx)(ChatContainer_1.default, { vscode: vscode, theme: theme, user: user })
+                :
+                    (0, jsx_runtime_1.jsx)(Login, {}) }));
+};
+exports.App = App;
+function Login() {
+    const handleLogin = () => {
+        vscode.postMessage({ type: 'initiate-login' });
+    };
+    return ((0, jsx_runtime_1.jsxs)("div", { className: 'flex flex-col gap-10 justify-center items-center h-[85vh]', children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("h1", { className: 'text-4xl text-center font-bold', children: "Welcome to Analyz" }), (0, jsx_runtime_1.jsx)("p", { className: 'text-center text-sm mt-1', children: "Analyz is a code analysis tool that helps you write better code." })] }), (0, jsx_runtime_1.jsx)("button", { onClick: handleLogin, className: "px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600", children: "Sign in with Google" })] }));
+}
+
+
+/***/ }),
+
+/***/ "./src/webview/pages/Welcome.tsx":
+/*!***************************************!*\
+  !*** ./src/webview/pages/Welcome.tsx ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports["default"] = WelcomeScreen;
+const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+const lucide_react_1 = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/lucide-react.js");
+function WelcomeScreen() {
+    const features = [
+        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Search, { className: "w-5 h-5" }), text: "Search The Web" },
+        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Globe, { className: "w-5 h-5" }), text: "Scrape Websites" },
+        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.FileText, { className: "w-5 h-5" }), text: "Search Research Papers" },
+        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Image, { className: "w-5 h-5" }), text: "Analyse Images" },
+        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Layers, { className: "w-5 h-5" }), text: "Access to Multiple Models" }
+    ];
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col items-center justify-center min-h-[400px] p-8 space-y-6", children: [(0, jsx_runtime_1.jsx)("div", { className: "w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-6 h-6 bg-white rounded-full" }) }) }), (0, jsx_runtime_1.jsxs)("div", { className: "text-center space-y-2", children: [(0, jsx_runtime_1.jsx)("h1", { className: "text-2xl font-bold text-gray-800 dark:text-gray-100", children: "Welcome to Analyz" }), (0, jsx_runtime_1.jsxs)("p", { className: "text-gray-600 dark:text-gray-300", children: ["Your AI-powered ", (0, jsx_runtime_1.jsx)("span", { className: "text-blue-600 dark:text-blue-400 font-bold", children: "coding" }), " assistant"] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "w-full max-w-md", children: [(0, jsx_runtime_1.jsx)("h2", { className: "text-sm font-medium text-gray-500 dark:text-gray-400 mb-4", children: "I can help you with:" }), (0, jsx_runtime_1.jsx)("div", { className: "grid grid-cols-1 gap-4", children: features.map((feature, index) => ((0, jsx_runtime_1.jsxs)("div", { className: "flex items-center space-x-3 p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors", children: [(0, jsx_runtime_1.jsx)("div", { className: "text-blue-500 dark:text-blue-400", children: feature.icon }), (0, jsx_runtime_1.jsx)("span", { className: "text-gray-700 dark:text-gray-300", children: feature.text })] }, index))) })] }), (0, jsx_runtime_1.jsx)("div", { className: "mt-8", children: (0, jsx_runtime_1.jsx)("p", { className: "text-sm text-gray-500 dark:text-gray-400", children: "Type your question to get started!" }) })] }));
+}
 
 
 /***/ }),

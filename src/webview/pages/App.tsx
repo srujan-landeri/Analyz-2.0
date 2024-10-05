@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ChatContainer from './ChatContainer';
+import ChatContainer from '../components/ChatContainer';
 import BounceLoader from "react-spinners/BounceLoader";
 
 const vscode = acquireVsCodeApi();

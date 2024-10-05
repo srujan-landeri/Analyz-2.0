@@ -8,7 +8,7 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = require("react");
 const Message_1 = __importDefault(require("./Message"));
 const InputChat_1 = __importDefault(require("./InputChat"));
-const Welcome_1 = __importDefault(require("./Welcome"));
+const Welcome_1 = __importDefault(require("../pages/Welcome"));
 const { v4: uuidv4 } = require('uuid');
 function ChatContainer(props) {
     const { vscode, theme, user } = props;

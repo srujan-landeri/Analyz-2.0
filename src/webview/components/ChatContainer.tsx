@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Message from './Message';
 import InputChat from './InputChat';
-import WelcomeScreen from './Welcome';
+import WelcomeScreen from '../pages/Welcome';
 const { v4: uuidv4 } = require('uuid');
 
 export default function ChatContainer(props: any) {
