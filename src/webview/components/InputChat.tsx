@@ -33,8 +33,7 @@ export default function Chat(props: any) {
         
         // set the height of the input back to 1 row
         const input = document.getElementById('chat-input') as HTMLTextAreaElement;
-        input.style.height = 'auto';
-        input.style.height = `${input.scrollHeight}px`;
+        input.style.height = `30px`;
         
     };
 

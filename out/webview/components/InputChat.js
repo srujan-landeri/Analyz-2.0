@@ -33,8 +33,7 @@ function Chat(props) {
         setInputValue('');
         // set the height of the input back to 1 row
         const input = document.getElementById('chat-input');
-        input.style.height = 'auto';
-        input.style.height = `${input.scrollHeight}px`;
+        input.style.height = `30px`;
     };
     function handleVoiceInput() {
         vscode.postMessage({

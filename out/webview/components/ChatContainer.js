@@ -72,6 +72,6 @@ function ChatContainer(props) {
                         scrollbarWidth: "thin",
                         scrollbarColor: "rgb(75 85 99) transparent",
                         msOverflowStyle: "none" // for IE/Edge
-                    }, children: (0, jsx_runtime_1.jsx)("div", { className: 'space-y-4', children: messages.map((msg) => ((0, jsx_runtime_1.jsx)(Message_1.default, { vscode: vscode, icon: msg.icon, message: msg.message, theme: theme, user: user, model: msg.model }, msg.id))) }) }) }), (0, jsx_runtime_1.jsx)(InputChat_1.default, { vscode: vscode, disabled: loading, addMessage: addMessage, theme: theme })] }));
+                    }, children: (0, jsx_runtime_1.jsx)("div", { className: 'space-y-4', children: messages.map((msg) => ((0, jsx_runtime_1.jsx)(Message_1.default, { vscode: vscode, icon: msg.icon, message: msg.message, theme: theme, user: user, model: msg.model, animate: msg.message === "Typing..." }, msg.id))) }) }) }), (0, jsx_runtime_1.jsx)(InputChat_1.default, { vscode: vscode, disabled: loading, addMessage: addMessage, theme: theme })] }));
 }
 //# sourceMappingURL=ChatContainer.js.map

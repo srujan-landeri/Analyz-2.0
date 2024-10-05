@@ -11,7 +11,7 @@ export default function ChatContainer(props: any) {
         message: string;
         model: string;
     }
-    
+
     const [messages, setMessages] = useState<MessageType[]>([]);
     const [loading, setLoading] = useState(false);
 
@@ -91,6 +91,7 @@ export default function ChatContainer(props: any) {
                 >
                     <div className='space-y-4'>
                         {messages.map((msg) => (
+
                             <Message
                                 key={msg.id}
                                 vscode={vscode}
@@ -99,7 +100,9 @@ export default function ChatContainer(props: any) {
                                 theme={theme}
                                 user={user}
                                 model={msg.model}
+                                animate={msg.message === "Typing..."}
                             />
+
                         ))}
                     </div>
                 </div>
