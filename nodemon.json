@@ -1,0 +1,6 @@
+{
+    "watch": ["src"],
+    "ext": "js,ts,json,jsx,tsx",
+    "exec": "webpack --mode development && tsc -p ./"
+  }
+  

@@ -1,0 +1,133 @@
+{
+  "name": "analyz",
+  "displayName": "analyz",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "views": {
+      "analyz": [
+        {
+          "type": "webview",
+          "id": "analyz",
+          "name": "Analyz",
+          "icon": "resources/analyz.png"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "analyz",
+          "title": "Analyz",
+          "icon": "resources/analyz.png"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "analyz.newChat",
+          "when": "view == analyz",
+          "group": "navigation"
+        },
+        {
+          "command": "analyz.history",
+          "when": "view == analyz",
+          "group": "navigation"
+        },
+        {
+          "command": "analyz.logout",
+          "when": "view == analyz",
+          "group": "navigation"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "analyz.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "analyz.newChat",
+        "title": "New Chat",
+        "icon": {
+          "light": "resources/light/new-chat.png",
+          "dark": "resources/dark/new-chat.png"
+        }
+      },
+      {
+        "command": "analyz.history",
+        "title": "History",
+        "icon": {
+          "light": "resources/light/history.png",
+          "dark": "resources/dark/history.png"
+        }
+      },
+      {
+        "command": "analyz.logout",
+        "title": "Logout",
+        "icon": {
+          "light": "resources/light/logout.png",
+          "dark": "resources/dark/logout.png"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "webpack": "webpack --mode development",
+    "webpack-dev": "webpack --mode development --watch",
+    "vscode:prepublish": "npm run webpack",
+    "compile": "tsc -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "start": "webpack --mode development && tsc -p ./",
+    "watch": "nodemon"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.8",
+    "@types/node": "20.x",
+    "@types/polka": "^0.5.7",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "@types/vscode": "^1.94.0",
+    "@typescript-eslint/eslint-plugin": "^8.7.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "autoprefixer": "^10.4.20",
+    "css-loader": "^7.1.2",
+    "dotenv-webpack": "^8.1.0",
+    "eslint": "^9.11.1",
+    "nodemon": "^3.1.7",
+    "postcss": "^8.4.47",
+    "postcss-loader": "^8.1.1",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.13",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.2",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@react-oauth/google": "^0.12.1",
+    "lucide-react": "^0.447.0",
+    "node-fetch": "^3.3.2",
+    "polka": "^0.5.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.3.0",
+    "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^15.5.0",
+    "remark-gfm": "^4.0.0",
+    "uuid": "^10.0.0"
+  }
+}
