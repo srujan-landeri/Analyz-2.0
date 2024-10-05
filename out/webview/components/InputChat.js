@@ -41,7 +41,7 @@ function Chat(props) {
             value: 'Voice input is not supported yet.',
         });
     }
-    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col fixed left-[2.5%] right-[2.5%] bottom-3 w-[95%] rounded-lg p-2 mx-auto\r\n                     bg-neutral-50 text-black dark:text-white dark:bg-zinc-800", children: [(0, jsx_runtime_1.jsxs)("div", { className: 'flex items-center justify-between mb-2', children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("button", { className: "p-1", children: (0, jsx_runtime_1.jsx)(lucide_react_1.PlusIcon, { size: 14, className: "text-black dark:text-zinc-300 hover:rotate-45 duration-100", onClick: () => {
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col fixed left-[2.5%] right-[2.5%] bottom-3 w-[95%] rounded-lg p-2 mx-auto\r\n                     bg-white shadow-lg \r\n                     text-black dark:text-white dark:bg-zinc-800", children: [(0, jsx_runtime_1.jsxs)("div", { className: 'flex items-center justify-between mb-2', children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("button", { className: "p-1", children: (0, jsx_runtime_1.jsx)(lucide_react_1.PlusIcon, { size: 14, className: "text-black dark:text-zinc-300 hover:rotate-45 duration-100", onClick: () => {
                                         setChatDropdown(!chatDropdown);
                                         setModelDropdown(false);
                                     } }) }), (0, jsx_runtime_1.jsx)("button", { className: "p-1", children: modelDropdown ? (0, jsx_runtime_1.jsx)(lucide_react_1.ChevronDown, { size: 14, className: "text-black dark:text-zinc-300", onClick: () => {

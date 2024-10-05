@@ -25,8 +25,9 @@ export default function WelcomeScreen() {
           Welcome to Analyz
         </h1>
         <p className="text-gray-600 dark:text-gray-300">
-          Your AI-powered research assistant
-        </p>
+  Your AI-powered <span className="text-blue-600 dark:text-blue-400 font-bold">coding</span> assistant
+</p>
+
       </div>
 
       <div className="w-full max-w-md">

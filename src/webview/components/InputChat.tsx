@@ -46,7 +46,8 @@ export default function Chat(props: any) {
     }
     return (
         <div className="flex flex-col fixed left-[2.5%] right-[2.5%] bottom-3 w-[95%] rounded-lg p-2 mx-auto
-                     bg-neutral-50 text-black dark:text-white dark:bg-zinc-800">
+                     bg-white shadow-lg 
+                     text-black dark:text-white dark:bg-zinc-800">
 
             {/* Chat options */}
             <div className='flex items-center justify-between mb-2'>
