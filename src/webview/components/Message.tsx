@@ -26,7 +26,7 @@ export default function Message(props: any) {
 
     const loadingTexts = ["Parsing", "Interpreting", "Generating", "Loading"];
 
-    if(animate) {
+    if (animate) {
         setTimeout(() => {
             let i = 0;
             setInterval(() => {
@@ -39,7 +39,8 @@ export default function Message(props: any) {
     // Replace ol with ul for better styling
     const message = props.message.replace('ol', 'ul');
 
-    const [copyText, setCopyText] = useState<string | null>(null);
+    const [copyText, setCopyText] = useState<string | null>("Copy");
+
     const customStyle = theme === 'dark' ? {
         ...vscDarkPlus,
         'pre[class*="language-"]': {
@@ -50,6 +51,7 @@ export default function Message(props: any) {
         'code[class*="language-"]': {
             ...vscDarkPlus['code[class*="language-"]'],
             background: 'transparent',
+            tabSize: '4'
         }
     } : {
         ...oneLight,
@@ -61,15 +63,19 @@ export default function Message(props: any) {
         'code[class*="language-"]': {
             ...oneLight['code[class*="language-"]'],
             background: 'transparent',
-            fontSize: '13px'
+            fontSize: '13px',
+            tabSize: '4',
         }
-    }
-
-    const handleCopy = (code: string) => {
+    };
+    
+    const handleCopy = (code:any) => {
         navigator.clipboard.writeText(code)
             .then(() => {
                 setCopyText('Copied!');
-                setTimeout(() => setCopyText('Copy'), 2000);
+
+                setTimeout(() => {
+                    setCopyText('Copy');
+                }, 2000); 
             })
             .catch((err) => {
                 console.error('Could not copy text: ', err);
@@ -95,16 +101,16 @@ export default function Message(props: any) {
             </div>
 
             <div className={`font-normal rounded-md text-black dark:text-white apply-my-2`}>
-                {animate ? 
+                {animate ?
                     <div className="flex items-center my-5">
-                        <MoonLoader 
+                        <MoonLoader
                             color={theme === 'dark' ? '#fff' : '#000'}
                             loading={animate}
                             size={20}
                             aria-label="Loading Spinner"
                             data-testid="loader"
                         />
-                        <p id = "loading-text" className="ml-3 text-gray-500 dark:text-gray-400">Typing...</p>
+                        <p id="loading-text" className="ml-3 text-gray-500 dark:text-gray-400">Typing...</p>
                     </div>
 
                     : <ReactMarkdown
@@ -149,7 +155,7 @@ export default function Message(props: any) {
                                     return (
                                         <code
                                             {...rest}
-                                            className="bg-white dark:bg-zinc-500 
+                                            className="bg-white dark:bg-zinc-800 
                                             text-orange-400 dark:text-orange-300 
                                             px-1.5 py-0.5 font-mono"
                                         >
@@ -174,10 +180,11 @@ export default function Message(props: any) {
                                             className="absolute top-2 right-2 bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300 flex items-center"
                                         >
                                             {copyText === 'Copied!' ? (
-                                                <Check size={16} className="" />
+                                                <Check size={16} />
                                             ) : (
-                                                <Clipboard size={16} className="" />
+                                                <Clipboard size={16} />
                                             )}
+                                            <span className="ml-1">{copyText}</span>
                                         </button>
                                     </div>
                                 );
