@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Message from './Message';
 import InputChat from './InputChat';
+import WelcomeScreen from './Welcome';
 const { v4: uuidv4 } = require('uuid');
 
 export default function ChatContainer(props: any) {
@@ -14,6 +15,7 @@ export default function ChatContainer(props: any) {
 
     const [messages, setMessages] = useState<MessageType[]>([]);
     const [loading, setLoading] = useState(false);
+
 
     const completeChat = async (message: string, model: string) => {
 
@@ -89,7 +91,8 @@ export default function ChatContainer(props: any) {
                         msOverflowStyle: "none"  // for IE/Edge
                     }}
                 >
-                    <div className='space-y-4'>
+                    { messages.length > 0 ?
+                        <div className='space-y-4'>
                         {messages.map((msg) => (
 
                             <Message
@@ -104,7 +107,8 @@ export default function ChatContainer(props: any) {
                             />
 
                         ))}
-                    </div>
+                        </div> : <WelcomeScreen/>
+                    }
                 </div>
             </div>
             <InputChat vscode={vscode} disabled={loading} addMessage={addMessage} theme={theme} />

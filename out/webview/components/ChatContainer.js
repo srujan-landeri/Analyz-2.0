@@ -8,6 +8,7 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = require("react");
 const Message_1 = __importDefault(require("./Message"));
 const InputChat_1 = __importDefault(require("./InputChat"));
+const Welcome_1 = __importDefault(require("./Welcome"));
 const { v4: uuidv4 } = require('uuid');
 function ChatContainer(props) {
     const { vscode, theme, user } = props;
@@ -72,6 +73,7 @@ function ChatContainer(props) {
                         scrollbarWidth: "thin",
                         scrollbarColor: "rgb(75 85 99) transparent",
                         msOverflowStyle: "none" // for IE/Edge
-                    }, children: (0, jsx_runtime_1.jsx)("div", { className: 'space-y-4', children: messages.map((msg) => ((0, jsx_runtime_1.jsx)(Message_1.default, { vscode: vscode, icon: msg.icon, message: msg.message, theme: theme, user: user, model: msg.model, animate: msg.message === "Typing..." }, msg.id))) }) }) }), (0, jsx_runtime_1.jsx)(InputChat_1.default, { vscode: vscode, disabled: loading, addMessage: addMessage, theme: theme })] }));
+                    }, children: messages.length > 0 ?
+                        (0, jsx_runtime_1.jsx)("div", { className: 'space-y-4', children: messages.map((msg) => ((0, jsx_runtime_1.jsx)(Message_1.default, { vscode: vscode, icon: msg.icon, message: msg.message, theme: theme, user: user, model: msg.model, animate: msg.message === "Typing..." }, msg.id))) }) : (0, jsx_runtime_1.jsx)(Welcome_1.default, {}) }) }), (0, jsx_runtime_1.jsx)(InputChat_1.default, { vscode: vscode, disabled: loading, addMessage: addMessage, theme: theme })] }));
 }
 //# sourceMappingURL=ChatContainer.js.map

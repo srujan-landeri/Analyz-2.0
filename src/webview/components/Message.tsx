@@ -6,10 +6,19 @@ const { vscDarkPlus } = require('react-syntax-highlighter/dist/cjs/styles/prism'
 const { Clipboard, Check } = require('lucide-react');
 import MoonLoader from "react-spinners/MoonLoader";
 
+export function Logo() {
+    return (
+        <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+            <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                <div className="w-4 h-4 bg-white rounded-full"></div>
+            </div>
+        </div>
+    )
+}
+
 export default function Message(props: any) {
     const { icon, theme, user, model, animate } = props;
 
-    const botImage = "https://cdn-icons-png.flaticon.com/512/8943/8943377.png"
     const imageSrc = user?.picture;
     const name = user?.name;
 
@@ -59,9 +68,7 @@ export default function Message(props: any) {
             <div className="flex items-center mb-2">
                 <div className="flex items-center justify-center">
                     {icon === 'chatbot' ? (
-                        <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
-                            <img src={botImage} alt="chatbot" className='w-6 h-6' />
-                        </div>
+                        <Logo />
                     ) : (
                         <div className="w-8 h-8 overflow-hidden rounded-full bg-gray-200">
                             <img src={imageSrc} alt="user" className='w-full h-full object-cover' />
