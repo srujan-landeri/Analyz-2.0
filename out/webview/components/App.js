@@ -7,15 +7,16 @@ exports.App = void 0;
 const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = require("react");
 const ChatContainer_1 = __importDefault(require("./ChatContainer"));
+const BounceLoader_1 = __importDefault(require("react-spinners/BounceLoader"));
 const vscode = acquireVsCodeApi();
 const App = () => {
     const [theme, setTheme] = (0, react_1.useState)('light');
     const [isAuthenticated, setIsAuthenticated] = (0, react_1.useState)(false);
     const [user, setUser] = (0, react_1.useState)(null);
+    const [loading, setLoading] = (0, react_1.useState)(true);
     (0, react_1.useEffect)(() => {
         const handleMessage = (event) => {
             const message = event.data;
-            console.log('Message:', message);
             switch (message.type) {
                 case 'theme-info':
                     const theme = message.value;
@@ -24,10 +25,10 @@ const App = () => {
                 case 'auth-success':
                     setIsAuthenticated(true);
                     setUser(message.user);
-                    console.log('User:', message.user);
                     break;
                 case 'auth-status':
                     setIsAuthenticated(message.value);
+                    setLoading(false);
                     setUser(message.user);
                     break;
             }
@@ -39,7 +40,12 @@ const App = () => {
             window.removeEventListener('message', handleMessage);
         };
     }, []);
-    return ((0, jsx_runtime_1.jsx)("div", { className: `relative ${theme === 'dark' ? 'dark' : 'light'}`, children: isAuthenticated ? (0, jsx_runtime_1.jsx)(ChatContainer_1.default, { vscode: vscode, theme: theme, user: user }) : (0, jsx_runtime_1.jsx)(Login, {}) }));
+    return ((0, jsx_runtime_1.jsx)("div", { className: `relative ${theme === 'dark' ? 'dark' : 'light'}`, children: loading ?
+            (0, jsx_runtime_1.jsx)("div", { className: 'flex flex-col justify-center items-center h-[85vh] mt-5', children: (0, jsx_runtime_1.jsx)(BounceLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', size: 45, "aria-label": "Loading Spinner", "data-testid": "loader" }) }) :
+            isAuthenticated ?
+                (0, jsx_runtime_1.jsx)(ChatContainer_1.default, { vscode: vscode, theme: theme, user: user })
+                :
+                    (0, jsx_runtime_1.jsx)(Login, {}) }));
 };
 exports.App = App;
 function Login() {

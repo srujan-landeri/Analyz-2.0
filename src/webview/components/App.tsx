@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ChatContainer from './ChatContainer';
-import InputChat from './InputChat';
+import BounceLoader from "react-spinners/BounceLoader";
 
 const vscode = acquireVsCodeApi();
 
@@ -8,24 +8,26 @@ export const App: React.FC = () => {
     const [theme, setTheme] = useState('light');
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const handleMessage = (event: any) => {
             const message = event.data;
-            console.log('Message:', message);
 
             switch (message.type) {
                 case 'theme-info':
                     const theme = message.value;
                     setTheme(theme === 1 || theme === 4 ? 'light' : 'dark');
                     break;
+
                 case 'auth-success':
                     setIsAuthenticated(true);
                     setUser(message.user);
-                    console.log('User:', message.user);
                     break;
+
                 case 'auth-status':
                     setIsAuthenticated(message.value);
+                    setLoading(false);
                     setUser(message.user);
                     break;
             }
@@ -43,7 +45,21 @@ export const App: React.FC = () => {
 
     return (
         <div className={`relative ${theme === 'dark' ? 'dark' : 'light'}`}>
-            {isAuthenticated ? <ChatContainer vscode={vscode} theme={theme} user={user} /> : <Login />}
+            {
+                loading ?
+                    <div className='flex flex-col justify-center items-center h-[85vh] mt-5'>
+                        <BounceLoader
+                            color={theme === 'dark' ? '#fff' : '#000'}
+                            size={45}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                        />
+                    </div> :
+                    isAuthenticated ?
+                        <ChatContainer vscode={vscode} theme={theme} user={user} />
+                        :
+                        <Login />
+            }
         </div>
     );
 };

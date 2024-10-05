@@ -809,6 +809,9 @@ video {
 .bottom-3 {
   bottom: 0.75rem;
 }
+.bottom-\\[110\\%\\] {
+  bottom: 110%;
+}
 .left-0 {
   left: 0px;
 }
@@ -827,6 +830,10 @@ video {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 .my-2 {
   margin-top: 0.5rem;
@@ -851,9 +858,6 @@ video {
 }
 .ml-3 {
   margin-left: 0.75rem;
-}
-.mr-2 {
-  margin-right: 0.5rem;
 }
 .mt-1 {
   margin-top: 0.25rem;
@@ -980,6 +984,9 @@ video {
 }
 .justify-between {
   justify-content: space-between;
+}
+.gap-1 {
+  gap: 0.25rem;
 }
 .gap-10 {
   gap: 2.5rem;
@@ -1163,6 +1170,9 @@ video {
 .font-semibold {
   font-weight: 600;
 }
+.italic {
+  font-style: italic;
+}
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -1332,11 +1342,6 @@ video {
   color: rgb(212 212 216 / var(--tw-text-opacity));
 }
 
-.dark\\:text-zinc-400:is(.dark *) {
-  --tw-text-opacity: 1;
-  color: rgb(161 161 170 / var(--tw-text-opacity));
-}
-
 .dark\\:hover\\:bg-gray-600:hover:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
@@ -1345,7 +1350,7 @@ video {
 .dark\\:hover\\:bg-zinc-700:hover:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(63 63 70 / var(--tw-bg-opacity));
-}`, "",{"version":3,"sources":["webpack://./src/webview/styles.css"],"names":[],"mappings":"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","sourcesContent":["@tailwind base;\r\n@tailwind components;\r\n@tailwind utilities;\r\n\r\n.apply-my-2 > * {\r\n    margin-top: 0.5rem; /* Tailwind's my-2 (0.5rem = 8px) */\r\n    margin-bottom: 0.5rem;\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/webview/styles.css"],"names":[],"mappings":"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","sourcesContent":["@tailwind base;\r\n@tailwind components;\r\n@tailwind utilities;\r\n\r\n.apply-my-2 > * {\r\n    margin-top: 0.5rem; /* Tailwind's my-2 (0.5rem = 8px) */\r\n    margin-bottom: 0.5rem;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -155210,6 +155215,94 @@ module.exports.FaRegWindowRestore = function FaRegWindowRestore (props) {
 
 /***/ }),
 
+/***/ "./node_modules/react-spinners/BounceLoader.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/react-spinners/BounceLoader.js ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var unitConverter_1 = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/helpers/unitConverter.js");
+var animation_1 = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/helpers/animation.js");
+var bounce = (0, animation_1.createAnimation)("BounceLoader", "0% {transform: scale(0)} 50% {transform: scale(1.0)} 100% {transform: scale(0)}", "bounce");
+function BounceLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 60 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var style = function (i) {
+        var animationTiming = i === 1 ? "".concat(1 / speedMultiplier, "s") : "0s";
+        return {
+            position: "absolute",
+            height: (0, unitConverter_1.cssValue)(size),
+            width: (0, unitConverter_1.cssValue)(size),
+            backgroundColor: color,
+            borderRadius: "100%",
+            opacity: 0.6,
+            top: 0,
+            left: 0,
+            animationFillMode: "both",
+            animation: "".concat(bounce, " ").concat(2.1 / speedMultiplier, "s ").concat(animationTiming, " infinite ease-in-out"),
+        };
+    };
+    var wrapper = __assign({ display: "inherit", position: "relative", width: (0, unitConverter_1.cssValue)(size), height: (0, unitConverter_1.cssValue)(size) }, cssOverride);
+    if (!loading) {
+        return null;
+    }
+    return (React.createElement("span", __assign({ style: wrapper }, additionalprops),
+        React.createElement("span", { style: style(1) }),
+        React.createElement("span", { style: style(2) })));
+}
+exports["default"] = BounceLoader;
+
+
+/***/ }),
+
 /***/ "./node_modules/react-spinners/MoonLoader.js":
 /*!***************************************************!*\
   !*** ./node_modules/react-spinners/MoonLoader.js ***!
@@ -201052,15 +201145,16 @@ exports.App = void 0;
 const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 const react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 const ChatContainer_1 = __importDefault(__webpack_require__(/*! ./ChatContainer */ "./src/webview/components/ChatContainer.tsx"));
+const BounceLoader_1 = __importDefault(__webpack_require__(/*! react-spinners/BounceLoader */ "./node_modules/react-spinners/BounceLoader.js"));
 const vscode = acquireVsCodeApi();
 const App = () => {
     const [theme, setTheme] = (0, react_1.useState)('light');
     const [isAuthenticated, setIsAuthenticated] = (0, react_1.useState)(false);
     const [user, setUser] = (0, react_1.useState)(null);
+    const [loading, setLoading] = (0, react_1.useState)(true);
     (0, react_1.useEffect)(() => {
         const handleMessage = (event) => {
             const message = event.data;
-            console.log('Message:', message);
             switch (message.type) {
                 case 'theme-info':
                     const theme = message.value;
@@ -201069,10 +201163,10 @@ const App = () => {
                 case 'auth-success':
                     setIsAuthenticated(true);
                     setUser(message.user);
-                    console.log('User:', message.user);
                     break;
                 case 'auth-status':
                     setIsAuthenticated(message.value);
+                    setLoading(false);
                     setUser(message.user);
                     break;
             }
@@ -201084,7 +201178,12 @@ const App = () => {
             window.removeEventListener('message', handleMessage);
         };
     }, []);
-    return ((0, jsx_runtime_1.jsx)("div", { className: `relative ${theme === 'dark' ? 'dark' : 'light'}`, children: isAuthenticated ? (0, jsx_runtime_1.jsx)(ChatContainer_1.default, { vscode: vscode, theme: theme, user: user }) : (0, jsx_runtime_1.jsx)(Login, {}) }));
+    return ((0, jsx_runtime_1.jsx)("div", { className: `relative ${theme === 'dark' ? 'dark' : 'light'}`, children: loading ?
+            (0, jsx_runtime_1.jsx)("div", { className: 'flex flex-col justify-center items-center h-[85vh] mt-5', children: (0, jsx_runtime_1.jsx)(BounceLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', size: 45, "aria-label": "Loading Spinner", "data-testid": "loader" }) }) :
+            isAuthenticated ?
+                (0, jsx_runtime_1.jsx)(ChatContainer_1.default, { vscode: vscode, theme: theme, user: user })
+                :
+                    (0, jsx_runtime_1.jsx)(Login, {}) }));
 };
 exports.App = App;
 function Login() {
@@ -201205,10 +201304,17 @@ function Chat(props) {
     const [inputValue, setInputValue] = (0, react_1.useState)('');
     const [chatDropdown, setChatDropdown] = (0, react_1.useState)(false);
     const [modelDropdown, setModelDropdown] = (0, react_1.useState)(false);
-    const models = ['deepseek-coder-v2:16b', 'codestral:22b', 'gemma2:9b', "mistral:latest"];
+    const modelsMap = {
+        "ollama": ['deepseek-coder-v2:16b', 'codestral:22b', 'gemma2:9b', "mistral:latest"],
+        "groq": ["llama3-groq-70b-8192-tool-use-preview", "llama-3.1-70b-versatile", "llama-3.2-11b-vision-preview"]
+    };
     const [selectedModel, setSelectedModel] = (0, react_1.useState)('mistral:latest');
+    const [openKey, setOpenKey] = (0, react_1.useState)(null); // State for the open accordion
     const vscode = props.vscode;
     const disabled = props.disabled;
+    const handleToggle = (key) => {
+        setOpenKey(openKey === key ? null : key); // Toggle open/close for the selected key
+    };
     const handleSendMessage = () => {
         if (inputValue === '')
             return;
@@ -201226,7 +201332,6 @@ function Chat(props) {
             value: inputValue,
         });
         setInputValue('');
-        // set the height of the input back to 1 row
         const input = document.getElementById('chat-input');
         input.style.height = `30px`;
     };
@@ -201245,7 +201350,7 @@ function Chat(props) {
                                     } }) : (0, jsx_runtime_1.jsx)(lucide_react_1.ChevronUp, { size: 14, className: "text-black dark:text-zinc-300", onClick: () => {
                                         setChatDropdown(false);
                                         setModelDropdown(!modelDropdown);
-                                    } }) })] }), (0, jsx_runtime_1.jsxs)("p", { className: 'text-[0.7rem] mr-2 text-black dark:text-zinc-400', children: ["In Use:", (0, jsx_runtime_1.jsx)("span", { className: 'text-[0.8rem] ml-1 text-black dark:text-white', children: selectedModel })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: 'flex items-start', children: [(0, jsx_runtime_1.jsx)("textarea", { id: 'chat-input', value: inputValue, onChange: (e) => {
+                                    } }) })] }), (0, jsx_runtime_1.jsxs)("p", { className: 'text-[0.7rem] text-gray-500 dark:text-gray-400 text-right', children: ["In Use ", (0, jsx_runtime_1.jsx)("span", { className: "font-semibold text-[0.8rem] text-gray-700 dark:text-gray-300", children: selectedModel })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: 'flex items-start', children: [(0, jsx_runtime_1.jsx)("textarea", { id: 'chat-input', value: inputValue, onChange: (e) => {
                             setInputValue(e.target.value);
                             e.target.style.height = 'auto';
                             e.target.style.height = `${e.target.scrollHeight}px`;
@@ -201254,10 +201359,10 @@ function Chat(props) {
                                 e.preventDefault();
                                 handleSendMessage();
                             }
-                        }, rows: 1, style: { height: 'auto', maxHeight: '200px', scrollbarWidth: "thin", scrollbarColor: "white" } }), (0, jsx_runtime_1.jsx)("button", { className: "p-1", onClick: handleVoiceInput, children: (0, jsx_runtime_1.jsx)(fa_1.FaMicrophone, { size: 18, className: "text-black dark:text-white" }) }), (0, jsx_runtime_1.jsx)("button", { className: "p-1", onClick: handleSendMessage, children: (0, jsx_runtime_1.jsx)(lucide_react_1.Send, { size: 18, className: "text-black dark:text-white" }) })] }), (0, jsx_runtime_1.jsxs)("div", { className: `absolute left-0 bottom-20 w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${chatDropdown ? 'block' : 'hidden'}`, children: [(0, jsx_runtime_1.jsxs)("div", { className: 'flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700', children: [(0, jsx_runtime_1.jsx)(lucide_react_1.Upload, { size: 18, className: 'text-black dark:text-white' }), (0, jsx_runtime_1.jsx)("p", { className: 'text-xs', children: "Upload file" })] }), (0, jsx_runtime_1.jsxs)("div", { className: 'flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700', children: [(0, jsx_runtime_1.jsx)(lucide_react_1.Image, { size: 18, className: 'text-black dark:text-white' }), (0, jsx_runtime_1.jsx)("p", { className: 'text-xs', children: "Attach image" })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: `absolute w-[300px] left-0 bottom-20 w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${modelDropdown ? 'block' : 'hidden'}`, children: [(0, jsx_runtime_1.jsx)("h4", { className: 'text-xs p-2', children: "Choose a model" }), models.map((model, index) => ((0, jsx_runtime_1.jsxs)("div", { className: `flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700 ${selectedModel === model ? 'bg-gray-100 dark:bg-zinc-700' : ''}`, onClick: () => {
-                            setSelectedModel(model);
-                            setModelDropdown(false);
-                        }, children: [(0, jsx_runtime_1.jsx)(lucide_react_1.BrainCircuit, { size: 18, className: 'text-black dark:text-white' }), (0, jsx_runtime_1.jsx)("p", { className: 'text-xs', children: model })] }, index)))] })] }));
+                        }, rows: 1, style: { height: 'auto', maxHeight: '200px', scrollbarWidth: "thin", scrollbarColor: "white" } }), (0, jsx_runtime_1.jsx)("button", { className: "p-1", onClick: handleVoiceInput, children: (0, jsx_runtime_1.jsx)(fa_1.FaMicrophone, { size: 18, className: "text-black dark:text-white" }) }), (0, jsx_runtime_1.jsx)("button", { className: "p-1", onClick: handleSendMessage, children: (0, jsx_runtime_1.jsx)(lucide_react_1.Send, { size: 18, className: "text-black dark:text-white" }) })] }), (0, jsx_runtime_1.jsxs)("div", { className: `absolute left-0 bottom-20 w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${chatDropdown ? 'block' : 'hidden'}`, children: [(0, jsx_runtime_1.jsxs)("div", { className: 'flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700', children: [(0, jsx_runtime_1.jsx)(lucide_react_1.Upload, { size: 18, className: 'text-black dark:text-white' }), (0, jsx_runtime_1.jsx)("p", { className: 'text-xs', children: "Upload file" })] }), (0, jsx_runtime_1.jsxs)("div", { className: 'flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700', children: [(0, jsx_runtime_1.jsx)(lucide_react_1.Image, { size: 18, className: 'text-black dark:text-white' }), (0, jsx_runtime_1.jsx)("p", { className: 'text-xs', children: "Attach image" })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: `absolute w-[300px] left-0 bottom-[110%] w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${modelDropdown ? 'block' : 'hidden'}`, children: [(0, jsx_runtime_1.jsxs)("h4", { className: 'text-xs p-2 italic flex gap-1 items-center', children: [(0, jsx_runtime_1.jsx)(lucide_react_1.Layers, { size: 18, className: 'text-black dark:text-white' }), "Choose a model"] }), modelDropdown && ((0, jsx_runtime_1.jsx)("div", { className: "rounded", children: Object.keys(modelsMap).map((key) => ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsxs)("div", { className: `flex justify-between p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700 ${openKey === key ? 'bg-gray-100 dark:bg-zinc-700' : ''}`, onClick: () => handleToggle(key), children: [(0, jsx_runtime_1.jsx)("p", { className: 'text-sm', children: key }), (0, jsx_runtime_1.jsx)("span", { children: openKey === key ? '-' : '+' })] }), openKey === key && ((0, jsx_runtime_1.jsx)("div", { className: "flex flex-col", children: modelsMap[key].map((model, index) => ((0, jsx_runtime_1.jsxs)("div", { className: `flex gap-3 p-2 my-1 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700 ${selectedModel === model ? 'bg-gray-100 dark:bg-zinc-700' : ''}`, onClick: () => {
+                                            setSelectedModel(model);
+                                            setModelDropdown(false);
+                                        }, children: [(0, jsx_runtime_1.jsx)(lucide_react_1.BrainCircuit, { size: 18, className: 'text-black dark:text-white' }), (0, jsx_runtime_1.jsx)("p", { className: 'text-xs', children: model })] }, index))) }))] }, key))) }))] })] }));
 }
 
 
@@ -201389,13 +201494,13 @@ const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modul
 const lucide_react_1 = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/lucide-react.js");
 function WelcomeScreen() {
     const features = [
-        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Search, { className: "w-5 h-5" }), text: "Search Websites" },
-        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Globe, { className: "w-5 h-5" }), text: "Search The Web" },
+        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Search, { className: "w-5 h-5" }), text: "Search The Web" },
+        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Globe, { className: "w-5 h-5" }), text: "Scrape Websites" },
         { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.FileText, { className: "w-5 h-5" }), text: "Search Research Papers" },
-        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Image, { className: "w-5 h-5" }), text: "Interpret Images" },
+        { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Image, { className: "w-5 h-5" }), text: "Analyse Images" },
         { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Layers, { className: "w-5 h-5" }), text: "Access to Multiple Models" }
     ];
-    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col items-center justify-center min-h-[400px] p-8 space-y-6", children: [(0, jsx_runtime_1.jsx)("div", { className: "w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-6 h-6 bg-white rounded-full" }) }) }), (0, jsx_runtime_1.jsxs)("div", { className: "text-center space-y-2", children: [(0, jsx_runtime_1.jsx)("h1", { className: "text-2xl font-bold text-gray-800 dark:text-gray-100", children: "Welcome to Analyz" }), (0, jsx_runtime_1.jsxs)("p", { className: "text-gray-600 dark:text-gray-300", children: ["Your AI-powered ", (0, jsx_runtime_1.jsx)("span", { className: "text-blue-600 dark:text-blue-400 font-bold", children: "coding" }), " assistant"] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "w-full max-w-md", children: [(0, jsx_runtime_1.jsx)("h2", { className: "text-sm font-medium text-gray-500 dark:text-gray-400 mb-4", children: "I can help you with:" }), (0, jsx_runtime_1.jsx)("div", { className: "grid grid-cols-1 gap-4", children: features.map((feature, index) => ((0, jsx_runtime_1.jsxs)("div", { className: "flex items-center space-x-3 p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors", children: [(0, jsx_runtime_1.jsx)("div", { className: "text-blue-500 dark:text-blue-400", children: feature.icon }), (0, jsx_runtime_1.jsx)("span", { className: "text-gray-700 dark:text-gray-300", children: feature.text })] }, index))) })] }), (0, jsx_runtime_1.jsx)("div", { className: "mt-8", children: (0, jsx_runtime_1.jsx)("p", { className: "text-sm text-gray-500 dark:text-gray-400", children: "Type your question or request to get started" }) })] }));
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col items-center justify-center min-h-[400px] p-8 space-y-6", children: [(0, jsx_runtime_1.jsx)("div", { className: "w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-6 h-6 bg-white rounded-full" }) }) }), (0, jsx_runtime_1.jsxs)("div", { className: "text-center space-y-2", children: [(0, jsx_runtime_1.jsx)("h1", { className: "text-2xl font-bold text-gray-800 dark:text-gray-100", children: "Welcome to Analyz" }), (0, jsx_runtime_1.jsxs)("p", { className: "text-gray-600 dark:text-gray-300", children: ["Your AI-powered ", (0, jsx_runtime_1.jsx)("span", { className: "text-blue-600 dark:text-blue-400 font-bold", children: "coding" }), " assistant"] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "w-full max-w-md", children: [(0, jsx_runtime_1.jsx)("h2", { className: "text-sm font-medium text-gray-500 dark:text-gray-400 mb-4", children: "I can help you with:" }), (0, jsx_runtime_1.jsx)("div", { className: "grid grid-cols-1 gap-4", children: features.map((feature, index) => ((0, jsx_runtime_1.jsxs)("div", { className: "flex items-center space-x-3 p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors", children: [(0, jsx_runtime_1.jsx)("div", { className: "text-blue-500 dark:text-blue-400", children: feature.icon }), (0, jsx_runtime_1.jsx)("span", { className: "text-gray-700 dark:text-gray-300", children: feature.text })] }, index))) })] }), (0, jsx_runtime_1.jsx)("div", { className: "mt-8", children: (0, jsx_runtime_1.jsx)("p", { className: "text-sm text-gray-500 dark:text-gray-400", children: "Type your question to get started!" }) })] }));
 }
 
 

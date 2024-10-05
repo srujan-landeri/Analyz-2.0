@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, Upload, Send, PlusIcon, ChevronUp, ChevronDown, BrainCircuit, Plus } from 'lucide-react';
+import { Image, Upload, Send, PlusIcon, ChevronUp, ChevronDown, BrainCircuit, Plus, Layers } from 'lucide-react';
 import { FaMicrophone } from "react-icons/fa";
 const { v4: uuidv4 } = require('uuid');
 
@@ -8,11 +8,24 @@ export default function Chat(props: any) {
     const [chatDropdown, setChatDropdown] = useState(false);
     const [modelDropdown, setModelDropdown] = useState(false);
 
-    const models = ['deepseek-coder-v2:16b', 'codestral:22b', 'gemma2:9b', "mistral:latest"];
+    interface modelsMap {
+        [key: string]: string[];
+    }
+
+    const modelsMap : modelsMap={
+        "ollama": ['deepseek-coder-v2:16b', 'codestral:22b', 'gemma2:9b', "mistral:latest"],
+        "groq": ["llama3-groq-70b-8192-tool-use-preview", "llama-3.1-70b-versatile", "llama-3.2-11b-vision-preview"]
+    }
+    
     const [selectedModel, setSelectedModel] = useState('mistral:latest');
+    const [openKey, setOpenKey] = useState(null); // State for the open accordion
 
     const vscode = props.vscode;
     const disabled = props.disabled;
+
+    const handleToggle = (key: any) => {
+        setOpenKey(openKey === key ? null : key); // Toggle open/close for the selected key
+    };
 
     const handleSendMessage = () => {
         if (inputValue === '') return
@@ -31,7 +44,6 @@ export default function Chat(props: any) {
         });
         setInputValue('');
         
-        // set the height of the input back to 1 row
         const input = document.getElementById('chat-input') as HTMLTextAreaElement;
         input.style.height = `30px`;
         
@@ -81,9 +93,8 @@ export default function Chat(props: any) {
                         />}
                     </button>
                 </div>
-                <p className='text-[0.7rem] mr-2 text-black dark:text-zinc-400'>
-                    In Use:
-                    <span className='text-[0.8rem] ml-1 text-black dark:text-white'>
+                <p className='text-[0.7rem] text-gray-500 dark:text-gray-400 text-right'>
+                    In Use <span className="font-semibold text-[0.8rem] text-gray-700 dark:text-gray-300">
                         {selectedModel}
                     </span>
                 </p>
@@ -136,23 +147,43 @@ export default function Chat(props: any) {
 
             { /* Model Dropdown */}
 
-            <div className={`absolute w-[300px] left-0 bottom-20 w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${modelDropdown ? 'block' : 'hidden'}`}>
-                <h4 className='text-xs p-2'>
+            <div className={`absolute w-[300px] left-0 bottom-[110%] w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${modelDropdown ? 'block' : 'hidden'}`}>
+                <h4 className='text-xs p-2 italic flex gap-1 items-center'>
+                    <Layers size={18} className='text-black dark:text-white' />
                     Choose a model
                 </h4>
 
-                {
-                    models.map((model, index) => (
-                        <div key={index} className={`flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700 ${selectedModel === model ? 'bg-gray-100 dark:bg-zinc-700' : ''}`}
-                            onClick={() => {
-                                setSelectedModel(model);
-                                setModelDropdown(false);
-                            }}>
-                            <BrainCircuit size={18} className='text-black dark:text-white' />
-                            <p className='text-xs'>{model}</p>
+                 {modelDropdown && (
+                <div className="rounded">
+                    {Object.keys(modelsMap).map((key) => (
+                        <div key={key}>
+                            <div
+                                className={`flex justify-between p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700 ${openKey === key ? 'bg-gray-100 dark:bg-zinc-700' : ''}`}
+                                onClick={() => handleToggle(key)}
+                            >
+                                <p className='text-sm'>{key}</p>
+                                {/* Add a toggle icon (optional) */}
+                                <span>{openKey === key ? '-' : '+'}</span>
+                            </div>
+                            
+                            {openKey === key && (
+                                <div className="flex flex-col">
+                                    {modelsMap[key].map((model:string, index:number) => (
+                                        <div key={index} className={`flex gap-3 p-2 my-1 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700 ${selectedModel === model ? 'bg-gray-100 dark:bg-zinc-700' : ''}`}
+                                            onClick={() => {
+                                                setSelectedModel(model);
+                                                setModelDropdown(false);
+                                            }}>
+                                            <BrainCircuit size={18} className='text-black dark:text-white' />
+                                            <p className='text-xs'>{model}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
-                    ))
-                }
+                    ))}
+                </div>
+            )}
             </div>
         </div>
     );

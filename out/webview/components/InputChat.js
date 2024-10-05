@@ -10,10 +10,17 @@ function Chat(props) {
     const [inputValue, setInputValue] = (0, react_1.useState)('');
     const [chatDropdown, setChatDropdown] = (0, react_1.useState)(false);
     const [modelDropdown, setModelDropdown] = (0, react_1.useState)(false);
-    const models = ['deepseek-coder-v2:16b', 'codestral:22b', 'gemma2:9b', "mistral:latest"];
+    const modelsMap = {
+        "ollama": ['deepseek-coder-v2:16b', 'codestral:22b', 'gemma2:9b', "mistral:latest"],
+        "groq": ["llama3-groq-70b-8192-tool-use-preview", "llama-3.1-70b-versatile", "llama-3.2-11b-vision-preview"]
+    };
     const [selectedModel, setSelectedModel] = (0, react_1.useState)('mistral:latest');
+    const [openKey, setOpenKey] = (0, react_1.useState)(null); // State for the open accordion
     const vscode = props.vscode;
     const disabled = props.disabled;
+    const handleToggle = (key) => {
+        setOpenKey(openKey === key ? null : key); // Toggle open/close for the selected key
+    };
     const handleSendMessage = () => {
         if (inputValue === '')
             return;
@@ -31,7 +38,6 @@ function Chat(props) {
             value: inputValue,
         });
         setInputValue('');
-        // set the height of the input back to 1 row
         const input = document.getElementById('chat-input');
         input.style.height = `30px`;
     };
@@ -50,7 +56,7 @@ function Chat(props) {
                                     } }) : (0, jsx_runtime_1.jsx)(lucide_react_1.ChevronUp, { size: 14, className: "text-black dark:text-zinc-300", onClick: () => {
                                         setChatDropdown(false);
                                         setModelDropdown(!modelDropdown);
-                                    } }) })] }), (0, jsx_runtime_1.jsxs)("p", { className: 'text-[0.7rem] mr-2 text-black dark:text-zinc-400', children: ["In Use:", (0, jsx_runtime_1.jsx)("span", { className: 'text-[0.8rem] ml-1 text-black dark:text-white', children: selectedModel })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: 'flex items-start', children: [(0, jsx_runtime_1.jsx)("textarea", { id: 'chat-input', value: inputValue, onChange: (e) => {
+                                    } }) })] }), (0, jsx_runtime_1.jsxs)("p", { className: 'text-[0.7rem] text-gray-500 dark:text-gray-400 text-right', children: ["In Use ", (0, jsx_runtime_1.jsx)("span", { className: "font-semibold text-[0.8rem] text-gray-700 dark:text-gray-300", children: selectedModel })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: 'flex items-start', children: [(0, jsx_runtime_1.jsx)("textarea", { id: 'chat-input', value: inputValue, onChange: (e) => {
                             setInputValue(e.target.value);
                             e.target.style.height = 'auto';
                             e.target.style.height = `${e.target.scrollHeight}px`;
@@ -59,9 +65,9 @@ function Chat(props) {
                                 e.preventDefault();
                                 handleSendMessage();
                             }
-                        }, rows: 1, style: { height: 'auto', maxHeight: '200px', scrollbarWidth: "thin", scrollbarColor: "white" } }), (0, jsx_runtime_1.jsx)("button", { className: "p-1", onClick: handleVoiceInput, children: (0, jsx_runtime_1.jsx)(fa_1.FaMicrophone, { size: 18, className: "text-black dark:text-white" }) }), (0, jsx_runtime_1.jsx)("button", { className: "p-1", onClick: handleSendMessage, children: (0, jsx_runtime_1.jsx)(lucide_react_1.Send, { size: 18, className: "text-black dark:text-white" }) })] }), (0, jsx_runtime_1.jsxs)("div", { className: `absolute left-0 bottom-20 w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${chatDropdown ? 'block' : 'hidden'}`, children: [(0, jsx_runtime_1.jsxs)("div", { className: 'flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700', children: [(0, jsx_runtime_1.jsx)(lucide_react_1.Upload, { size: 18, className: 'text-black dark:text-white' }), (0, jsx_runtime_1.jsx)("p", { className: 'text-xs', children: "Upload file" })] }), (0, jsx_runtime_1.jsxs)("div", { className: 'flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700', children: [(0, jsx_runtime_1.jsx)(lucide_react_1.Image, { size: 18, className: 'text-black dark:text-white' }), (0, jsx_runtime_1.jsx)("p", { className: 'text-xs', children: "Attach image" })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: `absolute w-[300px] left-0 bottom-20 w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${modelDropdown ? 'block' : 'hidden'}`, children: [(0, jsx_runtime_1.jsx)("h4", { className: 'text-xs p-2', children: "Choose a model" }), models.map((model, index) => ((0, jsx_runtime_1.jsxs)("div", { className: `flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700 ${selectedModel === model ? 'bg-gray-100 dark:bg-zinc-700' : ''}`, onClick: () => {
-                            setSelectedModel(model);
-                            setModelDropdown(false);
-                        }, children: [(0, jsx_runtime_1.jsx)(lucide_react_1.BrainCircuit, { size: 18, className: 'text-black dark:text-white' }), (0, jsx_runtime_1.jsx)("p", { className: 'text-xs', children: model })] }, index)))] })] }));
+                        }, rows: 1, style: { height: 'auto', maxHeight: '200px', scrollbarWidth: "thin", scrollbarColor: "white" } }), (0, jsx_runtime_1.jsx)("button", { className: "p-1", onClick: handleVoiceInput, children: (0, jsx_runtime_1.jsx)(fa_1.FaMicrophone, { size: 18, className: "text-black dark:text-white" }) }), (0, jsx_runtime_1.jsx)("button", { className: "p-1", onClick: handleSendMessage, children: (0, jsx_runtime_1.jsx)(lucide_react_1.Send, { size: 18, className: "text-black dark:text-white" }) })] }), (0, jsx_runtime_1.jsxs)("div", { className: `absolute left-0 bottom-20 w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${chatDropdown ? 'block' : 'hidden'}`, children: [(0, jsx_runtime_1.jsxs)("div", { className: 'flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700', children: [(0, jsx_runtime_1.jsx)(lucide_react_1.Upload, { size: 18, className: 'text-black dark:text-white' }), (0, jsx_runtime_1.jsx)("p", { className: 'text-xs', children: "Upload file" })] }), (0, jsx_runtime_1.jsxs)("div", { className: 'flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700', children: [(0, jsx_runtime_1.jsx)(lucide_react_1.Image, { size: 18, className: 'text-black dark:text-white' }), (0, jsx_runtime_1.jsx)("p", { className: 'text-xs', children: "Attach image" })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: `absolute w-[300px] left-0 bottom-[110%] w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${modelDropdown ? 'block' : 'hidden'}`, children: [(0, jsx_runtime_1.jsxs)("h4", { className: 'text-xs p-2 italic flex gap-1 items-center', children: [(0, jsx_runtime_1.jsx)(lucide_react_1.Layers, { size: 18, className: 'text-black dark:text-white' }), "Choose a model"] }), modelDropdown && ((0, jsx_runtime_1.jsx)("div", { className: "rounded", children: Object.keys(modelsMap).map((key) => ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsxs)("div", { className: `flex justify-between p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700 ${openKey === key ? 'bg-gray-100 dark:bg-zinc-700' : ''}`, onClick: () => handleToggle(key), children: [(0, jsx_runtime_1.jsx)("p", { className: 'text-sm', children: key }), (0, jsx_runtime_1.jsx)("span", { children: openKey === key ? '-' : '+' })] }), openKey === key && ((0, jsx_runtime_1.jsx)("div", { className: "flex flex-col", children: modelsMap[key].map((model, index) => ((0, jsx_runtime_1.jsxs)("div", { className: `flex gap-3 p-2 my-1 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700 ${selectedModel === model ? 'bg-gray-100 dark:bg-zinc-700' : ''}`, onClick: () => {
+                                            setSelectedModel(model);
+                                            setModelDropdown(false);
+                                        }, children: [(0, jsx_runtime_1.jsx)(lucide_react_1.BrainCircuit, { size: 18, className: 'text-black dark:text-white' }), (0, jsx_runtime_1.jsx)("p", { className: 'text-xs', children: model })] }, index))) }))] }, key))) }))] })] }));
 }
 //# sourceMappingURL=InputChat.js.map
