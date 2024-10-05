@@ -33,7 +33,7 @@ export default function Message(props: any) {
     return (
         <div className="flex flex-col w-full animate-fade-in">
 
-            <div className="flex items-center mb-2">
+            <div className="flex items-center">
                 <div className="flex items-center justify-center">
                     {icon === 'chatbot' ? (
                         <Logo />

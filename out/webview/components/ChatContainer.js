@@ -27,8 +27,7 @@ function ChatContainer(props) {
         ]);
         setLoading(true);
         try {
-            // Replace the URL with your actual FastAPI endpoint
-            const response = await fetch('http://localhost:8000/api/v1/chat/completions/ollama', {
+            const response = await fetch('http://localhost:8000/api/v1/chat/completions/' + model.source, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
