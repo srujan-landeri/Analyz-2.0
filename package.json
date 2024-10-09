@@ -31,55 +31,7 @@
         }
       ]
     },
-    "menus": {
-      "view/title": [
-        {
-          "command": "analyz.newChat",
-          "when": "view == analyz",
-          "group": "navigation"
-        },
-        {
-          "command": "analyz.history",
-          "when": "view == analyz",
-          "group": "navigation"
-        },
-        {
-          "command": "analyz.logout",
-          "when": "view == analyz",
-          "group": "navigation"
-        }
-      ]
-    },
-    "commands": [
-      {
-        "command": "analyz.helloWorld",
-        "title": "Hello World"
-      },
-      {
-        "command": "analyz.newChat",
-        "title": "New Chat",
-        "icon": {
-          "light": "resources/light/new-chat.png",
-          "dark": "resources/dark/new-chat.png"
-        }
-      },
-      {
-        "command": "analyz.history",
-        "title": "History",
-        "icon": {
-          "light": "resources/light/history.png",
-          "dark": "resources/dark/history.png"
-        }
-      },
-      {
-        "command": "analyz.logout",
-        "title": "Logout",
-        "icon": {
-          "light": "resources/light/logout.png",
-          "dark": "resources/dark/logout.png"
-        }
-      }
-    ]
+    "commands": []
   },
   "scripts": {
     "webpack": "webpack --mode development",

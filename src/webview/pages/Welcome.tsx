@@ -11,8 +11,7 @@ export default function WelcomeScreen() {
     ];
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-[400px] p-8 space-y-6">
-
+        <div className="flex flex-col items-center justify-center min-h-[400px] space-y-6">
 
             <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
                 <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">

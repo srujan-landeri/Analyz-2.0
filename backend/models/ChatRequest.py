@@ -1,5 +1,9 @@
 from pydantic import BaseModel
 
 class ChatRequest(BaseModel):
-    query: str
-    model_name: str
+    message: str
+    inference_engine: str
+    model: str
+    access_token: str
+    run_id: str = None
+    input_references: dict = None

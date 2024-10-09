@@ -27,8 +27,10 @@ export default function Chat(props: any) {
         groq: [{ icon: 'text', model: 'llama3-groq-70b-8192-tool-use-preview' }, { icon: 'text', model: 'llama-3.1-70b-versatile' }, { icon: 'image', model: 'llama-3.2-11b-vision-preview' }],
     };
 
-    const [selectedSource, setSelectedSource] = useState('ollama');
-    const [selectedModel, setSelectedModel] = useState('mistral:latest');
+    
+
+    const [selectedSource, setSelectedSource] = useState(props.llm.name);
+    const [selectedModel, setSelectedModel] = useState(props.llm.model);
     const [openKey, setOpenKey] = useState(null); // State for the open accordion
     const [pastedImage, setPastedImage] = useState<string | null>(null); // State for pasted image
 
@@ -88,6 +90,7 @@ export default function Chat(props: any) {
         isOpen: boolean;
         onClose: () => void;
     }
+
     // Modal Component
     const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
         if (!isOpen) return null;
@@ -160,7 +163,7 @@ export default function Chat(props: any) {
         <div className="flex flex-col fixed left-[2.5%] right-[2.5%] bottom-3 w-[95%] rounded-lg p-2 mx-auto bg-white shadow-lg text-black dark:text-white dark:bg-zinc-800">
 
             {/* Chat options */}
-            <div className='flex items-center justify-between'>
+            <div className='flex items-center justify-between mb-2'>
                 <div className='flex gap-2'>
 
                 <div className='flex items-center space-x-2'>
@@ -239,7 +242,7 @@ export default function Chat(props: any) {
                     <p className='text-xs text-gray-500 dark:text-gray-400'>
                         In Use{' '}
                         <span className="font-semibold text-gray-700 dark:text-gray-300">
-                            {selectedModel}
+                            {selectedSource} : {selectedModel}
                         </span>
                     </p>
                 </div>
@@ -276,7 +279,6 @@ export default function Chat(props: any) {
             </div>
 
             {/* Chat Dropdown */}
-
             <div className={`absolute left-0 bottom-20 w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${chatDropdown ? 'block' : 'hidden'}`}>
                 <div
                     className='flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700'

@@ -1,14 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import ChatContainer from '../components/ChatContainer';
 import BounceLoader from "react-spinners/BounceLoader";
+import History from '../components/History';
 
 const vscode = acquireVsCodeApi();
+const { v4: uuidv4 } = require('uuid');
 
 export const App: React.FC = () => {
     const [theme, setTheme] = useState('light');
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [page, setPage] = useState('loading');
+
+    interface LLMType {
+        name: string;
+        model: string;
+    }
+    
+    interface MessageType {
+        id: string;
+        icon: string;
+        message: string;
+    }
+    interface ChatHistory {
+        run_id: string | null;
+        run_name: string;
+        llm: LLMType;
+        chat_history: MessageType[];
+    }
+
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [tokenData, setTokenData] = useState(null);
+    const [chat, setChat] = useState<ChatHistory>({
+        run_id: null,
+        run_name: '',
+        llm: {
+            name: 'ollama',
+            model: 'mistral:latest'
+        },
+        chat_history: []
+    });
+
+   
+    console.log("Chat set to ")
+    console.log(chat)
 
     useEffect(() => {
         const handleMessage = (event: any) => {
@@ -21,14 +54,30 @@ export const App: React.FC = () => {
                     break;
 
                 case 'auth-success':
-                    setIsAuthenticated(true);
+                    setChat({
+                        run_id: null,
+                        run_name: '',
+                        llm: {
+                            name: 'ollama',
+                            model: 'mistral:latest'
+                        },
+                        chat_history: []
+                    })
+                    setPage('chat');
                     setUser(message.user);
+                    setTokenData(message.token);
+                    console.log(message.token)
                     break;
 
                 case 'auth-status':
-                    setIsAuthenticated(message.value);
-                    setLoading(false);
-                    setUser(message.user);
+                    if (message.value) {
+                        setPage('chat');
+                        setUser(message.user);
+                        setTokenData(message.token);
+                        console.log(message.token)
+                    } else {
+                        setPage('login');
+                    }
                     break;
             }
         };
@@ -36,6 +85,8 @@ export const App: React.FC = () => {
         window.addEventListener('message', handleMessage);
 
         // Check auth status on mount
+
+        //! Uncomment this line
         vscode.postMessage({ type: 'check-auth-status' });
 
         return () => {
@@ -46,19 +97,27 @@ export const App: React.FC = () => {
     return (
         <div className={`relative ${theme === 'dark' ? 'dark' : 'light'}`}>
             {
-                loading ?
-                    <div className='flex flex-col justify-center items-center h-[85vh] mt-5'>
-                        <BounceLoader
-                            color={theme === 'dark' ? '#fff' : '#000'}
-                            size={45}
-                            aria-label="Loading Spinner"
-                            data-testid="loader"
-                        />
-                    </div> :
-                    isAuthenticated ?
-                        <ChatContainer vscode={vscode} theme={theme} user={user} />
-                        :
-                        <Login />
+                page == "loading" &&
+                <div className='flex flex-col justify-center items-center h-[85vh] mt-5'>
+                    <BounceLoader
+                        color={theme === 'dark' ? '#fff' : '#000'}
+                        size={45}
+                        aria-label="Loading Spinner"
+                        data-testid="loader"
+                    />
+                </div>
+            }
+
+            {
+                page == "chat" && <ChatContainer setChat={setChat} token = {tokenData} setPage={setPage} chat={chat} vscode={vscode} theme={theme} user={user} />
+            }
+
+            {
+                page == "login" && <Login />
+            }
+
+            {
+                page == "history" && <History theme={theme} setPage={setPage} setChat={setChat} token = {tokenData}/>
             }
         </div>
     );

@@ -14,9 +14,6 @@ const { oneLight } = require('react-syntax-highlighter/dist/cjs/styles/prism');
 const { Clipboard } = require('lucide-react');
 function Markdown(props) {
     const { theme, vscode, message } = props;
-    console.log("Markdown theme: ", theme);
-    console.log("Markdown vscode: ", vscode);
-    console.log("Markdown message: ", message);
     const customStyle = theme === 'dark' ? {
         ...vscDarkPlus,
         'pre[class*="language-"]': {

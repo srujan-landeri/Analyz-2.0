@@ -17,4 +17,4 @@ app.add_middleware(
 def home():
     return {"message": "Analyz End Point"}
 
-app.include_router(api.endpoints.router, prefix="/api/v1")
+app.include_router(api.endpoints.router)

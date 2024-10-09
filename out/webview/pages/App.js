@@ -8,12 +8,25 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = require("react");
 const ChatContainer_1 = __importDefault(require("../components/ChatContainer"));
 const BounceLoader_1 = __importDefault(require("react-spinners/BounceLoader"));
+const History_1 = __importDefault(require("../components/History"));
 const vscode = acquireVsCodeApi();
+const { v4: uuidv4 } = require('uuid');
 const App = () => {
     const [theme, setTheme] = (0, react_1.useState)('light');
-    const [isAuthenticated, setIsAuthenticated] = (0, react_1.useState)(false);
+    const [page, setPage] = (0, react_1.useState)('loading');
     const [user, setUser] = (0, react_1.useState)(null);
-    const [loading, setLoading] = (0, react_1.useState)(true);
+    const [tokenData, setTokenData] = (0, react_1.useState)(null);
+    const [chat, setChat] = (0, react_1.useState)({
+        run_id: null,
+        run_name: '',
+        llm: {
+            name: 'ollama',
+            model: 'mistral:latest'
+        },
+        chat_history: []
+    });
+    console.log("Chat set to ");
+    console.log(chat);
     (0, react_1.useEffect)(() => {
         const handleMessage = (event) => {
             const message = event.data;
@@ -23,29 +36,43 @@ const App = () => {
                     setTheme(theme === 1 || theme === 4 ? 'light' : 'dark');
                     break;
                 case 'auth-success':
-                    setIsAuthenticated(true);
+                    setChat({
+                        run_id: null,
+                        run_name: '',
+                        llm: {
+                            name: 'ollama',
+                            model: 'mistral:latest'
+                        },
+                        chat_history: []
+                    });
+                    setPage('chat');
                     setUser(message.user);
+                    setTokenData(message.token);
+                    console.log(message.token);
                     break;
                 case 'auth-status':
-                    setIsAuthenticated(message.value);
-                    setLoading(false);
-                    setUser(message.user);
+                    if (message.value) {
+                        setPage('chat');
+                        setUser(message.user);
+                        setTokenData(message.token);
+                        console.log(message.token);
+                    }
+                    else {
+                        setPage('login');
+                    }
                     break;
             }
         };
         window.addEventListener('message', handleMessage);
         // Check auth status on mount
+        //! Uncomment this line
         vscode.postMessage({ type: 'check-auth-status' });
         return () => {
             window.removeEventListener('message', handleMessage);
         };
     }, []);
-    return ((0, jsx_runtime_1.jsx)("div", { className: `relative ${theme === 'dark' ? 'dark' : 'light'}`, children: loading ?
-            (0, jsx_runtime_1.jsx)("div", { className: 'flex flex-col justify-center items-center h-[85vh] mt-5', children: (0, jsx_runtime_1.jsx)(BounceLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', size: 45, "aria-label": "Loading Spinner", "data-testid": "loader" }) }) :
-            isAuthenticated ?
-                (0, jsx_runtime_1.jsx)(ChatContainer_1.default, { vscode: vscode, theme: theme, user: user })
-                :
-                    (0, jsx_runtime_1.jsx)(Login, {}) }));
+    return ((0, jsx_runtime_1.jsxs)("div", { className: `relative ${theme === 'dark' ? 'dark' : 'light'}`, children: [page == "loading" &&
+                (0, jsx_runtime_1.jsx)("div", { className: 'flex flex-col justify-center items-center h-[85vh] mt-5', children: (0, jsx_runtime_1.jsx)(BounceLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', size: 45, "aria-label": "Loading Spinner", "data-testid": "loader" }) }), page == "chat" && (0, jsx_runtime_1.jsx)(ChatContainer_1.default, { setChat: setChat, token: tokenData, setPage: setPage, chat: chat, vscode: vscode, theme: theme, user: user }), page == "login" && (0, jsx_runtime_1.jsx)(Login, {}), page == "history" && (0, jsx_runtime_1.jsx)(History_1.default, { theme: theme, setPage: setPage, setChat: setChat, token: tokenData })] }));
 };
 exports.App = App;
 function Login() {

@@ -10,10 +10,6 @@ const { Clipboard } = require('lucide-react');
 export default function Markdown(props: any) {
     const {theme, vscode, message} = props;
     
-    console.log("Markdown theme: ", theme);
-    console.log("Markdown vscode: ", vscode);
-    console.log("Markdown message: ", message);
-    
     const customStyle = theme === 'dark' ? {
         ...vscDarkPlus,
         'pre[class*="language-"]': {

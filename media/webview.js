@@ -829,8 +829,14 @@ video {
 .left-0 {
   left: 0px;
 }
+.left-3 {
+  left: 0.75rem;
+}
 .left-\\[2\\.5\\%\\] {
   left: 2.5%;
+}
+.right-0 {
+  right: 0px;
 }
 .right-2 {
   right: 0.5rem;
@@ -838,11 +844,20 @@ video {
 .right-\\[2\\.5\\%\\] {
   right: 2.5%;
 }
+.top-1\\/2 {
+  top: 50%;
+}
 .top-2 {
   top: 0.5rem;
 }
+.top-\\[-35px\\] {
+  top: -35px;
+}
 .z-50 {
   z-index: 50;
+}
+.z-\\[500\\] {
+  z-index: 500;
 }
 .mx-auto {
   margin-left: auto;
@@ -864,6 +879,9 @@ video {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -879,11 +897,17 @@ video {
 .mr-1 {
   margin-right: 0.25rem;
 }
+.mr-2 {
+  margin-right: 0.5rem;
+}
 .mt-1 {
   margin-top: 0.25rem;
 }
-.mt-2 {
-  margin-top: 0.5rem;
+.mt-10 {
+  margin-top: 2.5rem;
+}
+.mt-3 {
+  margin-top: 0.75rem;
 }
 .mt-5 {
   margin-top: 1.25rem;
@@ -918,6 +942,9 @@ video {
 .h-4 {
   height: 1rem;
 }
+.h-48 {
+  height: 12rem;
+}
 .h-5 {
   height: 1.25rem;
 }
@@ -933,6 +960,9 @@ video {
 .h-full {
   height: 100%;
 }
+.h-screen {
+  height: 100vh;
+}
 .min-h-\\[400px\\] {
   min-height: 400px;
 }
@@ -947,6 +977,9 @@ video {
 }
 .w-40 {
   width: 10rem;
+}
+.w-48 {
+  width: 12rem;
 }
 .w-5 {
   width: 1.25rem;
@@ -975,6 +1008,9 @@ video {
 .flex-1 {
   flex: 1 1 0%;
 }
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
 .flex-grow {
   flex-grow: 1;
 }
@@ -983,6 +1019,13 @@ video {
 }
 .border-collapse {
   border-collapse: collapse;
+}
+.-translate-y-1\\/2 {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .cursor-pointer {
   cursor: pointer;
@@ -1088,6 +1131,10 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
+.border-zinc-800 {
+  --tw-border-opacity: 1;
+  border-color: rgb(39 39 42 / var(--tw-border-opacity));
+}
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -1131,8 +1178,9 @@ video {
 .p-4 {
   padding: 1rem;
 }
-.p-8 {
-  padding: 2rem;
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 .px-1\\.5 {
   padding-left: 0.375rem;
@@ -1158,6 +1206,15 @@ video {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.pl-0 {
+  padding-left: 0px;
+}
+.pl-10 {
+  padding-left: 2.5rem;
+}
+.pl-3 {
+  padding-left: 0.75rem;
+}
 .pl-6 {
   padding-left: 1.5rem;
 }
@@ -1166,9 +1223,6 @@ video {
 }
 .text-center {
   text-align: center;
-}
-.text-right {
-  text-align: right;
 }
 .font-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -1181,11 +1235,8 @@ video {
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
-.text-\\[0\\.7rem\\] {
-  font-size: 0.7rem;
-}
-.text-\\[0\\.8rem\\] {
-  font-size: 0.8rem;
+.text-\\[13px\\] {
+  font-size: 13px;
 }
 .text-base {
   font-size: 1rem;
@@ -1230,6 +1281,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
 }
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -1254,6 +1309,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.text-zinc-800 {
+  --tw-text-opacity: 1;
+  color: rgb(39 39 42 / var(--tw-text-opacity));
+}
 .underline {
   text-decoration-line: underline;
 }
@@ -1261,6 +1320,18 @@ video {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.ring-1 {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+.ring-black {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(0 0 0 / var(--tw-ring-opacity));
+}
+.ring-opacity-5 {
+  --tw-ring-opacity: 0.05;
 }
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -1322,6 +1393,10 @@ video {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
+.hover\\:bg-white\\/5:hover {
+  background-color: rgb(255 255 255 / 0.05);
+}
+
 .hover\\:text-blue-600:hover {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
@@ -1377,6 +1452,11 @@ video {
   color: rgb(243 244 246 / var(--tw-text-opacity));
 }
 
+.dark\\:text-gray-200:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+
 .dark\\:text-gray-300:is(.dark *) {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
@@ -1412,6 +1492,11 @@ video {
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
 }
 
+.dark\\:hover\\:bg-gray-700:hover:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
 .dark\\:hover\\:bg-zinc-600:hover:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(82 82 91 / var(--tw-bg-opacity));
@@ -1425,7 +1510,7 @@ video {
 .dark\\:hover\\:bg-zinc-800:hover:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity));
-}`, "",{"version":3,"sources":["webpack://./src/webview/styles.css"],"names":[],"mappings":"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","sourcesContent":["@tailwind base;\r\n@tailwind components;\r\n@tailwind utilities;\r\n\r\n.apply-my-2 > * {\r\n    margin-top: 0.5rem; /* Tailwind's my-2 (0.5rem = 8px) */\r\n    margin-bottom: 0.5rem;\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/webview/styles.css"],"names":[],"mappings":"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;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA,iBAAmB;EAAnB;AAAmB;AAAnB;EAAA,mBAAmB;EAAnB;AAAmB;AAAnB;EAAA,kBAAmB;EAAnB;AAAmB;AAAnB;EAAA,gBAAmB;EAAnB;AAAmB;AAAnB;EAAA,mBAAmB;EAAnB;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA,sBAAmB;EAAnB;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA,uBAAmB;EAAnB,sDAAmB;EAAnB;AAAmB;AAAnB;EAAA,uBAAmB;EAAnB,uDAAmB;EAAnB;AAAmB;AAAnB;EAAA,uBAAmB;EAAnB,8DAAmB;EAAnB;AAAmB;AAAnB;EAAA,uBAAmB;EAAnB,+DAAmB;EAAnB;AAAmB;AAAnB;EAAA,uBAAmB;EAAnB,4DAAmB;EAAnB;AAAmB;AAAnB;EAAA,uBAAmB;EAAnB,8DAAmB;EAAnB;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA,sBAAmB;EAAnB;AAAmB;AAAnB;EAAA,sBAAmB;EAAnB;AAAmB;AAAnB;EAAA,sBAAmB;EAAnB;AAAmB;AAAnB;EAAA,kBAAmB;EAAnB;AAAmB;AAAnB;EAAA,kBAAmB;EAAnB;AAAmB;AAAnB;EAAA,kBAAmB;EAAnB;AAAmB;AAAnB;EAAA,kBAAmB;EAAnB;AAAmB;AAAnB;EAAA,kBAAmB;EAAnB;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA,kBAAmB;EAAnB;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA,oBAAmB;KAAnB;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA,qBAAmB;EAAnB;AAAmB;AAAnB;EAAA,sBAAmB;EAAnB;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA,kBAAmB;EAAnB;AAAmB;AAAnB;EAAA,qBAAmB;EAAnB;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA,mBAAmB;EAAnB;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA,iBAAmB;EAAnB;AAAmB;AAAnB;EAAA,kBAAmB;EAAnB;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA,eAAmB;EAAnB;AAAmB;AAAnB;EAAA,mBAAmB;EAAnB;AAAmB;AAAnB;EAAA,mBAAmB;EAAnB;AAAmB;AAAnB;EAAA,kBAAmB;EAAnB;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA,+EAAmB;EAAnB,mGAAmB;EAAnB;AAAmB;AAAnB;EAAA,2GAAmB;EAAnB,yGAAmB;EAAnB;AAAmB;AAAnB;EAAA,oBAAmB;EAAnB;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA,wBAAmB;EAAnB,wDAAmB;EAAnB;AAAmB;AAAnB;EAAA,+FAAmB;EAAnB,wDAAmB;EAAnB;AAAmB;AAAnB;EAAA,8BAAmB;EAAnB,wDAAmB;EAAnB;AAAmB;AAAnB;EAAA;AAAmB;AAAnB;EAAA;AAAmB;;AAEnB;IACI,kBAAkB,EAAE,mCAAmC;IACvD,qBAAqB;AACzB;;AAPA;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA;AAOC;;AAPD;EAAA,oBAOC;EAPD;AAOC;;AAPD;EAAA,8BAOC;EAPD;AAOC;;AAPD;EAAA,sBAOC;EAPD;AAOC;;AAPD;EAAA,sBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,oBAOC;EAPD;AAOC;;AAPD;EAAA,oBAOC;EAPD;AAOC;;AAPD;EAAA,oBAOC;EAPD;AAOC;;AAPD;EAAA,oBAOC;EAPD;AAOC;;AAPD;EAAA,oBAOC;EAPD;AAOC;;AAPD;EAAA,oBAOC;EAPD;AAOC;;AAPD;EAAA,oBAOC;EAPD;AAOC;;AAPD;EAAA,oBAOC;EAPD;AAOC;;AAPD;EAAA,oBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC;;AAPD;EAAA,kBAOC;EAPD;AAOC","sourcesContent":["@tailwind base;\r\n@tailwind components;\r\n@tailwind utilities;\r\n\r\n.apply-my-2 > * {\r\n    margin-top: 0.5rem; /* Tailwind's my-2 (0.5rem = 8px) */\r\n    margin-bottom: 0.5rem;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -155462,6 +155547,1957 @@ exports["default"] = MoonLoader;
 
 /***/ }),
 
+/***/ "./node_modules/react-spinners/esm/BarLoader.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-spinners/esm/BarLoader.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+/* harmony import */ var _helpers_colors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/colors */ "./node_modules/react-spinners/esm/helpers/colors.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+
+var long = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("BarLoader", "0% {left: -35%;right: 100%} 60% {left: 100%;right: -90%} 100% {left: 100%;right: -90%}", "long");
+var short = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("BarLoader", "0% {left: -200%;right: 100%} 60% {left: 107%;right: -8%} 100% {left: 107%;right: -8%}", "short");
+function BarLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.height, height = _f === void 0 ? 4 : _f, _g = _a.width, width = _g === void 0 ? 100 : _g, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "height", "width"]);
+    var wrapper = __assign({ display: "inherit", position: "relative", width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(width), height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(height), overflow: "hidden", backgroundColor: (0,_helpers_colors__WEBPACK_IMPORTED_MODULE_3__.calculateRgba)(color, 0.2), backgroundClip: "padding-box" }, cssOverride);
+    var style = function (i) {
+        return {
+            position: "absolute",
+            height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(height),
+            overflow: "hidden",
+            backgroundColor: color,
+            backgroundClip: "padding-box",
+            display: "block",
+            borderRadius: 2,
+            willChange: "left, right",
+            animationFillMode: "forwards",
+            animation: "".concat(i === 1 ? long : short, " ").concat(2.1 / speedMultiplier, "s ").concat(i === 2 ? "".concat(1.15 / speedMultiplier, "s") : "", " ").concat(i === 1 ? "cubic-bezier(0.65, 0.815, 0.735, 0.395)" : "cubic-bezier(0.165, 0.84, 0.44, 1)", " infinite"),
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(1) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(2) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BarLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/BeatLoader.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-spinners/esm/BeatLoader.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var beat = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("BeatLoader", "50% {transform: scale(0.75);opacity: 0.2} 100% {transform: scale(1);opacity: 1}", "beat");
+function BeatLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 15 : _f, _g = _a.margin, margin = _g === void 0 ? 2 : _g, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size", "margin"]);
+    var wrapper = __assign({ display: "inherit" }, cssOverride);
+    var style = function (i) {
+        return {
+            display: "inline-block",
+            backgroundColor: color,
+            width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            margin: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(margin),
+            borderRadius: "100%",
+            animation: "".concat(beat, " ").concat(0.7 / speedMultiplier, "s ").concat(i % 2 ? "0s" : "".concat(0.35 / speedMultiplier, "s"), " infinite linear"),
+            animationFillMode: "both",
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(1) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(2) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(3) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BeatLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/BounceLoader.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-spinners/esm/BounceLoader.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var bounce = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("BounceLoader", "0% {transform: scale(0)} 50% {transform: scale(1.0)} 100% {transform: scale(0)}", "bounce");
+function BounceLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 60 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var style = function (i) {
+        var animationTiming = i === 1 ? "".concat(1 / speedMultiplier, "s") : "0s";
+        return {
+            position: "absolute",
+            height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            backgroundColor: color,
+            borderRadius: "100%",
+            opacity: 0.6,
+            top: 0,
+            left: 0,
+            animationFillMode: "both",
+            animation: "".concat(bounce, " ").concat(2.1 / speedMultiplier, "s ").concat(animationTiming, " infinite ease-in-out"),
+        };
+    };
+    var wrapper = __assign({ display: "inherit", position: "relative", width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size) }, cssOverride);
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(1) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(2) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BounceLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/CircleLoader.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-spinners/esm/CircleLoader.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var circle = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("CircleLoader", "0% {transform: rotate(0deg)} 50% {transform: rotate(180deg)} 100% {transform: rotate(360deg)}", "circle");
+function CircleLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 50 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var wrapper = __assign({ display: "inherit", position: "relative", width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size) }, cssOverride);
+    var style = function (i) {
+        var _a = (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.parseLengthAndUnit)(size), value = _a.value, unit = _a.unit;
+        return {
+            position: "absolute",
+            height: "".concat(value * (1 - i / 10)).concat(unit),
+            width: "".concat(value * (1 - i / 10)).concat(unit),
+            borderTop: "1px solid ".concat(color),
+            borderBottom: "none",
+            borderLeft: "1px solid ".concat(color),
+            borderRight: "none",
+            borderRadius: "100%",
+            transition: "2s",
+            top: "".concat(i * 0.7 * 2.5, "%"),
+            left: "".concat(i * 0.35 * 2.5, "%"),
+            animation: "".concat(circle, " ").concat(1 / speedMultiplier, "s ").concat((i * 0.2) / speedMultiplier, "s infinite linear"),
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(0) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(1) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(2) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(3) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(4) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CircleLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/ClimbingBoxLoader.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/react-spinners/esm/ClimbingBoxLoader.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var climbingBox = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("ClimbingBoxLoader", "0% {transform:translate(0, -1em) rotate(-45deg)}\n  5% {transform:translate(0, -1em) rotate(-50deg)}\n  20% {transform:translate(1em, -2em) rotate(47deg)}\n  25% {transform:translate(1em, -2em) rotate(45deg)}\n  30% {transform:translate(1em, -2em) rotate(40deg)}\n  45% {transform:translate(2em, -3em) rotate(137deg)}\n  50% {transform:translate(2em, -3em) rotate(135deg)}\n  55% {transform:translate(2em, -3em) rotate(130deg)}\n  70% {transform:translate(3em, -4em) rotate(217deg)}\n  75% {transform:translate(3em, -4em) rotate(220deg)}\n  100% {transform:translate(0, -1em) rotate(-225deg)}", "climbingBox");
+function ClimbingBoxLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 15 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var container = __assign({ display: "inherit", position: "relative", width: "7.1em", height: "7.1em" }, cssOverride);
+    var wrapper = {
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        marginTop: "-2.7em",
+        marginLeft: "-2.7em",
+        width: "5.4em",
+        height: "5.4em",
+        fontSize: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+    };
+    var style = {
+        position: "absolute",
+        left: "0",
+        bottom: "-0.1em",
+        height: "1em",
+        width: "1em",
+        backgroundColor: "transparent",
+        borderRadius: "15%",
+        border: "0.25em solid ".concat(color),
+        transform: "translate(0, -1em) rotate(-45deg)",
+        animationFillMode: "both",
+        animation: "".concat(climbingBox, " ").concat(2.5 / speedMultiplier, "s infinite cubic-bezier(0.79, 0, 0.47, 0.97)"),
+    };
+    var hill = {
+        position: "absolute",
+        width: "7.1em",
+        height: "7.1em",
+        top: "1.7em",
+        left: "1.7em",
+        borderLeft: "0.25em solid ".concat(color),
+        transform: "rotate(45deg)",
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: container }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: wrapper },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: hill }))));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ClimbingBoxLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/ClipLoader.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-spinners/esm/ClipLoader.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var clip = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("ClipLoader", "0% {transform: rotate(0deg) scale(1)} 50% {transform: rotate(180deg) scale(0.8)} 100% {transform: rotate(360deg) scale(1)}", "clip");
+function ClipLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 35 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var style = __assign({ background: "transparent !important", width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), borderRadius: "100%", border: "2px solid", borderTopColor: color, borderBottomColor: "transparent", borderLeftColor: color, borderRightColor: color, display: "inline-block", animation: "".concat(clip, " ").concat(0.75 / speedMultiplier, "s 0s infinite linear"), animationFillMode: "both" }, cssOverride);
+    if (!loading) {
+        return null;
+    }
+    return react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: style }, additionalprops));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ClipLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/ClockLoader.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-spinners/esm/ClockLoader.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var rotate = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("ClockLoader", "100% { transform: rotate(360deg) }", "rotate");
+function ClockLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 50 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var _g = (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.parseLengthAndUnit)(size), value = _g.value, unit = _g.unit;
+    var wrapper = __assign({ display: "inherit", position: "relative", width: "".concat(value).concat(unit), height: "".concat(value).concat(unit), backgroundColor: "transparent", boxShadow: "inset 0px 0px 0px 2px ".concat(color), borderRadius: "50%" }, cssOverride);
+    var minute = {
+        position: "absolute",
+        backgroundColor: color,
+        width: "".concat(value / 3, "px"),
+        height: "2px",
+        top: "".concat(value / 2 - 1, "px"),
+        left: "".concat(value / 2 - 1, "px"),
+        transformOrigin: "1px 1px",
+        animation: "".concat(rotate, " ").concat(8 / speedMultiplier, "s linear infinite"),
+    };
+    var hour = {
+        position: "absolute",
+        backgroundColor: color,
+        width: "".concat(value / 2.4, "px"),
+        height: "2px",
+        top: "".concat(value / 2 - 1, "px"),
+        left: "".concat(value / 2 - 1, "px"),
+        transformOrigin: "1px 1px",
+        animation: "".concat(rotate, " ").concat(2 / speedMultiplier, "s linear infinite"),
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: hour }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: minute })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ClockLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/DotLoader.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-spinners/esm/DotLoader.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var rotate = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("DotLoader", "100% {transform: rotate(360deg)}", "rotate");
+var bounce = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("DotLoader", "0%, 100% {transform: scale(0)} 50% {transform: scale(1.0)}", "bounce");
+function DotLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 60 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var wrapper = __assign({ display: "inherit", position: "relative", width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), animationFillMode: "forwards", animation: "".concat(rotate, " ").concat(2 / speedMultiplier, "s 0s infinite linear") }, cssOverride);
+    var style = function (i) {
+        var _a = (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.parseLengthAndUnit)(size), value = _a.value, unit = _a.unit;
+        return {
+            position: "absolute",
+            top: i % 2 ? "0" : "auto",
+            bottom: i % 2 ? "auto" : "0",
+            height: "".concat(value / 2).concat(unit),
+            width: "".concat(value / 2).concat(unit),
+            backgroundColor: color,
+            borderRadius: "100%",
+            animationFillMode: "forwards",
+            animation: "".concat(bounce, " ").concat(2 / speedMultiplier, "s ").concat(i === 2 ? "1s" : "0s", " infinite linear"),
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(1) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(2) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DotLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/FadeLoader.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-spinners/esm/FadeLoader.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var fade = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("FadeLoader", "50% {opacity: 0.3} 100% {opacity: 1}", "fade");
+function FadeLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.height, height = _f === void 0 ? 15 : _f, _g = _a.width, width = _g === void 0 ? 5 : _g, _h = _a.radius, radius = _h === void 0 ? 2 : _h, _j = _a.margin, margin = _j === void 0 ? 2 : _j, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "height", "width", "radius", "margin"]);
+    var value = (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.parseLengthAndUnit)(margin).value;
+    var radiusValue = value + 18;
+    var quarter = radiusValue / 2 + radiusValue / 5.5;
+    var wrapper = __assign({ display: "inherit", position: "relative", fontSize: "0", top: radiusValue, left: radiusValue, width: "".concat(radiusValue * 3, "px"), height: "".concat(radiusValue * 3, "px") }, cssOverride);
+    var style = function (i) {
+        return {
+            position: "absolute",
+            width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(width),
+            height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(height),
+            margin: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(margin),
+            backgroundColor: color,
+            borderRadius: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(radius),
+            transition: "2s",
+            animationFillMode: "both",
+            animation: "".concat(fade, " ").concat(1.2 / speedMultiplier, "s ").concat(i * 0.12, "s infinite ease-in-out"),
+        };
+    };
+    var a = __assign(__assign({}, style(1)), { top: "".concat(radiusValue, "px"), left: "0" });
+    var b = __assign(__assign({}, style(2)), { top: "".concat(quarter, "px"), left: "".concat(quarter, "px"), transform: "rotate(-45deg)" });
+    var c = __assign(__assign({}, style(3)), { top: "0", left: "".concat(radiusValue, "px"), transform: "rotate(90deg)" });
+    var d = __assign(__assign({}, style(4)), { top: "".concat(-1 * quarter, "px"), left: "".concat(quarter, "px"), transform: "rotate(45deg)" });
+    var e = __assign(__assign({}, style(5)), { top: "".concat(-1 * radiusValue, "px"), left: "0" });
+    var f = __assign(__assign({}, style(6)), { top: "".concat(-1 * quarter, "px"), left: "".concat(-1 * quarter, "px"), transform: "rotate(-45deg)" });
+    var g = __assign(__assign({}, style(7)), { top: "0", left: "".concat(-1 * radiusValue, "px"), transform: "rotate(90deg)" });
+    var h = __assign(__assign({}, style(8)), { top: "".concat(quarter, "px"), left: "".concat(-1 * quarter, "px"), transform: "rotate(45deg)" });
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: a }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: b }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: c }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: d }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: e }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: f }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: g }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: h })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FadeLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/GridLoader.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-spinners/esm/GridLoader.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var grid = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("GridLoader", "0% {transform: scale(1)} 50% {transform: scale(0.5); opacity: 0.7} 100% {transform: scale(1); opacity: 1}", "grid");
+var random = function (top) { return Math.random() * top; };
+function GridLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 15 : _f, _g = _a.margin, margin = _g === void 0 ? 2 : _g, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size", "margin"]);
+    var sizeWithUnit = (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.parseLengthAndUnit)(size);
+    var marginWithUnit = (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.parseLengthAndUnit)(margin);
+    var width = parseFloat(sizeWithUnit.value.toString()) * 3 + parseFloat(marginWithUnit.value.toString()) * 6;
+    var wrapper = __assign({ width: "".concat(width).concat(sizeWithUnit.unit), fontSize: 0, display: "inline-block" }, cssOverride);
+    var style = function (rand) {
+        return {
+            display: "inline-block",
+            backgroundColor: color,
+            width: "".concat((0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size)),
+            height: "".concat((0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size)),
+            margin: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(margin),
+            borderRadius: "100%",
+            animationFillMode: "both",
+            animation: "".concat(grid, " ").concat((rand / 100 + 0.6) / speedMultiplier, "s ").concat(rand / 100 - 0.2, "s infinite ease"),
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops, { ref: function (node) {
+            if (node) {
+                node.style.setProperty("width", "".concat(width).concat(sizeWithUnit.unit), "important");
+            }
+        } }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(random(100)) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(random(100)) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(random(100)) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(random(100)) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(random(100)) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(random(100)) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(random(100)) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(random(100)) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(random(100)) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GridLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/HashLoader.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-spinners/esm/HashLoader.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_colors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/colors */ "./node_modules/react-spinners/esm/helpers/colors.js");
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+
+function HashLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 50 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var _g = (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_1__.parseLengthAndUnit)(size), value = _g.value, unit = _g.unit;
+    var wrapper = __assign({ display: "inherit", position: "relative", width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_1__.cssValue)(size), height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_1__.cssValue)(size), transform: "rotate(165deg)" }, cssOverride);
+    var thickness = value / 5;
+    var lat = (value - thickness) / 2;
+    var offset = lat - thickness;
+    var colorValue = (0,_helpers_colors__WEBPACK_IMPORTED_MODULE_2__.calculateRgba)(color, 0.75);
+    var before = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_3__.createAnimation)("HashLoader", "0% {width: ".concat(thickness, "px; box-shadow: ").concat(lat, "px ").concat(-offset, "px ").concat(colorValue, ", ").concat(-lat, "px ").concat(offset, "px ").concat(colorValue, "}\n    35% {width: ").concat((0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_1__.cssValue)(size), "; box-shadow: 0 ").concat(-offset, "px ").concat(colorValue, ", 0 ").concat(offset, "px ").concat(colorValue, "}\n    70% {width: ").concat(thickness, "px; box-shadow: ").concat(-lat, "px ").concat(-offset, "px ").concat(colorValue, ", ").concat(lat, "px ").concat(offset, "px ").concat(colorValue, "}\n    100% {box-shadow: ").concat(lat, "px ").concat(-offset, "px ").concat(colorValue, ", ").concat(-lat, "px ").concat(offset, "px ").concat(colorValue, "}"), "before");
+    var after = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_3__.createAnimation)("HashLoader", "0% {height: ".concat(thickness, "px; box-shadow: ").concat(offset, "px ").concat(lat, "px ").concat(color, ", ").concat(-offset, "px ").concat(-lat, "px ").concat(color, "}\n    35% {height: ").concat((0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_1__.cssValue)(size), "; box-shadow: ").concat(offset, "px 0 ").concat(color, ", ").concat(-offset, "px 0 ").concat(color, "}\n    70% {height: ").concat(thickness, "px; box-shadow: ").concat(offset, "px ").concat(-lat, "px ").concat(color, ", ").concat(-offset, "px ").concat(lat, "px ").concat(color, "}\n    100% {box-shadow: ").concat(offset, "px ").concat(lat, "px ").concat(color, ", ").concat(-offset, "px ").concat(-lat, "px ").concat(color, "}"), "after");
+    var style = function (i) {
+        return {
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            display: "block",
+            width: "".concat(value / 5).concat(unit),
+            height: "".concat(value / 5).concat(unit),
+            borderRadius: "".concat(value / 10).concat(unit),
+            transform: "translate(-50%, -50%)",
+            animationFillMode: "none",
+            animation: "".concat(i === 1 ? before : after, " ").concat(2 / speedMultiplier, "s infinite"),
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(1) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(2) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HashLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/MoonLoader.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-spinners/esm/MoonLoader.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var moon = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("MoonLoader", "100% {transform: rotate(360deg)}", "moon");
+function MoonLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 60 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var _g = (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.parseLengthAndUnit)(size), value = _g.value, unit = _g.unit;
+    var moonSize = Math.round(value / 7);
+    var wrapper = __assign({ display: "inherit", position: "relative", width: "".concat("".concat(value + moonSize * 2).concat(unit)), height: "".concat("".concat(value + moonSize * 2).concat(unit)), animation: "".concat(moon, " ").concat(0.6 / speedMultiplier, "s 0s infinite linear"), animationFillMode: "forwards" }, cssOverride);
+    var ballStyle = function (size) {
+        return {
+            width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            borderRadius: "100%",
+        };
+    };
+    var ball = __assign(__assign({}, ballStyle(moonSize)), { backgroundColor: "".concat(color), opacity: "0.8", position: "absolute", top: "".concat("".concat(value / 2 - moonSize / 2).concat(unit)), animation: "".concat(moon, " ").concat(0.6 / speedMultiplier, "s 0s infinite linear"), animationFillMode: "forwards" });
+    var circle = __assign(__assign({}, ballStyle(value)), { border: "".concat(moonSize, "px solid ").concat(color), opacity: "0.1", boxSizing: "content-box", position: "absolute" });
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: ball }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: circle })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MoonLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/PacmanLoader.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-spinners/esm/PacmanLoader.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var pacman = [
+    (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("PacmanLoader", "0% {transform: rotate(0deg)} 50% {transform: rotate(-44deg)}", "pacman-1"),
+    (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("PacmanLoader", "0% {transform: rotate(0deg)} 50% {transform: rotate(44deg)}", "pacman-2"),
+];
+function PacmanLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 25 : _f, _g = _a.margin, margin = _g === void 0 ? 2 : _g, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size", "margin"]);
+    var _h = (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.parseLengthAndUnit)(size), value = _h.value, unit = _h.unit;
+    var wrapper = __assign({ display: "inherit", position: "relative", fontSize: 0, height: "".concat(value * 2).concat(unit), width: "".concat(value * 2).concat(unit) }, cssOverride);
+    var ball = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("PacmanLoader", "75% {opacity: 0.7}\n    100% {transform: translate(".concat("".concat(-4 * value).concat(unit), ", ").concat("".concat(-value / 4).concat(unit), ")}"), "ball");
+    var ballStyle = function (i) {
+        return {
+            width: "".concat(value / 3).concat(unit),
+            height: "".concat(value / 3).concat(unit),
+            backgroundColor: color,
+            margin: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(margin),
+            borderRadius: "100%",
+            transform: "translate(0, ".concat("".concat(-value / 4).concat(unit), ")"),
+            position: "absolute",
+            top: "".concat(value).concat(unit),
+            left: "".concat(value * 4).concat(unit),
+            animation: "".concat(ball, " ").concat(1 / speedMultiplier, "s ").concat(i * 0.25, "s infinite linear"),
+            animationFillMode: "both",
+        };
+    };
+    var s1 = "".concat((0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), " solid transparent");
+    var s2 = "".concat((0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), " solid ").concat(color);
+    var pacmanStyle = function (i) {
+        return {
+            width: 0,
+            height: 0,
+            borderRight: s1,
+            borderTop: i === 0 ? s1 : s2,
+            borderLeft: s2,
+            borderBottom: i === 0 ? s2 : s1,
+            borderRadius: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            position: "absolute",
+            animation: "".concat(pacman[i], " ").concat(0.8 / speedMultiplier, "s infinite ease-in-out"),
+            animationFillMode: "both",
+        };
+    };
+    var pac = pacmanStyle(0);
+    var man = pacmanStyle(1);
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: pac }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: man }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: ballStyle(2) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: ballStyle(3) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: ballStyle(4) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: ballStyle(5) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PacmanLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/PropagateLoader.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-spinners/esm/PropagateLoader.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+// 1.5 4.5 7.5
+var distance = [1, 3, 5];
+var propagate = [
+    (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("PropagateLoader", "25% {transform: translateX(-".concat(distance[0], "rem) scale(0.75)}\n    50% {transform: translateX(-").concat(distance[1], "rem) scale(0.6)}\n    75% {transform: translateX(-").concat(distance[2], "rem) scale(0.5)}\n    95% {transform: translateX(0rem) scale(1)}"), "propogate-0"),
+    (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("PropagateLoader", "25% {transform: translateX(-".concat(distance[0], "rem) scale(0.75)}\n    50% {transform: translateX(-").concat(distance[1], "rem) scale(0.6)}\n    75% {transform: translateX(-").concat(distance[1], "rem) scale(0.6)}\n    95% {transform: translateX(0rem) scale(1)}"), "propogate-1"),
+    (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("PropagateLoader", "25% {transform: translateX(-".concat(distance[0], "rem) scale(0.75)}\n    75% {transform: translateX(-").concat(distance[0], "rem) scale(0.75)}\n    95% {transform: translateX(0rem) scale(1)}"), "propogate-2"),
+    (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("PropagateLoader", "25% {transform: translateX(".concat(distance[0], "rem) scale(0.75)}\n    75% {transform: translateX(").concat(distance[0], "rem) scale(0.75)}\n    95% {transform: translateX(0rem) scale(1)}"), "propogate-3"),
+    (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("PropagateLoader", "25% {transform: translateX(".concat(distance[0], "rem) scale(0.75)}\n    50% {transform: translateX(").concat(distance[1], "rem) scale(0.6)}\n    75% {transform: translateX(").concat(distance[1], "rem) scale(0.6)}\n    95% {transform: translateX(0rem) scale(1)}"), "propogate-4"),
+    (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("PropagateLoader", "25% {transform: translateX(".concat(distance[0], "rem) scale(0.75)}\n    50% {transform: translateX(").concat(distance[1], "rem) scale(0.6)}\n    75% {transform: translateX(").concat(distance[2], "rem) scale(0.5)}\n    95% {transform: translateX(0rem) scale(1)}"), "propogate-5"),
+];
+function PropagateLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 15 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var _g = (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.parseLengthAndUnit)(size), value = _g.value, unit = _g.unit;
+    var wrapper = __assign({ display: "inherit", position: "relative" }, cssOverride);
+    var style = function (i) {
+        return {
+            position: "absolute",
+            fontSize: "".concat(value / 3).concat(unit),
+            width: "".concat(value).concat(unit),
+            height: "".concat(value).concat(unit),
+            background: color,
+            borderRadius: "50%",
+            animation: "".concat(propagate[i], " ").concat(1.5 / speedMultiplier, "s infinite"),
+            animationFillMode: "forwards",
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(0) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(1) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(2) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(3) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(4) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(5) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PropagateLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/PuffLoader.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-spinners/esm/PuffLoader.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var puff = [
+    (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("PuffLoader", "0% {transform: scale(0)} 100% {transform: scale(1.0)}", "puff-1"),
+    (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("PuffLoader", "0% {opacity: 1} 100% {opacity: 0}", "puff-2"),
+];
+function PuffLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 60 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var wrapper = __assign({ display: "inherit", position: "relative", width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size) }, cssOverride);
+    var style = function (i) {
+        return {
+            position: "absolute",
+            height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            border: "thick solid ".concat(color),
+            borderRadius: "50%",
+            opacity: "1",
+            top: "0",
+            left: "0",
+            animationFillMode: "both",
+            animation: "".concat(puff[0], ", ").concat(puff[1]),
+            animationDuration: "".concat(2 / speedMultiplier, "s"),
+            animationIterationCount: "infinite",
+            animationTimingFunction: "cubic-bezier(0.165, 0.84, 0.44, 1), cubic-bezier(0.3, 0.61, 0.355, 1)",
+            animationDelay: i === 1 ? "-1s" : "0s",
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(1) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(2) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PuffLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/PulseLoader.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-spinners/esm/PulseLoader.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var pulse = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("PulseLoader", "0% {transform: scale(1); opacity: 1} 45% {transform: scale(0.1); opacity: 0.7} 80% {transform: scale(1); opacity: 1}", "pulse");
+function PulseLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 15 : _f, _g = _a.margin, margin = _g === void 0 ? 2 : _g, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size", "margin"]);
+    var wrapper = __assign({ display: "inherit" }, cssOverride);
+    var style = function (i) {
+        return {
+            backgroundColor: color,
+            width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            margin: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(margin),
+            borderRadius: "100%",
+            display: "inline-block",
+            animation: "".concat(pulse, " ").concat(0.75 / speedMultiplier, "s ").concat((i * 0.12) / speedMultiplier, "s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08)"),
+            animationFillMode: "both",
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(1) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(2) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(3) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PulseLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/RingLoader.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-spinners/esm/RingLoader.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var right = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("RingLoader", "0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)} 100% {transform: rotateX(180deg) rotateY(360deg) rotateZ(360deg)}", "right");
+var left = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("RingLoader", "0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)} 100% {transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg)}", "left");
+function RingLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 60 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var _g = (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.parseLengthAndUnit)(size), value = _g.value, unit = _g.unit;
+    var wrapper = __assign({ display: "inherit", width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), position: "relative" }, cssOverride);
+    var style = function (i) {
+        return {
+            position: "absolute",
+            top: "0",
+            left: "0",
+            width: "".concat(value).concat(unit),
+            height: "".concat(value).concat(unit),
+            border: "".concat(value / 10).concat(unit, " solid ").concat(color),
+            opacity: "0.4",
+            borderRadius: "100%",
+            animationFillMode: "forwards",
+            perspective: "800px",
+            animation: "".concat(i === 1 ? right : left, " ").concat(2 / speedMultiplier, "s 0s infinite linear"),
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(1) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(2) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RingLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/RiseLoader.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-spinners/esm/RiseLoader.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+function RiseLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 15 : _f, _g = _a.margin, margin = _g === void 0 ? 2 : _g, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size", "margin"]);
+    var wrapper = __assign({ display: "inherit" }, cssOverride);
+    var even = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("RiseLoader", "0% {transform: scale(1.1)}\n    25% {transform: translateY(-".concat(size, "px)}\n    50% {transform: scale(0.4)}\n    75% {transform: translateY(").concat(size, "px)}\n    100% {transform: translateY(0) scale(1.0)}"), "even");
+    var odd = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("RiseLoader", "0% {transform: scale(0.4)}\n    25% {transform: translateY(".concat(size, "px)}\n    50% {transform: scale(1.1)}\n    75% {transform: translateY(").concat(-size, "px)}\n    100% {transform: translateY(0) scale(0.75)}"), "odd");
+    var style = function (i) {
+        return {
+            backgroundColor: color,
+            width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            margin: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(margin),
+            borderRadius: "100%",
+            display: "inline-block",
+            animation: "".concat(i % 2 === 0 ? even : odd, " ").concat(1 / speedMultiplier, "s 0s infinite cubic-bezier(0.15, 0.46, 0.9, 0.6)"),
+            animationFillMode: "both",
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(1) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(2) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(3) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(4) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(5) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RiseLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/RotateLoader.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-spinners/esm/RotateLoader.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var rotate = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("RotateLoader", "0% {transform: rotate(0deg)} 50% {transform: rotate(180deg)} 100% {transform: rotate(360deg)}", "rotate");
+function RotateLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 15 : _f, _g = _a.margin, margin = _g === void 0 ? 2 : _g, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size", "margin"]);
+    var _h = (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.parseLengthAndUnit)(margin), value = _h.value, unit = _h.unit;
+    var ball = {
+        backgroundColor: color,
+        width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+        height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+        borderRadius: "100%",
+    };
+    var wrapper = __assign(__assign(__assign({}, ball), { display: "inline-block", position: "relative", animationFillMode: "both", animation: "".concat(rotate, " ").concat(1 / speedMultiplier, "s 0s infinite cubic-bezier(0.7, -0.13, 0.22, 0.86)") }), cssOverride);
+    var style = function (i) {
+        var left = (i % 2 ? -1 : 1) * (26 + value);
+        return {
+            opacity: "0.8",
+            position: "absolute",
+            top: "0",
+            left: "".concat(left).concat(unit),
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: __assign(__assign({}, ball), style(1)) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: __assign(__assign({}, ball), style(2)) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RotateLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/ScaleLoader.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-spinners/esm/ScaleLoader.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var scale = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("ScaleLoader", "0% {transform: scaley(1.0)} 50% {transform: scaley(0.4)} 100% {transform: scaley(1.0)}", "scale");
+function ScaleLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.height, height = _f === void 0 ? 35 : _f, _g = _a.width, width = _g === void 0 ? 4 : _g, _h = _a.radius, radius = _h === void 0 ? 2 : _h, _j = _a.margin, margin = _j === void 0 ? 2 : _j, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "height", "width", "radius", "margin"]);
+    var wrapper = __assign({ display: "inherit" }, cssOverride);
+    var style = function (i) {
+        return {
+            backgroundColor: color,
+            width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(width),
+            height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(height),
+            margin: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(margin),
+            borderRadius: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(radius),
+            display: "inline-block",
+            animation: "".concat(scale, " ").concat(1 / speedMultiplier, "s ").concat(i * 0.1, "s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08)"),
+            animationFillMode: "both",
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(1) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(2) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(3) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(4) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(5) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ScaleLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/SkewLoader.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-spinners/esm/SkewLoader.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var skew = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("SkewLoader", "25% {transform: perspective(100px) rotateX(180deg) rotateY(0)} 50% {transform: perspective(100px) rotateX(180deg) rotateY(180deg)} 75% {transform: perspective(100px) rotateX(0) rotateY(180deg)} 100% {transform: perspective(100px) rotateX(0) rotateY(0)}", "skew");
+function SkewLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 20 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var style = __assign({ width: "0", height: "0", borderLeft: "".concat((0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), " solid transparent"), borderRight: "".concat((0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), " solid transparent"), borderBottom: "".concat((0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), " solid ").concat(color), display: "inline-block", animation: "".concat(skew, " ").concat(3 / speedMultiplier, "s 0s infinite cubic-bezier(0.09, 0.57, 0.49, 0.9)"), animationFillMode: "both" }, cssOverride);
+    if (!loading) {
+        return null;
+    }
+    return react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: style }, additionalprops));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SkewLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/SquareLoader.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-spinners/esm/SquareLoader.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var square = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("SquareLoader", "25% {transform: rotateX(180deg) rotateY(0)}\n  50% {transform: rotateX(180deg) rotateY(180deg)} \n  75% {transform: rotateX(0) rotateY(180deg)} \n  100% {transform: rotateX(0) rotateY(0)}", "square");
+function SquareLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 50 : _f, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size"]);
+    var style = __assign({ backgroundColor: color, width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size), display: "inline-block", animation: "".concat(square, " ").concat(3 / speedMultiplier, "s 0s infinite cubic-bezier(0.09, 0.57, 0.49, 0.9)"), animationFillMode: "both" }, cssOverride);
+    if (!loading) {
+        return null;
+    }
+    return react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: style }, additionalprops));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SquareLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/SyncLoader.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-spinners/esm/SyncLoader.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_animation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/animation */ "./node_modules/react-spinners/esm/helpers/animation.js");
+/* harmony import */ var _helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/unitConverter */ "./node_modules/react-spinners/esm/helpers/unitConverter.js");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (undefined && undefined.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+
+
+
+var sync = (0,_helpers_animation__WEBPACK_IMPORTED_MODULE_1__.createAnimation)("SyncLoader", "33% {transform: translateY(10px)}\n  66% {transform: translateY(-10px)}\n  100% {transform: translateY(0)}", "sync");
+function SyncLoader(_a) {
+    var _b = _a.loading, loading = _b === void 0 ? true : _b, _c = _a.color, color = _c === void 0 ? "#000000" : _c, _d = _a.speedMultiplier, speedMultiplier = _d === void 0 ? 1 : _d, _e = _a.cssOverride, cssOverride = _e === void 0 ? {} : _e, _f = _a.size, size = _f === void 0 ? 15 : _f, _g = _a.margin, margin = _g === void 0 ? 2 : _g, additionalprops = __rest(_a, ["loading", "color", "speedMultiplier", "cssOverride", "size", "margin"]);
+    var wrapper = __assign({ display: "inherit" }, cssOverride);
+    var style = function (i) {
+        return {
+            backgroundColor: color,
+            width: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            height: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(size),
+            margin: (0,_helpers_unitConverter__WEBPACK_IMPORTED_MODULE_2__.cssValue)(margin),
+            borderRadius: "100%",
+            display: "inline-block",
+            animation: "".concat(sync, " ").concat(0.6 / speedMultiplier, "s ").concat(i * 0.07, "s infinite ease-in-out"),
+            animationFillMode: "both",
+        };
+    };
+    if (!loading) {
+        return null;
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", __assign({ style: wrapper }, additionalprops),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(1) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(2) }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { style: style(3) })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SyncLoader);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/helpers/animation.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/react-spinners/esm/helpers/animation.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createAnimation: () => (/* binding */ createAnimation)
+/* harmony export */ });
+var createAnimation = function (loaderName, frames, suffix) {
+    var animationName = "react-spinners-".concat(loaderName, "-").concat(suffix);
+    if (typeof window == "undefined" || !window.document) {
+        return animationName;
+    }
+    var styleEl = document.createElement("style");
+    document.head.appendChild(styleEl);
+    var styleSheet = styleEl.sheet;
+    var keyFrames = "\n    @keyframes ".concat(animationName, " {\n      ").concat(frames, "\n    }\n  ");
+    if (styleSheet) {
+        styleSheet.insertRule(keyFrames, 0);
+    }
+    return animationName;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/helpers/colors.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-spinners/esm/helpers/colors.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   calculateRgba: () => (/* binding */ calculateRgba)
+/* harmony export */ });
+var BasicColors;
+(function (BasicColors) {
+    BasicColors["maroon"] = "#800000";
+    BasicColors["red"] = "#FF0000";
+    BasicColors["orange"] = "#FFA500";
+    BasicColors["yellow"] = "#FFFF00";
+    BasicColors["olive"] = "#808000";
+    BasicColors["green"] = "#008000";
+    BasicColors["purple"] = "#800080";
+    BasicColors["fuchsia"] = "#FF00FF";
+    BasicColors["lime"] = "#00FF00";
+    BasicColors["teal"] = "#008080";
+    BasicColors["aqua"] = "#00FFFF";
+    BasicColors["blue"] = "#0000FF";
+    BasicColors["navy"] = "#000080";
+    BasicColors["black"] = "#000000";
+    BasicColors["gray"] = "#808080";
+    BasicColors["silver"] = "#C0C0C0";
+    BasicColors["white"] = "#FFFFFF";
+})(BasicColors || (BasicColors = {}));
+var handleRgbColorString = function (color, opacity) {
+    // rgb(a)(255 255 255 / 80%)
+    if (color.includes("/")) {
+        return color.replace("rgb(", "rgba(");
+    }
+    var rgbValues = color.substring(color.startsWith("rgba(") ? 5 : 4, color.length - 1).trim();
+    var splittedByCommas = rgbValues.split(",");
+    // rgb(a)(255, 255, 255, 0.8)
+    if (splittedByCommas.length === 4) {
+        return color.replace("rgb(", "rgba(");
+    }
+    // rgb(a)(255, 255, 255)
+    if (splittedByCommas.length === 3) {
+        return "rgba(".concat(rgbValues, ", ").concat(opacity, ")");
+    }
+    // rgb(a)(255 255 255)
+    return "rgba(".concat(rgbValues, " / ").concat(opacity, ")");
+};
+var calculateRgba = function (color, opacity) {
+    if (color.startsWith("rgb")) {
+        return handleRgbColorString(color, opacity);
+    }
+    if (Object.keys(BasicColors).includes(color)) {
+        color = BasicColors[color];
+    }
+    if (color[0] === "#") {
+        color = color.slice(1);
+    }
+    if (color.length === 3) {
+        var res_1 = "";
+        color.split("").forEach(function (c) {
+            res_1 += c;
+            res_1 += c;
+        });
+        color = res_1;
+    }
+    var rgbValues = (color.match(/.{2}/g) || []).map(function (hex) { return parseInt(hex, 16); }).join(", ");
+    return "rgba(".concat(rgbValues, ", ").concat(opacity, ")");
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/helpers/unitConverter.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/react-spinners/esm/helpers/unitConverter.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cssValue: () => (/* binding */ cssValue),
+/* harmony export */   parseLengthAndUnit: () => (/* binding */ parseLengthAndUnit)
+/* harmony export */ });
+var cssUnit = {
+    cm: true,
+    mm: true,
+    in: true,
+    px: true,
+    pt: true,
+    pc: true,
+    em: true,
+    ex: true,
+    ch: true,
+    rem: true,
+    vw: true,
+    vh: true,
+    vmin: true,
+    vmax: true,
+    "%": true,
+};
+/**
+ * If size is a number, append px to the value as default unit.
+ * If size is a string, validate against list of valid units.
+ * If unit is valid, return size as is.
+ * If unit is invalid, console warn issue, replace with px as the unit.
+ *
+ * @param {(number | string)} size
+ * @return {LengthObject} LengthObject
+ */
+function parseLengthAndUnit(size) {
+    if (typeof size === "number") {
+        return {
+            value: size,
+            unit: "px",
+        };
+    }
+    var value;
+    var valueString = (size.match(/^[0-9.]*/) || "").toString();
+    if (valueString.includes(".")) {
+        value = parseFloat(valueString);
+    }
+    else {
+        value = parseInt(valueString, 10);
+    }
+    var unit = (size.match(/[^0-9]*$/) || "").toString();
+    if (cssUnit[unit]) {
+        return {
+            value: value,
+            unit: unit,
+        };
+    }
+    console.warn("React Spinners: ".concat(size, " is not a valid css value. Defaulting to ").concat(value, "px."));
+    return {
+        value: value,
+        unit: "px",
+    };
+}
+/**
+ * Take value as an input and return valid css value
+ *
+ * @param {(number | string)} value
+ * @return {string} valid css value
+ */
+function cssValue(value) {
+    var lengthWithunit = parseLengthAndUnit(value);
+    return "".concat(lengthWithunit.value).concat(lengthWithunit.unit);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/react-spinners/esm/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/react-spinners/esm/index.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BarLoader: () => (/* reexport safe */ _BarLoader__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   BeatLoader: () => (/* reexport safe */ _BeatLoader__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   BounceLoader: () => (/* reexport safe */ _BounceLoader__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   CircleLoader: () => (/* reexport safe */ _CircleLoader__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   ClimbingBoxLoader: () => (/* reexport safe */ _ClimbingBoxLoader__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   ClipLoader: () => (/* reexport safe */ _ClipLoader__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   ClockLoader: () => (/* reexport safe */ _ClockLoader__WEBPACK_IMPORTED_MODULE_6__["default"]),
+/* harmony export */   DotLoader: () => (/* reexport safe */ _DotLoader__WEBPACK_IMPORTED_MODULE_7__["default"]),
+/* harmony export */   FadeLoader: () => (/* reexport safe */ _FadeLoader__WEBPACK_IMPORTED_MODULE_8__["default"]),
+/* harmony export */   GridLoader: () => (/* reexport safe */ _GridLoader__WEBPACK_IMPORTED_MODULE_9__["default"]),
+/* harmony export */   HashLoader: () => (/* reexport safe */ _HashLoader__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   MoonLoader: () => (/* reexport safe */ _MoonLoader__WEBPACK_IMPORTED_MODULE_11__["default"]),
+/* harmony export */   PacmanLoader: () => (/* reexport safe */ _PacmanLoader__WEBPACK_IMPORTED_MODULE_12__["default"]),
+/* harmony export */   PropagateLoader: () => (/* reexport safe */ _PropagateLoader__WEBPACK_IMPORTED_MODULE_13__["default"]),
+/* harmony export */   PuffLoader: () => (/* reexport safe */ _PuffLoader__WEBPACK_IMPORTED_MODULE_15__["default"]),
+/* harmony export */   PulseLoader: () => (/* reexport safe */ _PulseLoader__WEBPACK_IMPORTED_MODULE_14__["default"]),
+/* harmony export */   RingLoader: () => (/* reexport safe */ _RingLoader__WEBPACK_IMPORTED_MODULE_16__["default"]),
+/* harmony export */   RiseLoader: () => (/* reexport safe */ _RiseLoader__WEBPACK_IMPORTED_MODULE_17__["default"]),
+/* harmony export */   RotateLoader: () => (/* reexport safe */ _RotateLoader__WEBPACK_IMPORTED_MODULE_18__["default"]),
+/* harmony export */   ScaleLoader: () => (/* reexport safe */ _ScaleLoader__WEBPACK_IMPORTED_MODULE_19__["default"]),
+/* harmony export */   SkewLoader: () => (/* reexport safe */ _SkewLoader__WEBPACK_IMPORTED_MODULE_20__["default"]),
+/* harmony export */   SquareLoader: () => (/* reexport safe */ _SquareLoader__WEBPACK_IMPORTED_MODULE_21__["default"]),
+/* harmony export */   SyncLoader: () => (/* reexport safe */ _SyncLoader__WEBPACK_IMPORTED_MODULE_22__["default"])
+/* harmony export */ });
+/* harmony import */ var _BarLoader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BarLoader */ "./node_modules/react-spinners/esm/BarLoader.js");
+/* harmony import */ var _BeatLoader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BeatLoader */ "./node_modules/react-spinners/esm/BeatLoader.js");
+/* harmony import */ var _BounceLoader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./BounceLoader */ "./node_modules/react-spinners/esm/BounceLoader.js");
+/* harmony import */ var _CircleLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CircleLoader */ "./node_modules/react-spinners/esm/CircleLoader.js");
+/* harmony import */ var _ClimbingBoxLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ClimbingBoxLoader */ "./node_modules/react-spinners/esm/ClimbingBoxLoader.js");
+/* harmony import */ var _ClipLoader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ClipLoader */ "./node_modules/react-spinners/esm/ClipLoader.js");
+/* harmony import */ var _ClockLoader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ClockLoader */ "./node_modules/react-spinners/esm/ClockLoader.js");
+/* harmony import */ var _DotLoader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DotLoader */ "./node_modules/react-spinners/esm/DotLoader.js");
+/* harmony import */ var _FadeLoader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./FadeLoader */ "./node_modules/react-spinners/esm/FadeLoader.js");
+/* harmony import */ var _GridLoader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./GridLoader */ "./node_modules/react-spinners/esm/GridLoader.js");
+/* harmony import */ var _HashLoader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./HashLoader */ "./node_modules/react-spinners/esm/HashLoader.js");
+/* harmony import */ var _MoonLoader__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./MoonLoader */ "./node_modules/react-spinners/esm/MoonLoader.js");
+/* harmony import */ var _PacmanLoader__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./PacmanLoader */ "./node_modules/react-spinners/esm/PacmanLoader.js");
+/* harmony import */ var _PropagateLoader__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./PropagateLoader */ "./node_modules/react-spinners/esm/PropagateLoader.js");
+/* harmony import */ var _PulseLoader__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./PulseLoader */ "./node_modules/react-spinners/esm/PulseLoader.js");
+/* harmony import */ var _PuffLoader__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./PuffLoader */ "./node_modules/react-spinners/esm/PuffLoader.js");
+/* harmony import */ var _RingLoader__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./RingLoader */ "./node_modules/react-spinners/esm/RingLoader.js");
+/* harmony import */ var _RiseLoader__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./RiseLoader */ "./node_modules/react-spinners/esm/RiseLoader.js");
+/* harmony import */ var _RotateLoader__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./RotateLoader */ "./node_modules/react-spinners/esm/RotateLoader.js");
+/* harmony import */ var _ScaleLoader__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./ScaleLoader */ "./node_modules/react-spinners/esm/ScaleLoader.js");
+/* harmony import */ var _SkewLoader__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./SkewLoader */ "./node_modules/react-spinners/esm/SkewLoader.js");
+/* harmony import */ var _SquareLoader__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./SquareLoader */ "./node_modules/react-spinners/esm/SquareLoader.js");
+/* harmony import */ var _SyncLoader__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./SyncLoader */ "./node_modules/react-spinners/esm/SyncLoader.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
 /***/ "./node_modules/react-spinners/helpers/animation.js":
 /*!**********************************************************!*\
   !*** ./node_modules/react-spinners/helpers/animation.js ***!
@@ -201212,21 +203248,71 @@ function StyleToObject(style, iterator) {
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports["default"] = ChatContainer;
 const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-const react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const Message_1 = __importDefault(__webpack_require__(/*! ./Message */ "./src/webview/components/Message.tsx"));
 const InputChat_1 = __importDefault(__webpack_require__(/*! ./InputChat */ "./src/webview/components/InputChat.tsx"));
 const Welcome_1 = __importDefault(__webpack_require__(/*! ../pages/Welcome */ "./src/webview/pages/Welcome.tsx"));
 const { v4: uuidv4 } = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/commonjs-browser/index.js");
+const lucide_react_1 = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/lucide-react.js");
 function ChatContainer(props) {
-    const { vscode, theme, user } = props;
-    const [messages, setMessages] = (0, react_1.useState)([]);
+    const { vscode, theme, user, chat, setPage, token, setChat } = props;
+    console.log("Container got");
+    console.log(chat);
+    const { run_name, llm, chat_history = [] } = chat;
+    const [messages, setMessages] = (0, react_1.useState)(chat_history);
     const [loading, setLoading] = (0, react_1.useState)(false);
+    const [run_id, setRunId] = (0, react_1.useState)(props.run_id == null ? null : props.run_id);
+    const [isDropdownOpen, setIsDropdownOpen] = (0, react_1.useState)(false);
+    const dropdownRef = react_1.default.useRef(null);
+    const handleNewChat = () => {
+        setChat({
+            run_id: null,
+            run_name: '',
+            llm: {
+                name: 'mistral:latest',
+                model: 'ollama'
+            },
+            chat_history: []
+        });
+        setMessages([]);
+        setPage('chat');
+        setIsDropdownOpen(false);
+    };
+    const handleChatHistory = () => {
+        setPage('history');
+    };
+    const handleLogout = () => {
+        vscode.postMessage({ type: 'logout' });
+    };
     const completeChat = async (message, model) => {
         const typingMessageId = uuidv4();
         setMessages(prevMessages => [
@@ -201235,26 +203321,51 @@ function ChatContainer(props) {
                 id: typingMessageId,
                 icon: "chatbot",
                 message: "Typing...",
-                model: model
             }
         ]);
+        const _message = message;
+        const inference_engine = model.source;
+        const model_name = model.name;
+        const _run_id = run_id;
+        const access_token = token;
+        let request_body = {};
+        if (_run_id == null) {
+            request_body = {
+                message: _message,
+                inference_engine: inference_engine,
+                model: model_name,
+                access_token: access_token
+            };
+        }
+        else {
+            request_body = {
+                message: _message,
+                inference_engine: inference_engine,
+                model: model_name,
+                run_id: _run_id,
+                access_token: access_token
+            };
+        }
         setLoading(true);
         try {
-            const response = await fetch('http://localhost:8000/api/v1/chat/completions/' + model.source, {
+            const response = await fetch('http://localhost:8000/assistant/completions/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ query: message, model: model.name }),
+                body: JSON.stringify(request_body),
             });
             const data = await response.json();
+            console.log("Chatbot response: ", data);
+            if (data.run_id) {
+                setRunId(data.run_id);
+            }
             // Remove typing message and add the response
             setMessages(prevMessages => {
                 return prevMessages.filter(msg => msg.id !== typingMessageId).concat({
                     id: uuidv4(),
                     icon: "chatbot",
-                    message: data.content,
-                    model: model
+                    message: data.response,
                 });
             });
         }
@@ -201266,7 +203377,6 @@ function ChatContainer(props) {
                     id: uuidv4(),
                     icon: "chatbot",
                     message: "Sorry, I couldn't get a response.",
-                    model: model
                 });
             });
         }
@@ -201281,12 +203391,111 @@ function ChatContainer(props) {
             completeChat(message, model); // Call completeChat with user message
         }
     };
-    return ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)("div", { className: 'flex flex-col h-[85vh] mt-5', children: (0, jsx_runtime_1.jsx)("div", { className: 'flex-1 overflow-y-auto pr-4', style: {
-                        scrollbarWidth: "thin",
-                        scrollbarColor: "rgb(75 85 99) transparent",
-                        msOverflowStyle: "none" // for IE/Edge
-                    }, children: messages.length > 0 ?
-                        (0, jsx_runtime_1.jsx)("div", { className: 'space-y-4', children: messages.map((msg) => ((0, jsx_runtime_1.jsx)(Message_1.default, { vscode: vscode, icon: msg.icon, message: msg.message, theme: theme, user: user, model: msg.model.name, animate: msg.message === "Typing..." }, msg.id))) }) : (0, jsx_runtime_1.jsx)(Welcome_1.default, {}) }) }), (0, jsx_runtime_1.jsx)(InputChat_1.default, { vscode: vscode, disabled: loading, addMessage: addMessage, theme: theme })] }));
+    return ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsxs)("div", { id: run_id, className: 'flex flex-col h-[85vh] mt-10', children: [(0, jsx_runtime_1.jsx)("div", { className: 'absolute w-full', children: (0, jsx_runtime_1.jsxs)("div", { className: 'relative', ref: dropdownRef, children: [(0, jsx_runtime_1.jsx)("button", { onClick: () => setIsDropdownOpen(!isDropdownOpen), className: 'absolute top-[-35px] right-0 p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors', children: (0, jsx_runtime_1.jsx)("div", { className: "w-8 h-8 overflow-hidden rounded-full bg-gray-200", children: (0, jsx_runtime_1.jsx)("img", { src: user?.picture, alt: "user", className: 'w-full h-full object-cover' }) }) }), isDropdownOpen && ((0, jsx_runtime_1.jsx)("div", { className: 'absolute right-0 top-2 z-[500] w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none', children: (0, jsx_runtime_1.jsxs)("div", { className: 'py-1', children: [(0, jsx_runtime_1.jsxs)("button", { onClick: handleLogout, className: 'flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700', children: [(0, jsx_runtime_1.jsx)(lucide_react_1.LogOut, { className: "mr-2 h-4 w-4" }), "Logout"] }), (0, jsx_runtime_1.jsxs)("button", { onClick: handleNewChat, className: 'flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700', children: [(0, jsx_runtime_1.jsx)(lucide_react_1.PlusCircle, { className: "mr-2 h-4 w-4" }), "New Chat"] }), (0, jsx_runtime_1.jsxs)("button", { onClick: handleChatHistory, className: 'flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700', children: [(0, jsx_runtime_1.jsx)(lucide_react_1.History, { className: "mr-2 h-4 w-4" }), "Chat History"] })] }) }))] }) }), (0, jsx_runtime_1.jsx)("div", { className: 'flex-1 overflow-y-auto pr-4 my-5', style: {
+                            scrollbarWidth: "thin",
+                            scrollbarColor: "rgb(75 85 99) transparent",
+                            msOverflowStyle: "none" // for IE/Edge
+                        }, children: messages.length > 0 ?
+                            (0, jsx_runtime_1.jsx)("div", { className: 'space-y-4', children: messages.map((msg) => ((0, jsx_runtime_1.jsx)(Message_1.default, { vscode: vscode, icon: msg.icon, message: msg.message, theme: theme, user: user, animate: msg.message === "Typing..." }, msg.id))) }) : (0, jsx_runtime_1.jsx)(Welcome_1.default, {}) })] }), (0, jsx_runtime_1.jsx)(InputChat_1.default, { vscode: vscode, disabled: loading, addMessage: addMessage, theme: theme, llm: llm })] }));
+}
+
+
+/***/ }),
+
+/***/ "./src/webview/components/History.tsx":
+/*!********************************************!*\
+  !*** ./src/webview/components/History.tsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports["default"] = History;
+const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+const react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+const lucide_react_1 = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/lucide-react.js");
+const react_spinners_1 = __webpack_require__(/*! react-spinners */ "./node_modules/react-spinners/esm/index.js");
+const { v4: uuidv4 } = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/commonjs-browser/index.js");
+function History(props) {
+    const [searchTerm, setSearchTerm] = (0, react_1.useState)('');
+    const [loading, setLoading] = (0, react_1.useState)(true);
+    const [history, setHistory] = (0, react_1.useState)([]);
+    const token = props.token;
+    console.log("current_token", token);
+    const filteredHistory = history.filter(chat => chat.run_name.toLowerCase().includes(searchTerm.toLowerCase()));
+    const fetchChats = async () => {
+        try {
+            const response = await fetch('http://localhost:8000/user/chat_history', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    access_token: token
+                }),
+            });
+            if (!response.ok) {
+                throw new Error('Failed to fetch chat history');
+            }
+            const data = await response.json();
+            console.log(data);
+            setHistory(data);
+            setLoading(false);
+        }
+        catch (error) {
+            console.error('Error fetching chats:', error);
+            setLoading(false); // Stop loading if there's an error
+        }
+    };
+    (0, react_1.useEffect)(() => {
+        if (token) {
+            fetchChats();
+        }
+    }, [token]);
+    function openChat(chat) {
+        const run_id = chat.run_id;
+        const run_name = chat.run_name;
+        const llm = chat.llm;
+        const chat_history = chat.chat_history;
+        const updatedChats = chat_history.map((chat) => {
+            return {
+                id: uuidv4(),
+                icon: chat.role === 'user' ? 'user' : 'chatbot',
+                message: chat.content
+            };
+        });
+        props.setChat({
+            run_id,
+            run_name,
+            llm,
+            chat_history: updatedChats
+        });
+        props.setPage('chat');
+    }
+    async function handleDelete(run_id) {
+        try {
+            const response = await fetch("http://localhost:8000/run/" + run_id, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (!response.ok) {
+                // If response is not OK, throw an error
+                const errorData = await response.json();
+                throw new Error(`Error: ${response.status}, ${errorData.detail}`);
+            }
+            const result = await response.json();
+            fetchChats();
+            return result;
+        }
+        catch (error) {
+            console.error('Error deleting run:', error);
+        }
+    }
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col h-screen w-full p-2 text-gray-700 dark:text-gray-300", children: [loading && ((0, jsx_runtime_1.jsx)("div", { className: 'flex flex-col justify-center items-center h-[85vh] mt-5', children: (0, jsx_runtime_1.jsx)(react_spinners_1.BounceLoader, { color: props.theme === 'dark' ? '#fff' : '#000', size: 45, "aria-label": "Loading Spinner", "data-testid": "loader" }) })), !loading &&
+                (0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsxs)("div", { className: "flex items-center", children: [(0, jsx_runtime_1.jsx)("button", { className: "p-2 pl-0 rounded-full transition-colors", onClick: () => props.setPage('chat'), children: (0, jsx_runtime_1.jsx)(lucide_react_1.ArrowLeft, { size: 15 }) }), (0, jsx_runtime_1.jsx)("h1", { className: "text-[13px]", children: "All Chats" })] }), (0, jsx_runtime_1.jsxs)("div", { className: "relative mt-3 mb-2", children: [(0, jsx_runtime_1.jsx)(lucide_react_1.Search, { className: "absolute left-3 top-1/2 transform -translate-y-1/2", size: 15 }), (0, jsx_runtime_1.jsx)("input", { type: "text", placeholder: "Search chats...", value: searchTerm, onChange: (e) => setSearchTerm(e.target.value), className: "w-full pl-10 pr-4 py-2 border bg-transparent text-zinc-800 dark:text-gray-300 border-zinc-800 dark:borer-white rounded-md focus:outline-none" })] }), (0, jsx_runtime_1.jsxs)("div", { className: "flex-1 overflow-y-auto mx-auto w-full my-2", children: [filteredHistory.map((chat) => ((0, jsx_runtime_1.jsxs)("div", { className: "flex items-center justify-between px-1 py-2 pl-3 w-full hover:bg-white/5 cursor-pointer rounded-lg transition-colors", children: [(0, jsx_runtime_1.jsxs)("div", { className: 'flex items-center', onClick: () => openChat(chat), children: [(0, jsx_runtime_1.jsx)("div", { className: "flex-shrink-0", children: (0, jsx_runtime_1.jsx)(lucide_react_1.MessageSquare, { size: 20, className: "" }) }), (0, jsx_runtime_1.jsx)("div", { className: "ml-2 flex-1", children: (0, jsx_runtime_1.jsx)("h2", { className: "text-[13px]", children: chat.run_name.replace(/^"|"$/g, '').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ') }) })] }), (0, jsx_runtime_1.jsx)(lucide_react_1.Trash2, { size: 20, onClick: () => handleDelete(chat.run_id), className: 'cursor-pointer ' })] }, chat.run_id))), filteredHistory.length === 0 && ((0, jsx_runtime_1.jsx)("div", { className: "flex items-center justify-center h-48", children: (0, jsx_runtime_1.jsx)("p", { className: "text-[13px] text-gray-400", children: "No chats found" }) }))] })] })] }));
 }
 
 
@@ -201315,8 +203524,8 @@ function Chat(props) {
         ollama: [{ icon: 'text', model: 'deepseek-coder-v2:16b' }, { icon: 'text', model: 'codestral:22b' }, { icon: 'text', model: 'gemma2:9b' }, { icon: 'text', model: 'mistral:latest' }],
         groq: [{ icon: 'text', model: 'llama3-groq-70b-8192-tool-use-preview' }, { icon: 'text', model: 'llama-3.1-70b-versatile' }, { icon: 'image', model: 'llama-3.2-11b-vision-preview' }],
     };
-    const [selectedSource, setSelectedSource] = (0, react_1.useState)('ollama');
-    const [selectedModel, setSelectedModel] = (0, react_1.useState)('mistral:latest');
+    const [selectedSource, setSelectedSource] = (0, react_1.useState)(props.llm.name);
+    const [selectedModel, setSelectedModel] = (0, react_1.useState)(props.llm.model);
     const [openKey, setOpenKey] = (0, react_1.useState)(null); // State for the open accordion
     const [pastedImage, setPastedImage] = (0, react_1.useState)(null); // State for pasted image
     // Add these to your existing state declarations
@@ -201386,13 +203595,13 @@ function Chat(props) {
             }
         }
     };
-    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col fixed left-[2.5%] right-[2.5%] bottom-3 w-[95%] rounded-lg p-2 mx-auto bg-white shadow-lg text-black dark:text-white dark:bg-zinc-800", children: [(0, jsx_runtime_1.jsxs)("div", { className: 'flex items-center justify-between', children: [(0, jsx_runtime_1.jsxs)("div", { className: 'flex gap-2', children: [(0, jsx_runtime_1.jsx)("div", { className: 'flex items-center space-x-2', children: (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("button", { className: "p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-md transition-all", onClick: () => {
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col fixed left-[2.5%] right-[2.5%] bottom-3 w-[95%] rounded-lg p-2 mx-auto bg-white shadow-lg text-black dark:text-white dark:bg-zinc-800", children: [(0, jsx_runtime_1.jsxs)("div", { className: 'flex items-center justify-between mb-2', children: [(0, jsx_runtime_1.jsxs)("div", { className: 'flex gap-2', children: [(0, jsx_runtime_1.jsx)("div", { className: 'flex items-center space-x-2', children: (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)("button", { className: "p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-md transition-all", onClick: () => {
                                                 setChatDropdown(!chatDropdown);
                                                 setModelDropdown(false);
                                             }, children: (0, jsx_runtime_1.jsx)(lucide_react_1.PlusIcon, { size: 14, className: "text-black dark:text-zinc-300 hover:rotate-45 transition-transform duration-200" }) }), (0, jsx_runtime_1.jsx)("button", { className: "p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-md transition-all", onClick: () => {
                                                 setChatDropdown(false);
                                                 setModelDropdown(!modelDropdown);
-                                            }, children: modelDropdown ? ((0, jsx_runtime_1.jsx)(lucide_react_1.ChevronDown, { size: 14, className: "text-black dark:text-zinc-300" })) : ((0, jsx_runtime_1.jsx)(lucide_react_1.ChevronUp, { size: 14, className: "text-black dark:text-zinc-300" })) })] }) }), (0, jsx_runtime_1.jsxs)("div", { className: "flex items-center space-x-2", children: [pastedImage && ((0, jsx_runtime_1.jsx)(ResourceChip, { icon: lucide_react_1.ImageIcon, label: "Image", onRemove: () => setPastedImage(null) })), uploadedFile && ((0, jsx_runtime_1.jsx)(ResourceChip, { icon: lucide_react_1.Upload, label: "File", onRemove: () => setUploadedFile(null) })), websites.length > 0 && ((0, jsx_runtime_1.jsx)(ResourceChip, { icon: lucide_react_1.Globe, label: "Websites", count: websites.length, onRemove: () => setWebsites([]) })), youtubeUrls.length > 0 && ((0, jsx_runtime_1.jsx)(ResourceChip, { icon: fa_1.FaYoutube, label: "YouTube", count: youtubeUrls.length, onRemove: () => setYoutubeUrls([]) })), webSearchEnabled && ((0, jsx_runtime_1.jsx)(ResourceChip, { icon: lucide_react_1.Search, label: "Web Search", onRemove: () => setWebSearchEnabled(false) }))] })] }), (0, jsx_runtime_1.jsx)("div", { className: 'flex items-center', children: (0, jsx_runtime_1.jsxs)("p", { className: 'text-xs text-gray-500 dark:text-gray-400', children: ["In Use", ' ', (0, jsx_runtime_1.jsx)("span", { className: "font-semibold text-gray-700 dark:text-gray-300", children: selectedModel })] }) })] }), (0, jsx_runtime_1.jsxs)("div", { className: 'flex items-start', children: [(0, jsx_runtime_1.jsx)("textarea", { id: 'chat-input', value: inputValue, onChange: (e) => {
+                                            }, children: modelDropdown ? ((0, jsx_runtime_1.jsx)(lucide_react_1.ChevronDown, { size: 14, className: "text-black dark:text-zinc-300" })) : ((0, jsx_runtime_1.jsx)(lucide_react_1.ChevronUp, { size: 14, className: "text-black dark:text-zinc-300" })) })] }) }), (0, jsx_runtime_1.jsxs)("div", { className: "flex items-center space-x-2", children: [pastedImage && ((0, jsx_runtime_1.jsx)(ResourceChip, { icon: lucide_react_1.ImageIcon, label: "Image", onRemove: () => setPastedImage(null) })), uploadedFile && ((0, jsx_runtime_1.jsx)(ResourceChip, { icon: lucide_react_1.Upload, label: "File", onRemove: () => setUploadedFile(null) })), websites.length > 0 && ((0, jsx_runtime_1.jsx)(ResourceChip, { icon: lucide_react_1.Globe, label: "Websites", count: websites.length, onRemove: () => setWebsites([]) })), youtubeUrls.length > 0 && ((0, jsx_runtime_1.jsx)(ResourceChip, { icon: fa_1.FaYoutube, label: "YouTube", count: youtubeUrls.length, onRemove: () => setYoutubeUrls([]) })), webSearchEnabled && ((0, jsx_runtime_1.jsx)(ResourceChip, { icon: lucide_react_1.Search, label: "Web Search", onRemove: () => setWebSearchEnabled(false) }))] })] }), (0, jsx_runtime_1.jsx)("div", { className: 'flex items-center', children: (0, jsx_runtime_1.jsxs)("p", { className: 'text-xs text-gray-500 dark:text-gray-400', children: ["In Use", ' ', (0, jsx_runtime_1.jsxs)("span", { className: "font-semibold text-gray-700 dark:text-gray-300", children: [selectedSource, " : ", selectedModel] })] }) })] }), (0, jsx_runtime_1.jsxs)("div", { className: 'flex items-start', children: [(0, jsx_runtime_1.jsx)("textarea", { id: 'chat-input', value: inputValue, onChange: (e) => {
                             setInputValue(e.target.value);
                             e.target.style.height = 'auto';
                             e.target.style.height = `${e.target.scrollHeight}px`;
@@ -201460,9 +203669,6 @@ const { oneLight } = __webpack_require__(/*! react-syntax-highlighter/dist/cjs/s
 const { Clipboard } = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/lucide-react.js");
 function Markdown(props) {
     const { theme, vscode, message } = props;
-    console.log("Markdown theme: ", theme);
-    console.log("Markdown vscode: ", vscode);
-    console.log("Markdown message: ", message);
     const customStyle = theme === 'dark' ? {
         ...vscDarkPlus,
         'pre[class*="language-"]': {
@@ -201541,31 +203747,29 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Logo = Logo;
 exports["default"] = Message;
 const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+const react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 const MoonLoader_1 = __importDefault(__webpack_require__(/*! react-spinners/MoonLoader */ "./node_modules/react-spinners/MoonLoader.js"));
 const Markdown_1 = __importDefault(__webpack_require__(/*! ./Markdown */ "./src/webview/components/Markdown.tsx"));
 function Logo() {
     return ((0, jsx_runtime_1.jsx)("div", { className: "w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-4 h-4 bg-white rounded-full" }) }) }));
 }
 function Message(props) {
-    const { icon, theme, vscode, user, model, animate, message } = props;
+    const { icon, theme, vscode, user, animate, message } = props;
+    const [loadingText, setLoadingText] = (0, react_1.useState)("Typing...");
     const imageSrc = user?.picture;
     const name = user?.name;
-    console.log("Message in Message.tsx: ", message);
     const loadingTexts = ["Parsing", "Interpreting", "Generating", "Loading"];
-    if (animate) {
-        setTimeout(() => {
+    (0, react_1.useEffect)(() => {
+        if (animate) {
             let i = 0;
-            setInterval(() => {
-                document.getElementById("loading-text").innerHTML = `${loadingTexts[i % 4]}...`;
+            const interval = setInterval(() => {
+                setLoadingText(`${loadingTexts[i % 4]}...`);
                 i++;
-            }, 1000 * (2 * i + 1));
-        }, 1000);
-    }
-    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col w-full animate-fade-in", children: [(0, jsx_runtime_1.jsxs)("div", { className: "flex items-center", children: [(0, jsx_runtime_1.jsx)("div", { className: "flex items-center justify-center", children: icon === 'chatbot' ? ((0, jsx_runtime_1.jsx)(Logo, {})) : ((0, jsx_runtime_1.jsx)("div", { className: "w-8 h-8 overflow-hidden rounded-full bg-gray-200", children: (0, jsx_runtime_1.jsx)("img", { src: imageSrc, alt: "user", className: 'w-full h-full object-cover' }) })) }), (0, jsx_runtime_1.jsx)("span", { className: 'ml-3 font-medium text-sm text-gray-700 dark:text-gray-300', children: icon === 'chatbot' ? 'Analyz' : name })] }), (0, jsx_runtime_1.jsx)("div", { className: `font-normal rounded-md text-black dark:text-white apply-my-2`, children: animate ?
-                    (0, jsx_runtime_1.jsxs)("div", { className: "flex items-center my-5", children: [(0, jsx_runtime_1.jsx)(MoonLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', loading: animate, size: 20, "aria-label": "Loading Spinner", "data-testid": "loader" }), (0, jsx_runtime_1.jsx)("p", { id: "loading-text", className: "ml-3 text-gray-500 dark:text-gray-400", children: "Typing..." })] })
-                    : (0, jsx_runtime_1.jsx)(Markdown_1.default, { vscode: vscode, theme: theme, message: message }) }), icon == "chatbot" ?
-                (0, jsx_runtime_1.jsxs)("p", { className: 'text-[0.7rem] mt-2 text-gray-500 dark:text-gray-400 text-right', children: ["Generated By: ", (0, jsx_runtime_1.jsx)("span", { className: "font-semibold text-[0.8rem] text-gray-700 dark:text-gray-300", children: model })] }) :
-                null] }));
+            }, 1000); // Update every second
+            return () => clearInterval(interval); // Cleanup on component unmount
+        }
+    }, [animate]);
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col w-full animate-fade-in", children: [(0, jsx_runtime_1.jsxs)("div", { className: "flex items-center", children: [(0, jsx_runtime_1.jsx)("div", { className: "flex items-center justify-center", children: icon === 'chatbot' ? ((0, jsx_runtime_1.jsx)(Logo, {})) : ((0, jsx_runtime_1.jsx)("div", { className: "w-8 h-8 overflow-hidden rounded-full bg-gray-200", children: (0, jsx_runtime_1.jsx)("img", { src: imageSrc, alt: "user", className: 'w-full h-full object-cover' }) })) }), (0, jsx_runtime_1.jsx)("span", { className: 'ml-3 font-medium text-sm text-gray-700 dark:text-gray-300', children: icon === 'chatbot' ? 'Analyz' : name })] }), (0, jsx_runtime_1.jsx)("div", { className: `font-normal rounded-md text-black dark:text-white apply-my-2`, children: animate ? ((0, jsx_runtime_1.jsxs)("div", { className: "flex items-center my-5", children: [(0, jsx_runtime_1.jsx)(MoonLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', loading: animate, size: 20, "aria-label": "Loading Spinner", "data-testid": "loader" }), (0, jsx_runtime_1.jsx)("p", { className: "ml-3 text-gray-500 dark:text-gray-400", children: loadingText })] })) : ((0, jsx_runtime_1.jsx)(Markdown_1.default, { vscode: vscode, theme: theme, message: message })) })] }));
 }
 
 
@@ -201610,12 +203814,25 @@ const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modul
 const react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 const ChatContainer_1 = __importDefault(__webpack_require__(/*! ../components/ChatContainer */ "./src/webview/components/ChatContainer.tsx"));
 const BounceLoader_1 = __importDefault(__webpack_require__(/*! react-spinners/BounceLoader */ "./node_modules/react-spinners/BounceLoader.js"));
+const History_1 = __importDefault(__webpack_require__(/*! ../components/History */ "./src/webview/components/History.tsx"));
 const vscode = acquireVsCodeApi();
+const { v4: uuidv4 } = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/commonjs-browser/index.js");
 const App = () => {
     const [theme, setTheme] = (0, react_1.useState)('light');
-    const [isAuthenticated, setIsAuthenticated] = (0, react_1.useState)(false);
+    const [page, setPage] = (0, react_1.useState)('loading');
     const [user, setUser] = (0, react_1.useState)(null);
-    const [loading, setLoading] = (0, react_1.useState)(true);
+    const [tokenData, setTokenData] = (0, react_1.useState)(null);
+    const [chat, setChat] = (0, react_1.useState)({
+        run_id: null,
+        run_name: '',
+        llm: {
+            name: 'ollama',
+            model: 'mistral:latest'
+        },
+        chat_history: []
+    });
+    console.log("Chat set to ");
+    console.log(chat);
     (0, react_1.useEffect)(() => {
         const handleMessage = (event) => {
             const message = event.data;
@@ -201625,29 +203842,43 @@ const App = () => {
                     setTheme(theme === 1 || theme === 4 ? 'light' : 'dark');
                     break;
                 case 'auth-success':
-                    setIsAuthenticated(true);
+                    setChat({
+                        run_id: null,
+                        run_name: '',
+                        llm: {
+                            name: 'ollama',
+                            model: 'mistral:latest'
+                        },
+                        chat_history: []
+                    });
+                    setPage('chat');
                     setUser(message.user);
+                    setTokenData(message.token);
+                    console.log(message.token);
                     break;
                 case 'auth-status':
-                    setIsAuthenticated(message.value);
-                    setLoading(false);
-                    setUser(message.user);
+                    if (message.value) {
+                        setPage('chat');
+                        setUser(message.user);
+                        setTokenData(message.token);
+                        console.log(message.token);
+                    }
+                    else {
+                        setPage('login');
+                    }
                     break;
             }
         };
         window.addEventListener('message', handleMessage);
         // Check auth status on mount
+        //! Uncomment this line
         vscode.postMessage({ type: 'check-auth-status' });
         return () => {
             window.removeEventListener('message', handleMessage);
         };
     }, []);
-    return ((0, jsx_runtime_1.jsx)("div", { className: `relative ${theme === 'dark' ? 'dark' : 'light'}`, children: loading ?
-            (0, jsx_runtime_1.jsx)("div", { className: 'flex flex-col justify-center items-center h-[85vh] mt-5', children: (0, jsx_runtime_1.jsx)(BounceLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', size: 45, "aria-label": "Loading Spinner", "data-testid": "loader" }) }) :
-            isAuthenticated ?
-                (0, jsx_runtime_1.jsx)(ChatContainer_1.default, { vscode: vscode, theme: theme, user: user })
-                :
-                    (0, jsx_runtime_1.jsx)(Login, {}) }));
+    return ((0, jsx_runtime_1.jsxs)("div", { className: `relative ${theme === 'dark' ? 'dark' : 'light'}`, children: [page == "loading" &&
+                (0, jsx_runtime_1.jsx)("div", { className: 'flex flex-col justify-center items-center h-[85vh] mt-5', children: (0, jsx_runtime_1.jsx)(BounceLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', size: 45, "aria-label": "Loading Spinner", "data-testid": "loader" }) }), page == "chat" && (0, jsx_runtime_1.jsx)(ChatContainer_1.default, { setChat: setChat, token: tokenData, setPage: setPage, chat: chat, vscode: vscode, theme: theme, user: user }), page == "login" && (0, jsx_runtime_1.jsx)(Login, {}), page == "history" && (0, jsx_runtime_1.jsx)(History_1.default, { theme: theme, setPage: setPage, setChat: setChat, token: tokenData })] }));
 };
 exports.App = App;
 function Login() {
@@ -201680,7 +203911,7 @@ function WelcomeScreen() {
         { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Image, { className: "w-5 h-5" }), text: "Analyse Images" },
         { icon: (0, jsx_runtime_1.jsx)(lucide_react_1.Layers, { className: "w-5 h-5" }), text: "Access to Multiple Models" }
     ];
-    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col items-center justify-center min-h-[400px] p-8 space-y-6", children: [(0, jsx_runtime_1.jsx)("div", { className: "w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-6 h-6 bg-white rounded-full" }) }) }), (0, jsx_runtime_1.jsxs)("div", { className: "text-center space-y-2", children: [(0, jsx_runtime_1.jsx)("h1", { className: "text-2xl font-bold text-gray-800 dark:text-gray-100", children: "Welcome to Analyz" }), (0, jsx_runtime_1.jsxs)("p", { className: "text-gray-600 dark:text-gray-300", children: ["Your AI-powered ", (0, jsx_runtime_1.jsx)("span", { className: "text-blue-600 dark:text-blue-400 font-bold", children: "coding" }), " assistant"] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "w-full max-w-md", children: [(0, jsx_runtime_1.jsx)("h2", { className: "text-sm font-medium text-gray-500 dark:text-gray-400 mb-4", children: "I can help you with:" }), (0, jsx_runtime_1.jsx)("div", { className: "grid grid-cols-1 gap-4", children: features.map((feature, index) => ((0, jsx_runtime_1.jsxs)("div", { className: "flex items-center space-x-3 p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors", children: [(0, jsx_runtime_1.jsx)("div", { className: "text-blue-500 dark:text-blue-400", children: feature.icon }), (0, jsx_runtime_1.jsx)("span", { className: "text-gray-700 dark:text-gray-300", children: feature.text })] }, index))) })] }), (0, jsx_runtime_1.jsx)("div", { className: "mt-8", children: (0, jsx_runtime_1.jsx)("p", { className: "text-sm text-gray-500 dark:text-gray-400", children: "Type your question to get started!" }) })] }));
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col items-center justify-center min-h-[400px] space-y-6", children: [(0, jsx_runtime_1.jsx)("div", { className: "w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center", children: (0, jsx_runtime_1.jsx)("div", { className: "w-6 h-6 bg-white rounded-full" }) }) }), (0, jsx_runtime_1.jsxs)("div", { className: "text-center space-y-2", children: [(0, jsx_runtime_1.jsx)("h1", { className: "text-2xl font-bold text-gray-800 dark:text-gray-100", children: "Welcome to Analyz" }), (0, jsx_runtime_1.jsxs)("p", { className: "text-gray-600 dark:text-gray-300", children: ["Your AI-powered ", (0, jsx_runtime_1.jsx)("span", { className: "text-blue-600 dark:text-blue-400 font-bold", children: "coding" }), " assistant"] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "w-full max-w-md", children: [(0, jsx_runtime_1.jsx)("h2", { className: "text-sm font-medium text-gray-500 dark:text-gray-400 mb-4", children: "I can help you with:" }), (0, jsx_runtime_1.jsx)("div", { className: "grid grid-cols-1 gap-4", children: features.map((feature, index) => ((0, jsx_runtime_1.jsxs)("div", { className: "flex items-center space-x-3 p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors", children: [(0, jsx_runtime_1.jsx)("div", { className: "text-blue-500 dark:text-blue-400", children: feature.icon }), (0, jsx_runtime_1.jsx)("span", { className: "text-gray-700 dark:text-gray-300", children: feature.text })] }, index))) })] }), (0, jsx_runtime_1.jsx)("div", { className: "mt-8", children: (0, jsx_runtime_1.jsx)("p", { className: "text-sm text-gray-500 dark:text-gray-400", children: "Type your question to get started!" }) })] }));
 }
 
 

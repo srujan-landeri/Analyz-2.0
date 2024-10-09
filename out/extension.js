@@ -38,18 +38,6 @@ const REDIRECT_URI = 'http://localhost:54321/callback';
 function activate(context) {
     const analyzViewProvider = new AnalyzViewProvider(context.extensionUri, context);
     context.subscriptions.push(vscode.window.registerWebviewViewProvider(AnalyzViewProvider.viewType, analyzViewProvider));
-    // Register a command that logs out the user
-    context.subscriptions.push(vscode.commands.registerCommand('analyz.logout', async () => {
-        await context.secrets.delete('google-token');
-        vscode.window.showInformationMessage('Logged out successfully');
-        // Send logout message to the webview
-        if (analyzViewProvider._view && analyzViewProvider._view.webview) {
-            analyzViewProvider._view.webview.postMessage({
-                type: 'auth-status',
-                value: false
-            });
-        }
-    }));
 }
 class AnalyzViewProvider {
     constructor(_extensionUri, context) {
@@ -73,20 +61,36 @@ class AnalyzViewProvider {
                 case 'check-auth-status':
                     const token = await this.context.secrets.get('google-token');
                     const user = await this.context.secrets.get('google-user');
-                    console.log("Checking status " + token);
+                    // check if token is there
+                    if (!token) {
+                        webviewView.webview.postMessage({
+                            type: 'auth-status',
+                            value: false
+                        });
+                        return;
+                    }
+                    // check if token is valid
+                    const userResponse = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    const userData = await userResponse.json();
+                    if (userData.error) {
+                        vscode.window.showInformationMessage('Session Expired. Please login again.');
+                        this.handleLogout();
+                        return;
+                    }
+                    // Send auth status to webview
                     webviewView.webview.postMessage({
                         type: 'auth-status',
                         value: !!token,
-                        user: user ? JSON.parse(user) : null
+                        user: user ? JSON.parse(user) : null,
+                        token: token
                     });
                     return;
                 case 'logout':
-                    await this.context.secrets.delete('google-token');
-                    webviewView.webview.postMessage({
-                        type: 'auth-status',
-                        value: false
-                    });
-                    return;
+                    this.handleLogout();
                 case 'info':
                     vscode.window.showInformationMessage(data.message);
                     return;
@@ -95,6 +99,16 @@ class AnalyzViewProvider {
                     return;
             }
         });
+    }
+    async handleLogout() {
+        await this.context.secrets.delete('google-token');
+        await this.context.secrets.delete('google-user');
+        if (this._view) {
+            this._view.webview.postMessage({
+                type: 'auth-status',
+                value: false
+            });
+        }
     }
     async handleGoogleLogin() {
         const state = Math.random().toString(36).substring(7);
@@ -138,7 +152,8 @@ class AnalyzViewProvider {
                 if (this._view) {
                     this._view.webview.postMessage({
                         type: 'auth-success',
-                        user: userData
+                        user: userData,
+                        token: tokenData.access_token
                     });
                 }
                 res.end('Authentication successful! You can close this window.');
