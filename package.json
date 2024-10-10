@@ -70,6 +70,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.6.0",
     "@react-oauth/google": "^0.12.1",
     "lucide-react": "^0.447.0",
     "node-fetch": "^3.3.2",

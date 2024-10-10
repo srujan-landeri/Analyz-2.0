@@ -1,14 +1,1 @@
-# Welcome to Chainlit! 🚀🤖
-
-Hi there, Developer! 👋 We're excited to have you on board. Chainlit is a powerful tool designed to help you prototype, debug and share applications built on top of LLMs.
-
-## Useful Links 🔗
-
-- **Documentation:** Get started with our comprehensive [Chainlit Documentation](https://docs.chainlit.io) 📚
-- **Discord Community:** Join our friendly [Chainlit Discord](https://discord.gg/k73SQ3FyUh) to ask questions, share your projects, and connect with other developers! 💬
-
-We can't wait to see what you create with Chainlit! Happy coding! 💻😊
-
-## Welcome screen
-
-To modify the welcome screen, edit the `chainlit.md` file at the root of your project. If you do not want a welcome screen, just leave this file empty.
+Here are the latest research papers related to Generative AI:\n\n1. **Title:** \"Weak AI\" is Likely to Never Become \"Strong AI\", So What is its Greatest Value for us?\n   - **Authors:** Huimin Peng\n   - **Summary:** This paper briefly reviews the history of meta-learning and describes its contribution to general AI. It summarizes main contributions of meta-learning to the developments in general AI, including memory module, meta-learner, coevolution, curiosity, forgetting and AI-generating algorithm.\n   - **Link:** [Read more](http://arxiv.org/abs/2101.04283v1)\n\n2. **Title:** Interaction Design for Human-AI Choreography Co-creation\n   - **Authors:** Yimeng Liu\n   - **Summary:** This paper explores AI-assisted choreography techniques and analyzes interaction design to inform the design considerations of future human-AI choreography co-creation systems.\n   - **Link:** [Read more](http://arxiv.org/abs/2405.03999v1)\n\n3. **Title:** A Brief Survey of Associations Between Meta-Learning and General AI\n   - **Authors:** Aastha Pant, Rashina Hoda, Simone V. Spiegler, Chakkrit Tantithamthavorn, Burak Turhan\n   - **Summary:** Understanding AI practitioners' views on AI ethics is important as they are the ones closest to the AI systems and can bring about changes and improvements. This paper conducted a survey aimed at understanding AI practitioners' awareness of AI ethics and their challenges in incorporating ethics.\n   - **Link:** [Read more](http://arxiv.org/abs/2307.10057v1)\n\n4. **Title:** Ethics in the Age of AI: An Analysis of AI Practitioners' Awareness and Challenges\n   - **Authors:** Bin Liu\n   - **Summary:** This paper discusses the history of meta-learning and its contribution to general AI. It explains how to judge which paradigm a research work should be classified into and discusses what is the greatest value of \"weak AI\" if it has no chance to develop into \"strong AI\".\n   - **Link:** [Read more](http://arxiv.org/abs/2103.15294v1)"

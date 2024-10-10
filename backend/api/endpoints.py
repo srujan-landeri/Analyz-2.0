@@ -93,9 +93,9 @@ async def generate_response(
     import utils.assistant_utils as assistant_utils
     import utils.authenticate_utils as auth_utils
     import utils.vision_utils as vision_utils
+    import json
 
     try:
-        # Extract relevant request parameters
         message, inference_engine, model, access_token, run_id, input_references = (
             request.message, 
             request.inference_engine, 
@@ -105,34 +105,43 @@ async def generate_response(
             request.input_references
         )
 
-        user = await auth_utils.authenticate(access_token)
-        identifier = user["user_info"]["email"]
+        identifier = "srujanlanderi@gmail.com"
         run_name = None
             
         if run_id is None:
             run_name = assistant_utils.generate_run_name(message)
 
         references_for_model = {}
-        
+        input_references = json.loads(input_references) if input_references else None      
+    
         if input_references:    
             # process input_references
             image_description = None
             if input_references.get("image"):
                 image_description = await vision_utils.describe_image(input_references["image"])
                 references_for_model["image_description"] = image_description
-        
+                del input_references["image"]
+                
+            if input_references.get("websites"):
+                references_for_model["websites"] = input_references["websites"]
+                
+            if input_references.get("youtube"):
+                references_for_model["youtube"] = input_references["youtube"]
+            
         assistant, current_run_id = assistant_utils.get_assistant(
             user=identifier, 
             run_id=run_id, 
             run_name=run_name, 
-            references=references_for_model
+            references=references_for_model,
+            reference_string=json.dumps(input_references)
         )
-
-        response = assistant_utils.generate_response(assistant, message, inference_engine, model)
         
+        response = assistant_utils.generate_response(assistant, message, inference_engine, model)
+        from rich.pretty import pprint
+        pprint("Call History " + assistant.get_tool_call_history())
         return {
             "response": response,
-            "run_id": current_run_id
+            "run_id": current_run_id,
         }
     
     except HTTPException as e:

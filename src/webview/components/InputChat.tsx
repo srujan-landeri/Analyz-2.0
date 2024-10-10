@@ -27,20 +27,17 @@ export default function Chat(props: any) {
         groq: [{ icon: 'text', model: 'llama3-groq-70b-8192-tool-use-preview' }, { icon: 'text', model: 'llama-3.1-70b-versatile' }, { icon: 'image', model: 'llama-3.2-11b-vision-preview' }],
     };
 
-    
-
     const [selectedSource, setSelectedSource] = useState(props.llm.name);
     const [selectedModel, setSelectedModel] = useState(props.llm.model);
     const [openKey, setOpenKey] = useState(null); // State for the open accordion
-    const [pastedImage, setPastedImage] = useState<string | null>(null); // State for pasted image
 
     // Add these to your existing state declarations
     const [fileModal, setFileModal] = useState<any>(false);
     const [websiteModal, setWebsiteModal] = useState<any>(false);
     const [youtubeModal, setYoutubeModal] = useState<any>(false);
-    const [webSearchEnabled, setWebSearchEnabled] = useState<any>(false);
 
     // Add these to your existing state declarations
+    const [pastedImage, setPastedImage] = useState<string | null>(null); // State for pasted image
     const [uploadedFile, setUploadedFile] = useState<File | null>(null);
     const [websites, setWebsites] = useState<any>([]);
     const [youtubeUrls, setYoutubeUrls] = useState<any>([]);
@@ -50,14 +47,37 @@ export default function Chat(props: any) {
     const disabled = props.disabled;
 
     const handleToggle = (key: any) => {
-        setSelectedSource(key);
+        setSelectedSource(key.toLowerCase());
         setOpenKey(openKey === key ? null : key);
     };
 
     const handleSendMessage = () => {
-        if (inputValue === '') return
-        if (disabled) return
+        if (inputValue === '' || disabled) return;
 
+        // Build references object
+        let references = {};
+
+        // Add encoded image if it exists
+        if (pastedImage) {
+            references = { ...references, image: pastedImage };
+        }
+
+        // Add websites if any exist
+        if (websites.length > 0) {
+            references = { ...references, websites: websites }; 
+        }
+
+        // Add YouTube references if they exist
+        if (youtubeUrls.length > 0) {
+            references = { ...references, youtube: youtubeUrls };
+        }
+
+        // If references object exists, convert it to a string; otherwise, set referencesString to null
+        const referencesString = references
+            ? JSON.stringify(references)
+            : null;
+
+        // Construct the new message object
         const newMessage = {
             icon: 'user',
             message: inputValue,
@@ -66,15 +86,15 @@ export default function Chat(props: any) {
                 source: selectedSource,
             },
             id: uuidv4(),
+            references: referencesString
         };
+
         props.addMessage(newMessage);
         setInputValue('');
 
         const input = document.getElementById('chat-input') as HTMLTextAreaElement;
         input.style.height = `30px`;
-
     };
-
 
     function handleVoiceInput() {
         vscode.postMessage({
@@ -149,6 +169,7 @@ export default function Chat(props: any) {
                     reader.onload = (event) => {
                         if (event.target && typeof event.target.result === 'string') {
                             setPastedImage(event.target.result); // Set the pasted image as base64
+                            console.log(event.target.result);
                         }
                     };
 
@@ -166,75 +187,68 @@ export default function Chat(props: any) {
             <div className='flex items-center justify-between mb-2'>
                 <div className='flex gap-2'>
 
-                <div className='flex items-center space-x-2'>
-                    <div>
-                        <button
-                            className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-md transition-all"
-                            onClick={() => {
-                                setChatDropdown(!chatDropdown)
-                                setModelDropdown(false)
-                            }}
-                        >
-                            <PlusIcon
-                                size={14}
-                                className="text-black dark:text-zinc-300 hover:rotate-45 transition-transform duration-200"
-                            />
-                        </button>
+                    <div className='flex items-center space-x-2'>
+                        <div>
+                            <button
+                                className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-md transition-all"
+                                onClick={() => {
+                                    setChatDropdown(!chatDropdown)
+                                    setModelDropdown(false)
+                                }}
+                            >
+                                <PlusIcon
+                                    size={14}
+                                    className="text-black dark:text-zinc-300 hover:rotate-45 transition-transform duration-200"
+                                />
+                            </button>
 
-                        <button
-                            className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-md transition-all"
-                            onClick={() => {
-                                setChatDropdown(false)
-                                setModelDropdown(!modelDropdown)
-                            }}
-                        >
-                            {modelDropdown ? (
-                                <ChevronDown size={14} className="text-black dark:text-zinc-300" />
-                            ) : (
-                                <ChevronUp size={14} className="text-black dark:text-zinc-300" />
-                            )}
-                        </button>
+                            <button
+                                className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-md transition-all"
+                                onClick={() => {
+                                    setChatDropdown(false)
+                                    setModelDropdown(!modelDropdown)
+                                }}
+                            >
+                                {modelDropdown ? (
+                                    <ChevronDown size={14} className="text-black dark:text-zinc-300" />
+                                ) : (
+                                    <ChevronUp size={14} className="text-black dark:text-zinc-300" />
+                                )}
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div className="flex items-center space-x-2">
-                    {pastedImage && (
-                        <ResourceChip
-                            icon={ImageIcon}
-                            label="Image"
-                            onRemove={() => setPastedImage(null)}
-                        />
-                    )}
-                    {uploadedFile && (
-                        <ResourceChip
-                            icon={Upload}
-                            label="File"
-                            onRemove={() => setUploadedFile(null)}
-                        />
-                    )}
-                    {websites.length > 0 && (
-                        <ResourceChip
-                            icon={Globe}
-                            label="Websites"
-                            count={websites.length}
-                            onRemove={() => setWebsites([])}
-                        />
-                    )}
-                    {youtubeUrls.length > 0 && (
-                        <ResourceChip
-                            icon={FaYoutube}
-                            label="YouTube"
-                            count={youtubeUrls.length}
-                            onRemove={() => setYoutubeUrls([])}
-                        />
-                    )}
-                    {webSearchEnabled && (
-                        <ResourceChip
-                            icon={Search}
-                            label="Web Search"
-                            onRemove={() => setWebSearchEnabled(false)}
-                        />
-                    )}
-                </div>
+                    <div className="flex items-center space-x-2">
+                        {pastedImage && (
+                            <ResourceChip
+                                icon={ImageIcon}
+                                label="Image"
+                                onRemove={() => setPastedImage(null)}
+                            />
+                        )}
+                        {uploadedFile && (
+                            <ResourceChip
+                                icon={Upload}
+                                label="File"
+                                onRemove={() => setUploadedFile(null)}
+                            />
+                        )}
+                        {websites.length > 0 && (
+                            <ResourceChip
+                                icon={Globe}
+                                label="Websites"
+                                count={websites.length}
+                                onRemove={() => setWebsites([])}
+                            />
+                        )}
+                        {youtubeUrls.length > 0 && (
+                            <ResourceChip
+                                icon={FaYoutube}
+                                label="YouTube"
+                                count={youtubeUrls.length}
+                                onRemove={() => setYoutubeUrls([])}
+                            />
+                        )}
+                    </div>
                 </div>
 
 
@@ -311,17 +325,6 @@ export default function Chat(props: any) {
                 >
                     <FaYoutube size={18} className='text-black dark:text-white' />
                     <p className='text-xs'>Youtube URL</p>
-                </div>
-
-                <div
-                    className='flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700'
-                    onClick={() => {
-                        setWebSearchEnabled(!webSearchEnabled);
-                        setChatDropdown(false);
-                    }}
-                >
-                    <Search size={18} className='text-black dark:text-white' />
-                    <p className='text-xs'>Allow Web Search</p>
                 </div>
             </div>
 

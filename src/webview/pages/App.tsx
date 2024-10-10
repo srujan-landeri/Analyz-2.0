@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ChatContainer from '../components/ChatContainer';
 import BounceLoader from "react-spinners/BounceLoader";
 import History from '../components/History';
+import CodeConvertor from '../components/CodeConvertor';
+import Flowchart from '../components/Flowchart';
 
 const vscode = acquireVsCodeApi();
 const { v4: uuidv4 } = require('uuid');
@@ -20,6 +22,7 @@ export const App: React.FC = () => {
         icon: string;
         message: string;
     }
+
     interface ChatHistory {
         run_id: string | null;
         run_name: string;
@@ -36,12 +39,8 @@ export const App: React.FC = () => {
             name: 'ollama',
             model: 'mistral:latest'
         },
-        chat_history: []
+        chat_history: [],
     });
-
-   
-    console.log("Chat set to ")
-    console.log(chat)
 
     useEffect(() => {
         const handleMessage = (event: any) => {
@@ -61,7 +60,7 @@ export const App: React.FC = () => {
                             name: 'ollama',
                             model: 'mistral:latest'
                         },
-                        chat_history: []
+                        chat_history: [],
                     })
                     setPage('chat');
                     setUser(message.user);
@@ -118,6 +117,14 @@ export const App: React.FC = () => {
 
             {
                 page == "history" && <History theme={theme} setPage={setPage} setChat={setChat} token = {tokenData}/>
+            }
+
+            {
+                page == "code-convertor" && <CodeConvertor/>
+            }
+
+            {
+                page == "flowchart" && <Flowchart/>
             }
         </div>
     );

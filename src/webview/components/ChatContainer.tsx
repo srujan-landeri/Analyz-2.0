@@ -3,7 +3,8 @@ import Message from './Message';
 import InputChat from './InputChat';
 import WelcomeScreen from '../pages/Welcome';
 const { v4: uuidv4 } = require('uuid');
-import { EllipsisVertical, PlusCircle, History, LogOut } from 'lucide-react';
+import { PlusCircle, History, LogOut, LayoutGrid, Code } from 'lucide-react';
+import { FcFlowChart } from "react-icons/fc";
 
 export default function ChatContainer(props: any) {
     const {
@@ -23,6 +24,7 @@ export default function ChatContainer(props: any) {
         id: string;
         icon: string;
         message: string;
+        references: string | null;
     }
 
     interface ModelType {
@@ -30,13 +32,15 @@ export default function ChatContainer(props: any) {
         source: string;
     }
 
-    const { run_name, llm, chat_history = [] } = chat;
+    const { run_name, llm, chat_history = [], llm_messages = [] } = chat;
     const [messages, setMessages] = useState<MessageType[]>(chat_history);
     const [loading, setLoading] = useState(false);
     const [run_id, setRunId] = useState(props.run_id == null ? null : props.run_id);
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = React.useRef(null);
+    const [isToolDropdownOpen, setIsToolDropdownOpen] = useState(false);
+    const tooldropdownRef = React.useRef(null);
 
     const handleNewChat = () => {
         setChat({
@@ -61,7 +65,7 @@ export default function ChatContainer(props: any) {
         vscode.postMessage({ type: 'logout' });
     }
 
-    const completeChat = async (message: string, model: ModelType) => {
+    const completeChat = async (message: string, model: ModelType, references: string) => {
 
         const typingMessageId = uuidv4();
 
@@ -71,6 +75,7 @@ export default function ChatContainer(props: any) {
                 id: typingMessageId,
                 icon: "chatbot",
                 message: "Typing...",
+                references: null
             }
         ]);
 
@@ -80,24 +85,25 @@ export default function ChatContainer(props: any) {
         const _run_id = run_id;
         const access_token = token;
 
-        let request_body = {};
+        let request_body: any = {};
 
-        if (_run_id == null) {
-            request_body = {
-                message: _message,
-                inference_engine: inference_engine,
-                model: model_name,
-                access_token: access_token
-            }
-        } else {
-            request_body = {
-                message: _message,
-                inference_engine: inference_engine,
-                model: model_name,
-                run_id: _run_id,
-                access_token: access_token
-            }
+        request_body = {
+            message: _message,
+            inference_engine: inference_engine,
+            model: model_name,
+            access_token: access_token
         }
+
+        if (_run_id != null) {
+            request_body['run_id'] = _run_id;
+        }
+
+        if (references != null) {
+            request_body['input_references'] = references;
+        }
+
+        console.log("Request body: ");
+        console.log(request_body);
 
         setLoading(true);
 
@@ -123,6 +129,7 @@ export default function ChatContainer(props: any) {
                     id: uuidv4(),
                     icon: "chatbot",
                     message: data.response,
+                    references: null
                 });
             });
         } catch (error) {
@@ -133,6 +140,7 @@ export default function ChatContainer(props: any) {
                     id: uuidv4(),
                     icon: "chatbot",
                     message: "Sorry, I couldn't get a response.",
+                    references: null
                 });
             });
         } finally {
@@ -140,12 +148,12 @@ export default function ChatContainer(props: any) {
         }
     };
 
-    const addMessage = (newMessage: { icon: string; message: string, model: ModelType, id: string }) => {
+    const addMessage = (newMessage: { icon: string; message: string, model: ModelType, id: string, references: string }) => {
         setMessages(prevMessages => [...prevMessages, newMessage]);
 
-        const { icon, message, model } = newMessage;
+        const { icon, message, model, references } = newMessage;
         if (icon === "user") {
-            completeChat(message, model); // Call completeChat with user message
+            completeChat(message, model, references); // Call completeChat with user message
         }
     };
 
@@ -153,8 +161,40 @@ export default function ChatContainer(props: any) {
         <>
             <div id={run_id} className='flex flex-col h-[85vh] mt-10'>
                 <div className='absolute w-full'>
-                    <div className='relative' ref={dropdownRef}>
+                    <div className='relative' ref={tooldropdownRef}>
 
+                        <button
+                            onClick={() => setIsToolDropdownOpen(!isToolDropdownOpen)}
+                            className='absolute top-[-32px] right-12 p-1 rounded-full hover:transform hover:scale-105 transition-all'
+                        >
+                            <div className="w-6 h-6 overflow-hidden">
+                                <LayoutGrid className="w-full h-full" />
+                            </div>
+                        </button>
+
+                        {isToolDropdownOpen && (
+                            <div className='absolute right-12 top-2 z-[500] w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
+                                <div className='py-1'>
+                                    <button
+                                        onClick={() => setPage('code-convertor')}
+                                        className='flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                                    >
+                                        <Code className="mr-2 h-4 w-4" />
+                                        Code Convertor
+                                    </button>
+                                    <button
+                                        onClick={() => setPage('flowcharts')}
+                                        className='flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                                    >
+                                        <FcFlowChart className="mr-2 h-4 w-4" />
+                                        Flowcharts
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    <div className='relative' ref={dropdownRef}>
 
                         <button
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -206,7 +246,7 @@ export default function ChatContainer(props: any) {
                 >
                     {messages.length > 0 ?
                         <div className='space-y-4'>
-                            {messages.map((msg) => (
+                            {messages.map((msg, ind) => (
 
                                 <Message
                                     key={msg.id}
@@ -216,6 +256,8 @@ export default function ChatContainer(props: any) {
                                     theme={theme}
                                     user={user}
                                     animate={msg.message === "Typing..."}
+                                    references={msg.references}
+                                // references={`["image_description", "web_search", {"youtube": {"url": 'https://youtube.com/watch?v=12345'}}, {"websites": ['https://site1.com', 'https://site2.com', 'https://site3.com']}]`}
                                 />
 
                             ))}

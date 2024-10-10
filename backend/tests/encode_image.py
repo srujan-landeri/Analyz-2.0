@@ -11,4 +11,9 @@ def encode_image(path: str):
         pyperclip.copy(string)
         print("Encoded string copied to clipboard.")
 
-encode_image(r'tests\temp.png')
+def load_json(string: str):
+    import json
+    print(json.loads(string))
+    return json.loads(string)
+
+encode_image("tests/temp.png")

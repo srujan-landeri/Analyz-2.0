@@ -9,6 +9,8 @@ const react_1 = require("react");
 const ChatContainer_1 = __importDefault(require("../components/ChatContainer"));
 const BounceLoader_1 = __importDefault(require("react-spinners/BounceLoader"));
 const History_1 = __importDefault(require("../components/History"));
+const CodeConvertor_1 = __importDefault(require("../components/CodeConvertor"));
+const Flowchart_1 = __importDefault(require("../components/Flowchart"));
 const vscode = acquireVsCodeApi();
 const { v4: uuidv4 } = require('uuid');
 const App = () => {
@@ -23,10 +25,8 @@ const App = () => {
             name: 'ollama',
             model: 'mistral:latest'
         },
-        chat_history: []
+        chat_history: [],
     });
-    console.log("Chat set to ");
-    console.log(chat);
     (0, react_1.useEffect)(() => {
         const handleMessage = (event) => {
             const message = event.data;
@@ -43,7 +43,7 @@ const App = () => {
                             name: 'ollama',
                             model: 'mistral:latest'
                         },
-                        chat_history: []
+                        chat_history: [],
                     });
                     setPage('chat');
                     setUser(message.user);
@@ -72,7 +72,7 @@ const App = () => {
         };
     }, []);
     return ((0, jsx_runtime_1.jsxs)("div", { className: `relative ${theme === 'dark' ? 'dark' : 'light'}`, children: [page == "loading" &&
-                (0, jsx_runtime_1.jsx)("div", { className: 'flex flex-col justify-center items-center h-[85vh] mt-5', children: (0, jsx_runtime_1.jsx)(BounceLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', size: 45, "aria-label": "Loading Spinner", "data-testid": "loader" }) }), page == "chat" && (0, jsx_runtime_1.jsx)(ChatContainer_1.default, { setChat: setChat, token: tokenData, setPage: setPage, chat: chat, vscode: vscode, theme: theme, user: user }), page == "login" && (0, jsx_runtime_1.jsx)(Login, {}), page == "history" && (0, jsx_runtime_1.jsx)(History_1.default, { theme: theme, setPage: setPage, setChat: setChat, token: tokenData })] }));
+                (0, jsx_runtime_1.jsx)("div", { className: 'flex flex-col justify-center items-center h-[85vh] mt-5', children: (0, jsx_runtime_1.jsx)(BounceLoader_1.default, { color: theme === 'dark' ? '#fff' : '#000', size: 45, "aria-label": "Loading Spinner", "data-testid": "loader" }) }), page == "chat" && (0, jsx_runtime_1.jsx)(ChatContainer_1.default, { setChat: setChat, token: tokenData, setPage: setPage, chat: chat, vscode: vscode, theme: theme, user: user }), page == "login" && (0, jsx_runtime_1.jsx)(Login, {}), page == "history" && (0, jsx_runtime_1.jsx)(History_1.default, { theme: theme, setPage: setPage, setChat: setChat, token: tokenData }), page == "code-convertor" && (0, jsx_runtime_1.jsx)(CodeConvertor_1.default, {}), page == "flowchart" && (0, jsx_runtime_1.jsx)(Flowchart_1.default, {})] }));
 };
 exports.App = App;
 function Login() {

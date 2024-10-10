@@ -100,7 +100,8 @@ def get_run_details(run_id: str) -> Dict[str, Any]:
                 "name": chat_details[4]['name'],
                 "model": chat_details[4]['model']
             },
-            "chat_history": chat_details[5]['chat_history']
+            "chat_history": chat_details[5]['chat_history'],
+            "llm_messages": chat_details[5]['llm_messages']
         }
     
     except (Exception, psycopg2.Error) as error:

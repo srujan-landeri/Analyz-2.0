@@ -1,10 +1,86 @@
 [
     {
-        "run_id": "901a68db-5b76-46dd-9485-8f217b505725",
-        "run_name": "\"HELLO WORLD PROGRAMS\"",
+        "run_id": "9394b042-b218-45ca-9f94-01eb559a576c",
+        "run_name": "Dijkstra's Algorithm",
+        "llm": {
+            "name": "Groq",
+            "model": "llama3-groq-70b-8192-tool-use-preview"
+        },
+        "chat_history": [
+            {
+                "role": "user",
+                "content": "Dijkstra's algorithm",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": "Dijkstra's algorithm is a graph search algorithm that finds the shortest path between nodes in a graph, which could represent, for example, road networks. It was conceived by computer scientist Edsger W. Dijkstra in 1956 and published three years later.\n\nDijkstra's algorithm works by maintaining a priority queue of nodes, sorted by their estimated total path cost from the start node. It repeatedly extracts the node with the lowest cost, updates the costs of its unvisited neighbors, and adds them to the priority queue. The algorithm terminates when the priority queue is empty, at which point the shortest path has been found.\n\nDijkstra's algorithm is guaranteed to find the shortest path in a graph with non-negative edge weights, as long as the priority queue is correctly implemented as a min-heap. However, it does not work with graphs containing edges of negative weight, because it is not designed to handle the possibility of negative cycles.\n\nDijkstra's algorithm has many applications in computer science and other fields, including network routing protocols, traffic light control, and video games. It is also used in many variations, such as A* search, which adds an admissible heuristic function to guide the search towards the goal.\n\nIn conclusion, Dijkstra's algorithm is a fundamental graph search algorithm that finds the shortest path between nodes in a graph. It is widely used in various fields and has many applications due to its efficiency and reliability.",
+                "metrics": {},
+                "tool_call_error": false
+            }
+        ],
+        "llm_messages": [
+            {
+                "role": "user",
+                "content": "Dijkstra's algorithm",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": "Dijkstra's algorithm is a graph search algorithm that finds the shortest path between nodes in a graph, which could represent, for example, road networks. It was conceived by computer scientist Edsger W. Dijkstra in 1956 and published three years later.\n\nDijkstra's algorithm works by maintaining a priority queue of nodes, sorted by their estimated total path cost from the start node. It repeatedly extracts the node with the lowest cost, updates the costs of its unvisited neighbors, and adds them to the priority queue. The algorithm terminates when the priority queue is empty, at which point the shortest path has been found.\n\nDijkstra's algorithm is guaranteed to find the shortest path in a graph with non-negative edge weights, as long as the priority queue is correctly implemented as a min-heap. However, it does not work with graphs containing edges of negative weight, because it is not designed to handle the possibility of negative cycles.\n\nDijkstra's algorithm has many applications in computer science and other fields, including network routing protocols, traffic light control, and video games. It is also used in many variations, such as A* search, which adds an admissible heuristic function to guide the search towards the goal.\n\nIn conclusion, Dijkstra's algorithm is a fundamental graph search algorithm that finds the shortest path between nodes in a graph. It is widely used in various fields and has many applications due to its efficiency and reliability.",
+                "metrics": {
+                    "time": 3.4337090000044554
+                },
+                "tool_call_error": false
+            }
+        ]
+    },
+    {
+        "run_id": "703b5af0-bee3-4c2f-9531-0bd6db89ade3",
+        "run_name": "System.out.println Returns",
         "llm": {
             "name": "Groq",
             "model": "llama-3.1-70b-versatile"
+        },
+        "chat_history": [
+            {
+                "role": "user",
+                "content": "What does System.out.println() return in java?",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": "In Java, `System.out.println()` does not return any value, it is a void method. It simply prints the string or other data you pass to it to the console, followed by a newline character. \n\nThe 'println' in `System.out.println()` stands for \"print line.\" It is a part of Java's `PrintStream` class. Sometimes people get confused with `System.out.print()` which is similar to `System.out.println()`, but it does not append a newline character at the end.\n\nHere's an example:\n\n```java\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");  // Prints 'Hello, World!' and goes to the next line\n        System.out.print(\"Hello, World!\");     // Prints 'Hello, World!' but does not go to the next line\n    }\n}\n```",
+                "metrics": {},
+                "tool_call_error": false
+            }
+        ],
+        "llm_messages": [
+            {
+                "role": "user",
+                "content": "What does System.out.println() return in java?",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": "In Java, `System.out.println()` does not return any value, it is a void method. It simply prints the string or other data you pass to it to the console, followed by a newline character. \n\nThe 'println' in `System.out.println()` stands for \"print line.\" It is a part of Java's `PrintStream` class. Sometimes people get confused with `System.out.print()` which is similar to `System.out.println()`, but it does not append a newline character at the end.\n\nHere's an example:\n\n```java\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");  // Prints 'Hello, World!' and goes to the next line\n        System.out.print(\"Hello, World!\");     // Prints 'Hello, World!' but does not go to the next line\n    }\n}\n```",
+                "metrics": {
+                    "time": 2.5616711000329815
+                },
+                "tool_call_error": false
+            }
+        ]
+    },
+    {
+        "run_id": "901a68db-5b76-46dd-9485-8f217b505725",
+        "run_name": "\"HELLO WORLD PROGRAMS\"",
+        "llm": {
+            "name": "Ollama",
+            "model": "mistral:latest"
         },
         "chat_history": [
             {
@@ -17,6 +93,224 @@
                 "role": "assistant",
                 "content": "Here is a \"Hello, World!\" program in multiple programming languages:\n\n### 1. Python\n```python\n# hello_world.py\n\ndef hello_world():\n    print(\"Hello, World!\")\n\nhello_world()\n```\n\n### 2. Java\n```java\n// HelloWorld.java\n\npublic class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}\n```\n\n### 3. C++\n```cpp\n// hello_world.cpp\n\n#include <iostream>\n\nint main() {\n    std::cout << \"Hello, World!\" << std::endl;\n    return 0;\n}\n```\n\n### 4. JavaScript\n```javascript\n// hello_world.js\n\nconsole.log(\"Hello, World!\");\n```\n\n### 5. C\n```c\n// hello_world.c\n\n#include <stdio.h>\n\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}\n```\n\n### 6. Ruby\n```ruby\n# hello_world.rb\n\nputs \"Hello, World!\"\n```\n\n### 7. Swift\n```swift\n// hello_world.swift\n\nimport Foundation\n\nprint(\"Hello, World!\")\n```\n\n### 8. PHP\n```php\n// hello_world.php\n\necho \"Hello, World!\";\n```\n\n### 9. Kotlin\n```kotlin\n// hello_world.kt\n\nfun main() {\n    println(\"Hello, World!\")\n}\n```\n\n### 10. Go\n```go\n// hello_world.go\n\npackage main\n\nimport \"fmt\"\n\nfunc main() {\n    fmt.Println(\"Hello, World!\")\n}\n```\n\n### 11. TypeScript\n```typescript\n// hello_world.ts\n\nconsole.log(\"Hello, World!\");\n```\n\n### 12. Rust\n```rust\n// hello_world.rs\n\nfn main() {\n    println!(\"Hello, World!\");\n}\n```\n\nYou can compile and run these programs using their respective compilers or interpreters.\n\n**Compiling and Running:**\n\n*   Python: `python hello_world.py`\n*   Java: `javac HelloWorld.java` then `java HelloWorld`\n*   C++: `g++ hello_world.cpp -o hello_world` then `./hello_world`\n*   JavaScript: `node hello_world.js`\n*   C: `gcc hello_world.c -o hello_world` then `./hello_world`\n*   Ruby: `ruby hello_world.rb`\n*   Swift: `swift hello_world.swift`\n*   PHP: `php hello_world.php`\n*   Kotlin: `kotlin hello_world.kt`\n*   Go: `go build hello_world.go` then `./hello_world`\n*   TypeScript: `node hello_world.ts` (with Node.js and TypeScript installed)\n*   Rust: `rustc hello_world.rs` then `./hello_world`",
                 "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "user",
+                "content": "Hi",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": " Hello! How can I help you today? Do you have any specific questions or topics in mind that you'd like to discuss or learn about? I'm here to assist you with programming-related inquiries, explain concepts, or provide tips and resources for your projects. Just let me know what you need, and I'll do my best to help!",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "user",
+                "content": "List out last 2 messages, I asked?",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": "Your last 2 messages were:\n\n1. Hello\n2. Hi",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "user",
+                "content": "Binary Search Program",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": " Sure, here's a simple implementation of binary search in Python:\n\n```python\ndef binary_search(arr, target):\n    low = 0\n    high = len(arr) - 1\n\n    while low <= high:\n        mid = (low + high) // 2\n        guess = arr[mid]\n\n        if guess == target:\n            return mid\n        elif guess < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n\n    return None  # Target not found in the array\n```\n\nThis function takes a sorted list `arr` and a target value as arguments, then performs a binary search to find the index of the target in the list (or `None` if it's not present). The function works by repeatedly dividing the search space in half until it finds the target or determines that the target doesn't exist in the array.\n\nYou can use this implementation like so:\n\n```python\nnumbers = [1, 3, 5, 7, 9]\nindex = binary_search(numbers, 5)\nprint(f\"Index of 5 in the list: {index}\")  # Output: Index of 5 in the list: 2\n```",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "user",
+                "content": "what is the last message I asked you?",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": " Your last message was \"Binary Search Program\".",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "user",
+                "content": "Covert the following python code to java\n\nprint(\"Hello world\")",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": "Here's the equivalent Java code for the given Python code:\n\n```java\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello world\");\n    }\n}\n```\n\nIn Java, you need to create a class and a `main` method to run the program, unlike in Python where you can write a single line of code to print a message. \n\nThe `System.out.println()` function is used to print the message to the console in Java, which is equivalent to `print()` function in Python. However, `System.out.println()` adds a newline character at the end, whereas `print()` in Python does not do this. If you want to print a message without a newline, you can use `System.out.print()` instead.",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "user",
+                "content": "What is life?",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": " Life is a fundamental concept used to refer to the characteristics that distinguish living entities (such as plants, animals, fungi, and certain types of bacteria) from nonliving objects or \"dead\" matter. Living organisms have several essential traits: growth through cell division, metabolism, responsiveness to stimuli, reproduction, adaptability, and evolution by natural selection.\n\nLife is a complex phenomenon that can be observed at various levels of organization, ranging from the molecular level (e.g., genes) to the ecosystem level (communities of living organisms interacting with each other and their environment). The study of life is called biology, which encompasses numerous branches such as genetics, cell biology, ecology, developmental biology, microbiology, and many others.\n\nLife on Earth is thought to have originated around 3.5-4 billion years ago in the form of simple, single-celled organisms that have since evolved into a vast array of diverse species. The study of life's origins and evolution is called astrobiology, which investigates the possibility of life existing elsewhere in the universe.",
+                "metrics": {},
+                "tool_call_error": false
+            }
+        ],
+        "llm_messages": [
+            {
+                "role": "user",
+                "content": "Hello world program in multiple languages",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": "Here is a \"Hello, World!\" program in multiple programming languages:\n\n### 1. Python\n```python\n# hello_world.py\n\ndef hello_world():\n    print(\"Hello, World!\")\n\nhello_world()\n```\n\n### 2. Java\n```java\n// HelloWorld.java\n\npublic class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}\n```\n\n### 3. C++\n```cpp\n// hello_world.cpp\n\n#include <iostream>\n\nint main() {\n    std::cout << \"Hello, World!\" << std::endl;\n    return 0;\n}\n```\n\n### 4. JavaScript\n```javascript\n// hello_world.js\n\nconsole.log(\"Hello, World!\");\n```\n\n### 5. C\n```c\n// hello_world.c\n\n#include <stdio.h>\n\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}\n```\n\n### 6. Ruby\n```ruby\n# hello_world.rb\n\nputs \"Hello, World!\"\n```\n\n### 7. Swift\n```swift\n// hello_world.swift\n\nimport Foundation\n\nprint(\"Hello, World!\")\n```\n\n### 8. PHP\n```php\n// hello_world.php\n\necho \"Hello, World!\";\n```\n\n### 9. Kotlin\n```kotlin\n// hello_world.kt\n\nfun main() {\n    println(\"Hello, World!\")\n}\n```\n\n### 10. Go\n```go\n// hello_world.go\n\npackage main\n\nimport \"fmt\"\n\nfunc main() {\n    fmt.Println(\"Hello, World!\")\n}\n```\n\n### 11. TypeScript\n```typescript\n// hello_world.ts\n\nconsole.log(\"Hello, World!\");\n```\n\n### 12. Rust\n```rust\n// hello_world.rs\n\nfn main() {\n    println!(\"Hello, World!\");\n}\n```\n\nYou can compile and run these programs using their respective compilers or interpreters.\n\n**Compiling and Running:**\n\n*   Python: `python hello_world.py`\n*   Java: `javac HelloWorld.java` then `java HelloWorld`\n*   C++: `g++ hello_world.cpp -o hello_world` then `./hello_world`\n*   JavaScript: `node hello_world.js`\n*   C: `gcc hello_world.c -o hello_world` then `./hello_world`\n*   Ruby: `ruby hello_world.rb`\n*   Swift: `swift hello_world.swift`\n*   PHP: `php hello_world.php`\n*   Kotlin: `kotlin hello_world.kt`\n*   Go: `go build hello_world.go` then `./hello_world`\n*   TypeScript: `node hello_world.ts` (with Node.js and TypeScript installed)\n*   Rust: `rustc hello_world.rs` then `./hello_world`",
+                "metrics": {
+                    "time": 3.301190199999837
+                },
+                "tool_call_error": false
+            },
+            {
+                "role": "user",
+                "content": "Hi",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": " Hello! How can I help you today? Do you have any specific questions or topics in mind that you'd like to discuss or learn about? I'm here to assist you with programming-related inquiries, explain concepts, or provide tips and resources for your projects. Just let me know what you need, and I'll do my best to help!",
+                "metrics": {
+                    "time": 11.13563190001878,
+                    "input_tokens": 818,
+                    "output_tokens": 76
+                },
+                "tool_call_error": false
+            },
+            {
+                "role": "user",
+                "content": "List out last 2 messages, I asked?",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": "Your last 2 messages were:\n\n1. Hello\n2. Hi",
+                "metrics": {
+                    "time": 1.835151200008113
+                },
+                "tool_call_error": false
+            },
+            {
+                "role": "user",
+                "content": "Binary Search Program",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": " Sure, here's a simple implementation of binary search in Python:\n\n```python\ndef binary_search(arr, target):\n    low = 0\n    high = len(arr) - 1\n\n    while low <= high:\n        mid = (low + high) // 2\n        guess = arr[mid]\n\n        if guess == target:\n            return mid\n        elif guess < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n\n    return None  # Target not found in the array\n```\n\nThis function takes a sorted list `arr` and a target value as arguments, then performs a binary search to find the index of the target in the list (or `None` if it's not present). The function works by repeatedly dividing the search space in half until it finds the target or determines that the target doesn't exist in the array.\n\nYou can use this implementation like so:\n\n```python\nnumbers = [1, 3, 5, 7, 9]\nindex = binary_search(numbers, 5)\nprint(f\"Index of 5 in the list: {index}\")  # Output: Index of 5 in the list: 2\n```",
+                "metrics": {
+                    "time": 17.18234329999541,
+                    "input_tokens": 120,
+                    "output_tokens": 285
+                },
+                "tool_call_error": false
+            },
+            {
+                "role": "user",
+                "content": "what is the last message I asked you?",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": " Your last message was \"Binary Search Program\".",
+                "metrics": {
+                    "time": 1.6760224000026938,
+                    "input_tokens": 334,
+                    "output_tokens": 10
+                },
+                "tool_call_error": false
+            },
+            {
+                "role": "user",
+                "content": "Covert the following python code to java\n\nprint(\"Hello world\")",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": "Here's the equivalent Java code for the given Python code:\n\n```java\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello world\");\n    }\n}\n```\n\nIn Java, you need to create a class and a `main` method to run the program, unlike in Python where you can write a single line of code to print a message. \n\nThe `System.out.println()` function is used to print the message to the console in Java, which is equivalent to `print()` function in Python. However, `System.out.println()` adds a newline character at the end, whereas `print()` in Python does not do this. If you want to print a message without a newline, you can use `System.out.print()` instead.",
+                "metrics": {
+                    "time": 3.5552304000011645
+                },
+                "tool_call_error": false
+            },
+            {
+                "role": "user",
+                "content": "What is life?",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": " Life is a fundamental concept used to refer to the characteristics that distinguish living entities (such as plants, animals, fungi, and certain types of bacteria) from nonliving objects or \"dead\" matter. Living organisms have several essential traits: growth through cell division, metabolism, responsiveness to stimuli, reproduction, adaptability, and evolution by natural selection.\n\nLife is a complex phenomenon that can be observed at various levels of organization, ranging from the molecular level (e.g., genes) to the ecosystem level (communities of living organisms interacting with each other and their environment). The study of life is called biology, which encompasses numerous branches such as genetics, cell biology, ecology, developmental biology, microbiology, and many others.\n\nLife on Earth is thought to have originated around 3.5-4 billion years ago in the form of simple, single-celled organisms that have since evolved into a vast array of diverse species. The study of life's origins and evolution is called astrobiology, which investigates the possibility of life existing elsewhere in the universe.",
+                "metrics": {
+                    "time": 10.364802800002508,
+                    "input_tokens": 234,
+                    "output_tokens": 241
+                },
+                "tool_call_error": false
+            }
+        ]
+    },
+    {
+        "run_id": "bedc6bfb-a08c-47d4-a276-3d4ea2f9df9c",
+        "run_name": "\"Image Description\"",
+        "llm": {
+            "name": "Groq",
+            "model": "llama-3.1-70b-versatile"
+        },
+        "chat_history": [
+            {
+                "role": "user",
+                "content": "Describe the image",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": "Based on the provided details, I can summarize the image description as follows:\n\nThe image is a screenshot of a menu from a potential web browser or application. The menu is on a dark gray background with various icons and symbols. It appears to be a type of search or data gathering tool, offering the following options:\n\n1. Upload file\n2. Scrape Website\n3. Youtube URL\n4. Allow Web Search\n\nThe menu is presented in a gray box with white text. A blue section is visible above the gray box, accompanied by a small dark blue box in the upper right corner. Below the options, the text \"Ask me anything...\" suggests that the application allows users to ask questions or interact with it in a conversational manner.\n\nThe overall design and functionality imply a tool or platform focused on data collection, analysis, or search capabilities, possibly using web search and video content from YouTube.",
+                "metrics": {},
+                "tool_call_error": false
+            }
+        ],
+        "llm_messages": [
+            {
+                "role": "user",
+                "content": "References: [\"image_description\"]\n\nImage Description: There is no image to describe. The image appears to be a screenshot, possibly from a web browser or app, displaying a menu of options.\n\nHere are the options visible in the menu:\n• Upload file\n• Scrape Website\n• Youtube URL\n• Allow Web Search\n\nThese words are all on a gray form with white text. The top of the form, behind the gray square, is blue and there appears to be a bit of a dark blue box connected to the grey box in the upper right corner. Below the menu is the text \"Ask me anything...\"\n\nThe background of the menu is a dark gray color with various icons and symbols. Overall, the image appears to be a screenshot of a computer or mobile device menu, possibly related to web browsing or search functionality.\n",
+                "metrics": {},
+                "tool_call_error": false
+            },
+            {
+                "role": "assistant",
+                "content": "Based on the provided details, I can summarize the image description as follows:\n\nThe image is a screenshot of a menu from a potential web browser or application. The menu is on a dark gray background with various icons and symbols. It appears to be a type of search or data gathering tool, offering the following options:\n\n1. Upload file\n2. Scrape Website\n3. Youtube URL\n4. Allow Web Search\n\nThe menu is presented in a gray box with white text. A blue section is visible above the gray box, accompanied by a small dark blue box in the upper right corner. Below the options, the text \"Ask me anything...\" suggests that the application allows users to ask questions or interact with it in a conversational manner.\n\nThe overall design and functionality imply a tool or platform focused on data collection, analysis, or search capabilities, possibly using web search and video content from YouTube.",
+                "metrics": {
+                    "time": 1.8430507000302896
+                },
                 "tool_call_error": false
             }
         ]

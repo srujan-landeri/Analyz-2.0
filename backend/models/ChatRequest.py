@@ -6,4 +6,4 @@ class ChatRequest(BaseModel):
     model: str
     access_token: str
     run_id: str = None
-    input_references: dict = None
+    input_references: str = None

@@ -11,7 +11,6 @@ function History(props) {
     const [loading, setLoading] = (0, react_1.useState)(true);
     const [history, setHistory] = (0, react_1.useState)([]);
     const token = props.token;
-    console.log("current_token", token);
     const filteredHistory = history.filter(chat => chat.run_name.toLowerCase().includes(searchTerm.toLowerCase()));
     const fetchChats = async () => {
         try {
@@ -46,19 +45,27 @@ function History(props) {
         const run_id = chat.run_id;
         const run_name = chat.run_name;
         const llm = chat.llm;
+        llm.model = llm.model.toLowerCase();
+        llm.name = llm.name.toLowerCase();
         const chat_history = chat.chat_history;
-        const updatedChats = chat_history.map((chat) => {
+        const llm_chats = chat.llm_messages.filter((msg) => msg.role === 'user');
+        const updatedChats = chat_history.map((chat, ind) => {
             return {
                 id: uuidv4(),
                 icon: chat.role === 'user' ? 'user' : 'chatbot',
-                message: chat.content
+                message: chat.content,
+                references: chat.role === 'user' ? llm_chats[ind / 2].content.split('\n')[0].replace("References :", "") : null
             };
         });
+        console.log("Updated Chats: ");
+        console.log(updatedChats);
+        console.log("LLM Chats: ");
+        console.log(llm_chats);
         props.setChat({
-            run_id,
-            run_name,
-            llm,
-            chat_history: updatedChats
+            run_id: run_id,
+            run_name: run_name,
+            llm: llm,
+            chat_history: updatedChats,
         });
         props.setPage('chat');
     }
