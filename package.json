@@ -45,6 +45,7 @@
     "watch": "nodemon"
   },
   "devDependencies": {
+    "@types/mermaid": "^9.2.0",
     "@types/mocha": "^10.0.8",
     "@types/node": "20.x",
     "@types/polka": "^0.5.7",
@@ -72,8 +73,9 @@
   "dependencies": {
     "@monaco-editor/react": "^4.6.0",
     "@react-oauth/google": "^0.12.1",
-    "lucide-react": "^0.447.0",
+    "lucide-react": "^0.451.0",
     "node-fetch": "^3.3.2",
+    "path-browserify": "^1.0.1",
     "polka": "^0.5.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

@@ -196,18 +196,14 @@ class AnalyzViewProvider implements vscode.WebviewViewProvider {
 			  <meta charset="UTF-8">
 			  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 			    <meta http-equiv="Content-Security-Policy" content="
-  default-src 'none';
-  connect-src 'self' http://localhost:8000;
-  img-src 'self' vscode-webview://* data: https://accounts.google.com https://lh3.googleusercontent.com https://img.icons8.com https://cdn-icons-png.flaticon.com;
-  script-src 'self' 'unsafe-inline' 'unsafe-eval' 'nonce-${nonce}' https://accounts.google.com;
-  style-src 'self' 'unsafe-inline' https://accounts.google.com;
-  frame-src https://accounts.google.com;
-  connect-src https://accounts.google.com;
-  sandbox allow-scripts allow-popups;
-">
-
-
-
+                    default-src 'none';
+                    img-src 'self' vscode-webview://* data: https://accounts.google.com https://lh3.googleusercontent.com https://img.icons8.com https://cdn-icons-png.flaticon.com https://cdn.jsdelivr.net;
+                    script-src 'self' 'unsafe-inline' 'unsafe-eval' 'nonce-${nonce}' https://accounts.google.com https://cdn.jsdelivr.net;
+                    style-src 'self' 'unsafe-inline' https://accounts.google.com https://cdn.jsdelivr.net;  /* Added CDN to style-src */
+                    frame-src https://accounts.google.com;
+                    connect-src 'self' http://localhost:8000 https://accounts.google.com;
+                    sandbox allow-scripts allow-popups;
+                ">
 
 			  <title>React Webview</title>
 			</head>

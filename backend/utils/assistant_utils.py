@@ -1,4 +1,4 @@
-from utils.authenticate_utils import *
+# from utils.authenticate_utils import *
 from phi.assistant import Assistant
 from typing import List, Optional, Tuple
 
@@ -114,3 +114,99 @@ def generate_response(assistant: Assistant, message:str, inference_engine, model
     pprint(f"Tools in use: " + str([tool.__class__.__name__ for tool in assistant.tools]))
     set_model(assistant, inference_engine, model)
     return assistant.run(message, stream=False)
+
+def convert_code(text: str, source_language:str, target_language:str) -> str:
+    """
+    Convert the given text to code block.
+    """
+    
+    supported_languages = {"javascript", "python", "java", "cpp", "ruby", "go", "swift", "rust", "php", "typescript"}
+    if source_language not in supported_languages or target_language not in supported_languages:
+        return {
+            "error": f"Unsupported languages. Supported languages are {supported_languages}"
+        }
+    
+    from groq import Groq
+    from rich.pretty import pprint
+    
+    pprint(f"Source Language: {source_language}")
+    pprint(f"Target Language: {target_language}")
+    pprint(f"Text: {text}")
+    
+    client = Groq()
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": """
+                    Convert the following given {source_language} code to {target_language} code.
+                    Do not change the logic of the code.
+                    Do not change the variable names.
+                    Do not change the function names.
+                    Do not change the comments.
+                    Do not give any explanation, just convert the code.
+                    Give the code in markdown format.
+                    ```{source_language}
+                    {text}
+                    ```
+                """.format(source_language=source_language, target_language=target_language, text=text)
+            }
+        ],
+        model="llama3-groq-70b-8192-tool-use-preview",
+    )
+
+    response = chat_completion.choices[0].message.content 
+    
+    return {
+        "code": response
+    }
+    
+def generate_flowchart(query):
+    """
+    Generate flowchart for the given query.
+    """
+    
+    from groq import Groq
+    from rich.pretty import pprint
+    
+    pprint(f"Query: {query}")
+    
+    client = Groq()
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": f"""
+                    Generate a flowchart in Mermaid.js syntax for the following query:
+                    {query}
+                    
+                    You must generate the flowchat strictly in Mermaid.js syntax.
+                    Your response must be in json format
+                    Additionally add clear explanation or any other information in the response for user to clearly understand.
+                    Your reponse must not have any other explanation or information other than the json response.
+                    Your response will used in json.loads() function, ensure that it is a valid json.
+                    Only return the json response.
+                    Add the flowchart in the json response with the key `flowchart`.
+                    Add any additional information in the response with the key `explanation`.
+                    The code has to be a single line as shown in the example.
+                    
+                    Example:
+                    ```
+                    {{
+                        "flowchart": "graph TD; A-->B; A-->C; B-->D; C-->D;",
+                        "explanation": "This is a simple flowchart"
+                    }}
+                    
+                """
+            }
+        ],
+        model="llama3-groq-70b-8192-tool-use-preview",
+    )
+
+    response = chat_completion.choices[0].message.content 
+    print(response)
+    
+    import json
+    response = json.loads(response)
+    print(response)
+    return response

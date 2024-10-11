@@ -2,9 +2,10 @@ from fastapi import APIRouter, HTTPException
 from fastapi import File, UploadFile
 from typing import List, Dict, Tuple, Any, Optional
 
-from models.RunName import RunName
 from models.AuthenticationRequest import AuthenticationRequest 
 from models.ChatRequest import ChatRequest
+from models.CodeRequest import CodeRequest
+from models.FlowchartRequest import FlowchartRequest
 
 router = APIRouter()
 
@@ -146,3 +147,48 @@ async def generate_response(
     
     except HTTPException as e:
         raise HTTPException(status_code=e.status_code, detail=e.detail)
+    
+@router.post("/assistant/completions/convert-code")
+def convert_code(
+    request: CodeRequest
+) -> Dict[str, Any]:
+    """
+    Convert the given code to the target language.
+    
+    @param code: Code to convert.
+    @param source_language: Source language of the code.
+    @param target_language: Target language to convert the code.
+    """
+    import utils.assistant_utils as assistant_utils
+    
+    try:
+        code, source_language, target_language = request.text, request.source_language, request.target_language
+        response = assistant_utils.convert_code(code, source_language, target_language)
+        return response
+    
+    except HTTPException as e:
+        raise HTTPException(status_code=e.status_code, detail=e.detail)
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+@router.post("/assistant/completions/generate-flowchart")
+def generate_flowchart(
+    request: FlowchartRequest
+) -> Dict[str, Any]:
+    """
+    Generate flowchart for the given code.
+    """
+    
+    import utils.assistant_utils as assistant_utils
+    
+    try:
+        response = assistant_utils.generate_flowchart(request.query)
+        print("response", response)
+        return response
+    
+    except HTTPException as e:
+        raise HTTPException(status_code=e.status_code, detail=e.detail)
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

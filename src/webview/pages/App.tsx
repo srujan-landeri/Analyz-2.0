@@ -10,7 +10,7 @@ const { v4: uuidv4 } = require('uuid');
 
 export const App: React.FC = () => {
     const [theme, setTheme] = useState('light');
-    const [page, setPage] = useState('loading');
+    const [page, setPage] = useState('loader');
 
     interface LLMType {
         name: string;
@@ -36,8 +36,8 @@ export const App: React.FC = () => {
         run_id: null,
         run_name: '',
         llm: {
-            name: 'ollama',
-            model: 'mistral:latest'
+            name: 'groq',
+            model: 'llama3-groq-70b-8192-tool-use-preview'
         },
         chat_history: [],
     });
@@ -57,8 +57,8 @@ export const App: React.FC = () => {
                         run_id: null,
                         run_name: '',
                         llm: {
-                            name: 'ollama',
-                            model: 'mistral:latest'
+                            name: 'groq',
+                            model: 'llama3-groq-70b-8192-tool-use-preview'
                         },
                         chat_history: [],
                     })
@@ -120,11 +120,11 @@ export const App: React.FC = () => {
             }
 
             {
-                page == "code-convertor" && <CodeConvertor/>
+                page == "code-convertor" && <CodeConvertor setPage={setPage} theme={theme} vscode={vscode} />
             }
 
             {
-                page == "flowchart" && <Flowchart/>
+                page == "flowchart" && <Flowchart setPage = {setPage} vscode={vscode} theme={theme} user={user} />
             }
         </div>
     );

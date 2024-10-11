@@ -13,18 +13,21 @@ const { vscDarkPlus } = require('react-syntax-highlighter/dist/cjs/styles/prism'
 const { oneLight } = require('react-syntax-highlighter/dist/cjs/styles/prism');
 const { Clipboard } = require('lucide-react');
 function Markdown(props) {
-    const { theme, vscode, message } = props;
+    const { theme, vscode, message, height } = props;
+    console.log(height);
     const customStyle = theme === 'dark' ? {
         ...vscDarkPlus,
         'pre[class*="language-"]': {
             ...vscDarkPlus['pre[class*="language-"]'],
             padding: '1em',
             margin: '.5em 0',
+            height: height ? `${height}` : 'auto'
         },
         'code[class*="language-"]': {
             ...vscDarkPlus['code[class*="language-"]'],
             background: 'transparent',
-            tabSize: '4'
+            tabSize: '4',
+            height: height ? `${height}` : 'auto'
         }
     } : {
         ...oneLight,
@@ -32,12 +35,14 @@ function Markdown(props) {
             ...oneLight['pre[class*="language-"]'],
             padding: '1em',
             margin: '.5em 0',
+            height: height ? `${height}` : 'auto'
         },
         'code[class*="language-"]': {
             ...oneLight['code[class*="language-"]'],
             background: 'transparent',
             fontSize: '13px',
             tabSize: '4',
+            height: height ? `${height}` : 'auto'
         }
     };
     const handleCopy = (code, id) => {
@@ -69,7 +74,7 @@ function Markdown(props) {
                     // This is inline code
                     return ((0, jsx_runtime_1.jsx)("code", { ...rest, className: "bg-white dark:bg-zinc-800 \r\n                                            text-orange-400 dark:text-orange-300 \r\n                                            px-1.5 py-0.5 font-mono", children: children }));
                 }
-                return ((0, jsx_runtime_1.jsxs)("div", { className: "relative my-4 rounded-md", children: [(0, jsx_runtime_1.jsx)(SyntaxHighlighter, { ...rest, PreTag: "div", language: match[1], style: customStyle, className: "rounded-md text-base", children: code }), (0, jsx_runtime_1.jsx)("button", { onClick: () => handleCopy(code, id), id: id, className: "absolute top-2 right-2 bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300 flex items-center", children: (0, jsx_runtime_1.jsx)(Clipboard, { size: 16 }) })] }));
+                return ((0, jsx_runtime_1.jsxs)("div", { className: "relative my-4 rounded-md", children: [(0, jsx_runtime_1.jsx)(SyntaxHighlighter, { ...rest, PreTag: "div", language: match[1], style: customStyle, className: `rounded-md text-base]`, children: code }), (0, jsx_runtime_1.jsx)("button", { onClick: () => handleCopy(code, id), id: id, className: "absolute top-2 right-2 bg-gray-200 dark:bg-gray-700 text-sm px-2 py-1 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300 flex items-center", children: (0, jsx_runtime_1.jsx)(Clipboard, { size: 16 }) })] }));
             },
         } }));
 }

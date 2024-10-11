@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MoonLoader from "react-spinners/MoonLoader";
-import { Globe, Image, Search, X, Youtube } from 'lucide-react';
+import { Globe, Image } from 'lucide-react';
 import { FaYoutube } from 'react-icons/fa';
 import Markdown from './Markdown';
 

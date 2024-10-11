@@ -1,13 +1,16 @@
 import React from 'react';
-import { Search, Globe, FileText, Image, Layers } from 'lucide-react';
+import { Search, Globe, FileText, Image, Layers, Code2 } from 'lucide-react';
+import { FaQuestion, FaYoutube } from 'react-icons/fa';
+import { FcFlowChart } from 'react-icons/fc';
 
 export default function WelcomeScreen() {
     const features = [
-        { icon: <Search className="w-5 h-5" />, text: "Search The Web" },
-        { icon: <Globe className="w-5 h-5" />, text: "Scrape Websites" },
-        { icon: <FileText className="w-5 h-5" />, text: "Search Research Papers" },
+        { icon: <Layers className="w-5 h-5" />, text: "Access to Multiple Models" },
         { icon: <Image className="w-5 h-5" />, text: "Analyse Images" },
-        { icon: <Layers className="w-5 h-5" />, text: "Access to Multiple Models" }
+        { icon: <FaQuestion className="w-5 h-5" />, text: "Answer Coding Questions" },
+        { icon: <FaYoutube className="w-5 h-5" />, text: "Analyse Yotube Videos and Answer Queries" },
+        { icon: <FcFlowChart className="w-5 h-5" />, text: "Generate Flowcharts and Explain better" },
+        { icon: <Code2 className="w-5 h-5" />, text: "Convert Code Snippets Across Languages" },
     ];
 
     return (
@@ -19,7 +22,7 @@ export default function WelcomeScreen() {
                 </div>
             </div>
 
-            <div className="text-center space-y-2">
+            <div className="text-center space-y-1">
                 <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
                     Welcome to Analyz
                 </h1>
@@ -30,9 +33,6 @@ export default function WelcomeScreen() {
             </div>
 
             <div className="w-full max-w-md">
-                <h2 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">
-                    I can help you with:
-                </h2>
                 <div className="grid grid-cols-1 gap-4">
                     {features.map((feature, index) => (
                         <div

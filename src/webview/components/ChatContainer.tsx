@@ -164,7 +164,10 @@ export default function ChatContainer(props: any) {
                     <div className='relative' ref={tooldropdownRef}>
 
                         <button
-                            onClick={() => setIsToolDropdownOpen(!isToolDropdownOpen)}
+                            onClick={() => {
+                                setIsToolDropdownOpen(!isToolDropdownOpen)
+                                setIsDropdownOpen(false)
+                            }}
                             className='absolute top-[-32px] right-12 p-1 rounded-full hover:transform hover:scale-105 transition-all'
                         >
                             <div className="w-6 h-6 overflow-hidden">
@@ -183,7 +186,7 @@ export default function ChatContainer(props: any) {
                                         Code Convertor
                                     </button>
                                     <button
-                                        onClick={() => setPage('flowcharts')}
+                                        onClick={() => setPage('flowchart')}
                                         className='flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
                                     >
                                         <FcFlowChart className="mr-2 h-4 w-4" />
@@ -197,7 +200,10 @@ export default function ChatContainer(props: any) {
                     <div className='relative' ref={dropdownRef}>
 
                         <button
-                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            onClick={() => {
+                                setIsDropdownOpen(!isDropdownOpen)
+                                setIsToolDropdownOpen(false)
+                            }}
                             className='absolute top-[-35px] right-0 p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors'
                         >
                             <div className="w-8 h-8 overflow-hidden rounded-full bg-gray-200">

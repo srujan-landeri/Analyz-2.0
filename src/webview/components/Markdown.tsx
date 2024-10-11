@@ -8,19 +8,21 @@ const { oneLight } = require('react-syntax-highlighter/dist/cjs/styles/prism');
 const { Clipboard } = require('lucide-react');
 
 export default function Markdown(props: any) {
-    const {theme, vscode, message} = props;
-    
+    const { theme, vscode, message, height } = props;
+    console.log(height)
     const customStyle = theme === 'dark' ? {
         ...vscDarkPlus,
         'pre[class*="language-"]': {
             ...vscDarkPlus['pre[class*="language-"]'],
             padding: '1em',
             margin: '.5em 0',
+            height: height ? `${height}` : 'auto'
         },
         'code[class*="language-"]': {
             ...vscDarkPlus['code[class*="language-"]'],
             background: 'transparent',
-            tabSize: '4'
+            tabSize: '4',
+            height: height ? `${height}` : 'auto'
         }
     } : {
         ...oneLight,
@@ -28,12 +30,15 @@ export default function Markdown(props: any) {
             ...oneLight['pre[class*="language-"]'],
             padding: '1em',
             margin: '.5em 0',
+            height: height ? `${height}` : 'auto'
+
         },
         'code[class*="language-"]': {
             ...oneLight['code[class*="language-"]'],
             background: 'transparent',
             fontSize: '13px',
             tabSize: '4',
+            height: height ? `${height}` : 'auto'
         }
     };
 
@@ -106,7 +111,7 @@ export default function Markdown(props: any) {
                                 PreTag="div"
                                 language={match[1]}
                                 style={customStyle}
-                                className="rounded-md text-base"
+                                className={`rounded-md text-base]`}
                             >
                                 {code}
                             </SyntaxHighlighter>
@@ -118,6 +123,7 @@ export default function Markdown(props: any) {
                                 <Clipboard size={16} />
                             </button>
                         </div>
+
                     );
                 },
 

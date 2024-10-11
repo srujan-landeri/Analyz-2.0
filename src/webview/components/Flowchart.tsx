@@ -1,136 +1,204 @@
 import React, { useState } from 'react';
-import Editor from '@monaco-editor/react';
+import { ArrowLeft, Send } from 'lucide-react';
+import { MoonLoader } from 'react-spinners';
+const { v4: uuidv4 } = require('uuid');
+import Mermaid from './Mermaid';
 
-export default function CodeConverter() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-  const [sourceCode, setSourceCode] = useState('');
-  const [convertedCode, setConvertedCode] = useState('');
-  
-  const languages = [
-    "javascript", "python", "java", "cpp", "ruby", 
-    "go", "swift", "rust", "php", "typescript"
-  ];
 
-  const handleEditorChange = (value:any, event:any) => {
-    setSourceCode(value);
-  };
+export default function ChatContainer(props: any) {
+    const {
+        vscode,
+        theme,
+        user
+    } = props;
 
-  const handleConvertClick = () => {
-    // Placeholder for conversion logic
-    setConvertedCode(sourceCode);
-  };
+    interface MessageType {
+        id: string;
+        icon: string;
+        message: any;
+    }
 
-  const editorOptions = {
-    minimap: { enabled: false },
-    scrollBeyondLastLine: false,
-    fontSize: 14,
-    automaticLayout: true,
-  };
+    const [messages, setMessages] = useState<MessageType[]>([{
+        id: uuidv4(),
+        icon: 'chatbot',
+        message:{ query: 'Hello, I am Analyz, I can generate flowcharts for you and explain them. Try asking me anything!'},
+    }]);
 
-  return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDarkMode ? 'bg-gray-900 text-gray-100' : 'bg-gray-100 text-gray-900'
-    }`}>
-      <div className="container mx-auto p-4 max-w-6xl">
-        {/* Header Section */}
-        <div className="flex justify-between items-center mb-6">
-          <div>
-            <h1 className={`text-3xl font-bold mb-2 ${
-              isDarkMode ? 'text-white' : 'text-gray-900'
-            }`}>
-              Code Converter
-            </h1>
-            <p className={`${
-              isDarkMode ? 'text-gray-400' : 'text-gray-600'
-            }`}>
-              Transform your code between programming languages seamlessly
-            </p>
-          </div>
-          
-          <button 
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            className={`p-2 rounded-full ${
-              isDarkMode 
-                ? 'bg-gray-700 hover:bg-gray-600' 
-                : 'bg-gray-200 hover:bg-gray-300'
-            }`}
-          >
-            {isDarkMode ? '🌞' : '🌙'}
-          </button>
-        </div>
+    const [loading, setLoading] = useState(false);
+    const [query, setQuery] = useState('');
 
-        {/* Language Selection */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <div>
-            <label className="block text-sm font-medium mb-2">From</label>
-            <select className={`w-full p-2 rounded-md border ${
-              isDarkMode 
-                ? 'bg-gray-800 border-gray-700 text-gray-100' 
-                : 'bg-white border-gray-300 text-gray-900'
-            }`}>
-              {languages.map(lang => (
-                <option key={lang} value={lang}>{lang.charAt(0).toUpperCase() + lang.slice(1)}</option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-2">To</label>
-            <select className={`w-full p-2 rounded-md border ${
-              isDarkMode 
-                ? 'bg-gray-800 border-gray-700 text-gray-100' 
-                : 'bg-white border-gray-300 text-gray-900'
-            }`}>
-              {languages.map(lang => (
-                <option key={lang} value={lang}>{lang.charAt(0).toUpperCase() + lang.slice(1)}</option>
-              ))}
-            </select>
-          </div>
-        </div>
+    const completeChat = async () => {
+        try {
+            const response = await fetch('http://localhost:8000/assistant/completions/generate-flowchart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query }),
+            });
+            const data = await response.json();
 
-        {/* Code Editors */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <div>
-            <label className="block text-sm font-medium mb-2">Source Code</label>
-            <div className="h-96 rounded-lg overflow-hidden border border-gray-700">
-              <Editor
-                height="100%"
-                defaultLanguage="javascript"
-                theme={isDarkMode ? "vs-dark" : "light"}
-                onChange={handleEditorChange}
-                options={editorOptions}
-              />
+            const _message: any = {
+                icon: 'chatbot',
+                message: {
+                    flowchart: data.flowchart,
+                    explanation: data.explanation
+                },
+                id: uuidv4()
+            }
+            addMessage(_message);
+
+        } catch (error) {
+            console.error('Error generating flowchart:', error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    const handleSubmit = () => {
+        setQuery('');
+        setLoading(true);
+
+        addMessage({
+            icon: 'user',
+            message: {
+                query: query
+            },
+            id: uuidv4()
+        })
+    };
+
+    const addMessage = (newMessage: { icon: string; message: any, id: string }) => {
+        setMessages(prevMessages => [...prevMessages, newMessage]);
+
+        const { icon } = newMessage;
+        if (icon === "user") {
+            completeChat();
+        }
+    };
+
+    return (
+        <>
+            <div className='flex flex-col h-[90vh]'>
+
+                <ArrowLeft className="w-6 h-6 dark:text-gray-300 text-gray-900 cursor-pointer absolute right-1 top-1" onClick={() => props.setPage('chat')} />
+
+                {/* Messages area with improved scrollbar */}
+                <div
+                    className='flex-1 overflow-y-auto pr-4 my-5'
+                    style={{
+                        scrollbarWidth: "thin",
+                        scrollbarColor: "rgb(75 85 99) transparent",
+                        msOverflowStyle: "none"
+                    }}
+                >
+                    {
+                        <div className='space-y-4'>
+                            {
+                                messages.map((message, index) => {
+                                    return (
+                                        <Message
+                                            key={index}
+                                            name={message.icon === 'chatbot' ? 'Analyz' : user.name}
+                                            message={message.message}
+                                            imageSrc={message.icon === 'chatbot' ? '' : user.picture}
+                                            theme={theme}
+                                            animate={loading && index === messages.length - 1}
+                                        />
+                                    );
+                                })
+                            }
+                        </div>
+                    }
+                </div>
             </div>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium mb-2">Converted Code</label>
-            <div className="h-96 rounded-lg overflow-hidden border border-gray-700">
-              <Editor
-                height="100%"
-                defaultLanguage="python"
-                value={convertedCode}
-                theme={isDarkMode ? "vs-dark" : "light"}
-                options={{
-                  ...editorOptions,
-                  readOnly: true,
-                }}
-              />
-            </div>
-          </div>
-        </div>
 
-        {/* Convert Button */}
-        <button 
-          onClick={handleConvertClick}
-          className={`w-full py-3 rounded-md font-medium transition-colors ${
-            isDarkMode 
-              ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-              : 'bg-blue-500 hover:bg-blue-600 text-white'
-          }`}
-        >
-          Convert Code
-        </button>
-      </div>
-    </div>
-  );
+            <div className="flex flex-col fixed left-[2.5%] right-[2.5%] bottom-3 w-[95%] rounded-lg p-2 mx-auto bg-white shadow-lg text-black dark:text-white dark:bg-zinc-800">
+
+                {/* Chat Input */}
+                <div className='flex'>
+                    <textarea
+                        id='chat-input'
+                        value={query}
+                        onChange={(e) => {
+                            setQuery(e.target.value);
+                            e.target.style.height = 'auto';
+                            e.target.style.height = `${e.target.scrollHeight}px`;
+                        }}
+                        className="flex-1 bg-transparent resize-none overflow-y-auto focus:outline-none px-2 custom-scrollbar"
+                        placeholder="Ask me anything..."
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' && !e.shiftKey) {
+                                e.preventDefault();
+                                handleSubmit();
+                            }
+                        }}
+                        rows={1} // Initial row
+                        style={{ height: 'auto', maxHeight: '200px', scrollbarWidth: "thin", scrollbarColor: "white" }} // Inline height control
+                    />
+
+                    <button className="p-1" onClick={handleSubmit}>
+                        <Send size={18} className="text-black dark:text-white" />
+                    </button>
+                </div>
+            </div>
+        </>
+    );
+}
+
+export function Message({ name, message, imageSrc, theme, animate }: { message: any, flowchart?: string, name: string, imageSrc: string, theme: string, animate: boolean }) {
+    const loadingTexts = ["Parsing", "Interpreting", "Generating", "Loading"];
+    const [loadingText, setLoadingText] = useState("Typing...");
+
+    return (
+        <div className="flex flex-col w-full animate-fade-in">
+            <div className="flex items-center">
+                <div className="flex items-center justify-center">
+                    {name === 'Analyz' ? (
+                        <Logo />
+                    ) : (
+                        <div className="w-8 h-8 overflow-hidden rounded-full bg-gray-200">
+                            <img src={imageSrc} alt="user" className="w-full h-full object-cover" />
+                        </div>
+                    )}
+                </div>
+                <span className="ml-3 font-medium text-sm text-gray-700 dark:text-gray-300">
+                    {name === 'Analyz' ? 'Analyz' : name}
+                </span>
+            </div>
+
+            <div className={`font-normal rounded-md text-black mt-4`}>
+                {animate ? (
+                    <div className="flex items-center my-5">
+                        <MoonLoader
+                            color={theme === 'dark' ? '#fff' : '#000'}
+                            loading={animate}
+                            size={20}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                        />
+                        <p className="ml-3 text-gray-500 dark:text-gray-400">{loadingText}</p>
+                    </div>
+                ) : (
+                    <div className={`rounded-md bg-transparent text-black dark:text-white`}>
+                        {message.flowchart &&
+                            <Mermaid chart={message.flowchart} />
+                        }
+                        {message.explanation && <p className="">{message.explanation}</p>}
+                        {message.query && <p className="">{message.query}</p>}
+                    </div>
+                )}
+            </div>
+        </div>
+    )
+}
+
+export function Logo() {
+    return (
+        <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+            <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                <div className="w-4 h-4 bg-white rounded-full"></div>
+            </div>
+        </div>
+    );
 }
