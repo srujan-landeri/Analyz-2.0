@@ -42,7 +42,7 @@ function ChatContainer(props) {
     const { run_name, llm, chat_history = [], llm_messages = [] } = chat;
     const [messages, setMessages] = (0, react_1.useState)(chat_history);
     const [loading, setLoading] = (0, react_1.useState)(false);
-    const [run_id, setRunId] = (0, react_1.useState)(props.run_id == null ? null : props.run_id);
+    const [run_id, setRunId] = (0, react_1.useState)(chat.run_id == null ? null : chat.run_id);
     const [isDropdownOpen, setIsDropdownOpen] = (0, react_1.useState)(false);
     const dropdownRef = react_1.default.useRef(null);
     const [isToolDropdownOpen, setIsToolDropdownOpen] = (0, react_1.useState)(false);
@@ -53,7 +53,7 @@ function ChatContainer(props) {
             run_name: '',
             llm: {
                 name: 'mistral:latest',
-                model: 'ollama'
+                model: ''
             },
             chat_history: []
         });
@@ -108,7 +108,6 @@ function ChatContainer(props) {
                 body: JSON.stringify(request_body),
             });
             const data = await response.json();
-            console.log("Chatbot response: ", data);
             if (data.run_id) {
                 setRunId(data.run_id);
             }

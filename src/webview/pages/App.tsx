@@ -6,7 +6,11 @@ import CodeConvertor from '../components/CodeConvertor';
 import Flowchart from '../components/Flowchart';
 
 const vscode = acquireVsCodeApi();
-const { v4: uuidv4 } = require('uuid');
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaGoogle } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 
 export const App: React.FC = () => {
     const [theme, setTheme] = useState('light');
@@ -16,7 +20,7 @@ export const App: React.FC = () => {
         name: string;
         model: string;
     }
-    
+
     interface MessageType {
         id: string;
         icon: string;
@@ -65,17 +69,20 @@ export const App: React.FC = () => {
                     setPage('chat');
                     setUser(message.user);
                     setTokenData(message.token);
-                    console.log(message.token)
+                    toast.success("Login Successful!");
                     break;
 
                 case 'auth-status':
-                    if (message.value) {
+                    if (message.value === true) {
                         setPage('chat');
                         setUser(message.user);
                         setTokenData(message.token);
-                        console.log(message.token)
-                    } else {
+                    } else if(message.value === false) {
                         setPage('login');
+                        toast.error("Session Expired! Please login again.");
+                    } else{
+                        setPage('login');
+                        toast.success("Logged out successfully!");
                     }
                     break;
             }
@@ -108,7 +115,7 @@ export const App: React.FC = () => {
             }
 
             {
-                page == "chat" && <ChatContainer setChat={setChat} token = {tokenData} setPage={setPage} chat={chat} vscode={vscode} theme={theme} user={user} />
+                page == "chat" && <ChatContainer setChat={setChat} token={tokenData} setPage={setPage} chat={chat} vscode={vscode} theme={theme} user={user} />
             }
 
             {
@@ -116,7 +123,7 @@ export const App: React.FC = () => {
             }
 
             {
-                page == "history" && <History theme={theme} setPage={setPage} setChat={setChat} token = {tokenData}/>
+                page == "history" && <History theme={theme} setPage={setPage} setChat={setChat} token={tokenData} />
             }
 
             {
@@ -124,8 +131,21 @@ export const App: React.FC = () => {
             }
 
             {
-                page == "flowchart" && <Flowchart setPage = {setPage} vscode={vscode} theme={theme} user={user} />
+                page == "flowchart" && <Flowchart setPage={setPage} vscode={vscode} theme={theme} user={user} />
             }
+
+            <ToastContainer
+                position="bottom-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable
+                pauseOnHover={false}
+                theme={theme}
+            />
         </div>
     );
 };
@@ -147,9 +167,17 @@ function Login() {
             </div>
             <button
                 onClick={handleLogin}
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="px-4 h-10 w-64 flex items-center justify-center 
+                       bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-600 
+                       rounded-md shadow-md hover:bg-gray-100 dark:hover:bg-zinc-700"
             >
-                Sign in with Google
+                <FcGoogle
+                    size={18}
+                    className="mr-2"
+                />
+                <span className="text-gray-700 dark:text-gray-300 font-medium">
+                    Sign in with Google
+                </span>
             </button>
         </div>
     );

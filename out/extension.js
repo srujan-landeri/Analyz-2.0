@@ -77,7 +77,6 @@ class AnalyzViewProvider {
                     });
                     const userData = await userResponse.json();
                     if (userData.error) {
-                        vscode.window.showInformationMessage('Session Expired. Please login again.');
                         this.handleLogout();
                         return;
                     }
@@ -106,7 +105,7 @@ class AnalyzViewProvider {
         if (this._view) {
             this._view.webview.postMessage({
                 type: 'auth-status',
-                value: false
+                value: "logout"
             });
         }
     }

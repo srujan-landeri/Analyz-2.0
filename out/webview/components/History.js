@@ -6,6 +6,7 @@ const react_1 = require("react");
 const lucide_react_1 = require("lucide-react");
 const react_spinners_1 = require("react-spinners");
 const { v4: uuidv4 } = require('uuid');
+const react_toastify_1 = require("react-toastify");
 function History(props) {
     const [searchTerm, setSearchTerm] = (0, react_1.useState)('');
     const [loading, setLoading] = (0, react_1.useState)(true);
@@ -57,10 +58,6 @@ function History(props) {
                 references: chat.role === 'user' ? llm_chats[ind / 2].content.split('\n')[0].replace("References :", "") : null
             };
         });
-        console.log("Updated Chats: ");
-        console.log(updatedChats);
-        console.log("LLM Chats: ");
-        console.log(llm_chats);
         props.setChat({
             run_id: run_id,
             run_name: run_name,
@@ -84,6 +81,7 @@ function History(props) {
             }
             const result = await response.json();
             fetchChats();
+            react_toastify_1.toast.success('Chat deleted successfully!');
             return result;
         }
         catch (error) {

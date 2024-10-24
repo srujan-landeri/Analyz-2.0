@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Search, MessageSquare, DeleteIcon, Trash2 } from 'lucide-react';
-import SampleData from '../data/chat_history.json';
 import { BounceLoader } from 'react-spinners';
+
 const { v4: uuidv4 } = require('uuid');
+
+import { toast } from 'react-toastify';
 
 interface LLMType {
     name: string;
@@ -87,11 +89,6 @@ export default function History(props: any) {
             }
         });
 
-        console.log("Updated Chats: ");
-        console.log(updatedChats);
-        console.log("LLM Chats: ");
-        console.log(llm_chats);
-
         props.setChat({
             run_id: run_id,
             run_name: run_name,
@@ -119,6 +116,7 @@ export default function History(props: any) {
 
             const result = await response.json();
             fetchChats();
+            toast.success('Chat deleted successfully!');
             return result;
         } catch (error) {
             console.error('Error deleting run:', error);

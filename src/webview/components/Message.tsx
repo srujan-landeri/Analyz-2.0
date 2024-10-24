@@ -84,7 +84,8 @@ export default function Message(props: any) {
     const name = user?.name;
 
     const loadingTexts = ["Parsing", "Interpreting", "Generating", "Loading"];
-
+    console.log(message.split('\n')[0])
+    console.log(references)
     useEffect(() => {
         if (animate) {
             let i = 0;
@@ -133,7 +134,7 @@ export default function Message(props: any) {
                             theme={theme}
                             message={message}
                         />
-                        <ReferenceTabs referencesString={references} />
+                        {references && references != message && <ReferenceTabs referencesString={references} />}
                     </>
                 )}
             </div>

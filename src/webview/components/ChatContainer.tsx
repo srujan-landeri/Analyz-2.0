@@ -35,7 +35,7 @@ export default function ChatContainer(props: any) {
     const { run_name, llm, chat_history = [], llm_messages = [] } = chat;
     const [messages, setMessages] = useState<MessageType[]>(chat_history);
     const [loading, setLoading] = useState(false);
-    const [run_id, setRunId] = useState(props.run_id == null ? null : props.run_id);
+    const [run_id, setRunId] = useState(chat.run_id == null ? null : chat.run_id);
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = React.useRef(null);
@@ -48,7 +48,7 @@ export default function ChatContainer(props: any) {
             run_name: '',
             llm: {
                 name: 'mistral:latest',
-                model: 'ollama'
+                model: ''
             },
             chat_history: []
         })
@@ -68,7 +68,7 @@ export default function ChatContainer(props: any) {
     const completeChat = async (message: string, model: ModelType, references: string) => {
 
         const typingMessageId = uuidv4();
-
+        
         setMessages(prevMessages => [
             ...prevMessages,
             {
@@ -117,7 +117,6 @@ export default function ChatContainer(props: any) {
             });
 
             const data = await response.json();
-            console.log("Chatbot response: ", data);
 
             if (data.run_id) {
                 setRunId(data.run_id);
@@ -263,7 +262,6 @@ export default function ChatContainer(props: any) {
                                     user={user}
                                     animate={msg.message === "Typing..."}
                                     references={msg.references}
-                                // references={`["image_description", "web_search", {"youtube": {"url": 'https://youtube.com/watch?v=12345'}}, {"websites": ['https://site1.com', 'https://site2.com', 'https://site3.com']}]`}
                                 />
 
                             ))}

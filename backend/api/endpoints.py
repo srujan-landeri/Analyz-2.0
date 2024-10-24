@@ -133,6 +133,7 @@ async def generate_response(
             user=identifier, 
             run_id=run_id, 
             run_name=run_name, 
+            message=message,
             references=references_for_model,
             reference_string=json.dumps(input_references)
         )

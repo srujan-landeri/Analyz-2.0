@@ -75,7 +75,6 @@ class AnalyzViewProvider implements vscode.WebviewViewProvider {
                     const userData = await userResponse.json();
 
                     if (userData.error) {
-                        vscode.window.showInformationMessage('Session Expired. Please login again.');
                         this.handleLogout();
                         return;
                     }
@@ -109,7 +108,7 @@ class AnalyzViewProvider implements vscode.WebviewViewProvider {
         if (this._view) {
             this._view.webview.postMessage({
                 type: 'auth-status',
-                value: false
+                value: "logout"
             });
         }
     }

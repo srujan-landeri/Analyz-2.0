@@ -55,7 +55,7 @@ export default function Chat(props: any) {
         if (inputValue === '' || disabled) return;
 
         // Build references object
-        let references = {};
+        let references: { [key: string]: any } | null = {};
 
         // Add encoded image if it exists
         if (pastedImage) {
@@ -73,9 +73,11 @@ export default function Chat(props: any) {
         }
 
         // If references object exists, convert it to a string; otherwise, set referencesString to null
-        const referencesString = references
-            ? JSON.stringify(references)
-            : null;
+        if(Object.keys(references).length === 0) {
+            references = null;
+        }
+
+        const referencesString = references ? JSON.stringify(references) : null;
 
         // Construct the new message object
         const newMessage = {
@@ -88,7 +90,7 @@ export default function Chat(props: any) {
             id: uuidv4(),
             references: referencesString
         };
-
+        console.log("Adding Message", newMessage)
         props.addMessage(newMessage);
         setInputValue('');
 

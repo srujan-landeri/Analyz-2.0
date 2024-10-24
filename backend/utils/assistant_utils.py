@@ -42,6 +42,7 @@ def get_assistant(
         user: str, 
         references: Optional[dict] = None,
         reference_string: Optional[str] = None,
+        message: str = None,
         run_id: Optional[str] = None, 
         run_name: Optional[str] = None,
     ) -> Tuple[Assistant, Optional[str]]:
@@ -98,8 +99,10 @@ def get_assistant(
         if references.get("youtube"):
             assistant.tools.append(YotubeSummarizerToolKit().youtube_client)
             user_prompt += f"\n You can refer the following youtube videos: {references.get('youtube')}\n"
-            
-        assistant.user_prompt = "References : " + reference_string + '\n' + user_prompt if len(user_prompt) > 0 else None
+        
+        if message:
+            user_prompt += f"\n Your are responsible to answer this question `{message}`"
+        assistant.user_prompt = "References : " + reference_string + '\n' + user_prompt if len(user_prompt) > 0 else None + f"\nAnswer this question {message}"
     
     current_run_id = assistant.run_id if current_run_id is None else current_run_id
     return assistant, current_run_id

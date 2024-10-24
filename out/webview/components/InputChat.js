@@ -50,9 +50,10 @@ function Chat(props) {
             references = { ...references, youtube: youtubeUrls };
         }
         // If references object exists, convert it to a string; otherwise, set referencesString to null
-        const referencesString = references
-            ? JSON.stringify(references)
-            : null;
+        if (Object.keys(references).length === 0) {
+            references = null;
+        }
+        const referencesString = references ? JSON.stringify(references) : null;
         // Construct the new message object
         const newMessage = {
             icon: 'user',
@@ -64,6 +65,7 @@ function Chat(props) {
             id: uuidv4(),
             references: referencesString
         };
+        console.log("Adding Message", newMessage);
         props.addMessage(newMessage);
         setInputValue('');
         const input = document.getElementById('chat-input');
