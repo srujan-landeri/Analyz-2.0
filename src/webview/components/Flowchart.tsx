@@ -146,9 +146,21 @@ export default function ChatContainer(props: any) {
     );
 }
 
-export function Message({ name, message, imageSrc, theme, animate }: { message: any, flowchart?: string, name: string, imageSrc: string, theme: string, animate: boolean }) {
+export function Message({ name, message, imageSrc, theme, animate }: { message: any, name: string, imageSrc: string, theme: string, animate: boolean }) {
     const loadingTexts = ["Parsing", "Interpreting", "Generating", "Loading"];
     const [loadingText, setLoadingText] = useState("Typing...");
+
+    React.useEffect(() => {
+        if (animate) {
+            let i = 0;
+            const interval = setInterval(() => {
+                setLoadingText(`${loadingTexts[i % 4]}...`);
+                i++;
+            }, 1000);
+
+            return () => clearInterval(interval);
+        }
+    }, [animate]);
 
     return (
         <div className="flex flex-col w-full animate-fade-in">

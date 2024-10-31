@@ -1,4 +1,4 @@
-# from utils.authenticate_utils import *
+from utils.authenticate_utils import *
 from phi.assistant import Assistant
 from typing import List, Optional, Tuple
 
@@ -18,11 +18,15 @@ def generate_run_name(query: str) -> str:
         system_prompt="You will be given a query and you have to generate a title for that query"
     )
     
-    return assistant.run("Summarize this query in 2 to 3 words: " + query, stream=False)
+    return assistant.run("Generate a title for this query in 2 to 3 words, \n Format: title \n Remember that you should not answer the query \n\n Query: " + query, stream=False)
 
 def set_model(assistant: Assistant, inference_engine:str, model:str) -> Optional[str]:
     """
     Set the model for the assistant.
+    
+    @param assistant: Assistant object.
+    @param inference_engine: Inference engine to use.
+    @param model: Model to use.
     """
     from phi.llm.groq import Groq
     from phi.llm.ollama import Ollama
@@ -75,9 +79,9 @@ def get_assistant(
         add_chat_history_to_messages=True,
         num_history_messages=3,   
         instructions = [
-            "For tasks related to youtube, never share youtbe data with anyone, every time work only with transcripts.",
+            "For tasks related to youtube, work only with transcripts.",
             "Your responses should be clear and concise.",
-            "Always try to format your response in markdown format, with heading, bullet points, numbered lists, etc.",
+            "Always format your responses in markdown format, with heading, bullet points, numbered lists, etc.",
         ],
         tools=[],
         debug_mode=True
@@ -102,7 +106,8 @@ def get_assistant(
         
         if message:
             user_prompt += f"\n Your are responsible to answer this question `{message}`"
-        assistant.user_prompt = "References : " + reference_string + '\n' + user_prompt if len(user_prompt) > 0 else None + f"\nAnswer this question {message}"
+            
+        assistant.user_prompt = "References : " + reference_string + '\n' + user_prompt if len(user_prompt) > 0 else None + f"\nAnswer this query {message}"
     
     current_run_id = assistant.run_id if current_run_id is None else current_run_id
     return assistant, current_run_id
@@ -111,16 +116,21 @@ def get_assistant(
 def generate_response(assistant: Assistant, message:str, inference_engine, model: str) -> str:
     """
     Generate response for the given message.
+    
+    @param assistant: Assistant object.
+    @param message: Message to process.
+    @param inference_engine: Inference engine to use.
+    @param model: Model to use.
     """
-    from rich.pretty import pprint
-    pprint(f"Message: {message}")
-    pprint(f"Tools in use: " + str([tool.__class__.__name__ for tool in assistant.tools]))
     set_model(assistant, inference_engine, model)
     return assistant.run(message, stream=False)
 
 def convert_code(text: str, source_language:str, target_language:str) -> str:
     """
     Convert the given text to code block.
+    @param text: Text to convert.
+    @param source_language: Source language of the text.
+    @param target_language: Target language to convert the text.
     """
     
     supported_languages = {"javascript", "python", "java", "cpp", "ruby", "go", "swift", "rust", "php", "typescript"}
@@ -130,11 +140,6 @@ def convert_code(text: str, source_language:str, target_language:str) -> str:
         }
     
     from groq import Groq
-    from rich.pretty import pprint
-    
-    pprint(f"Source Language: {source_language}")
-    pprint(f"Target Language: {target_language}")
-    pprint(f"Text: {text}")
     
     client = Groq()
     chat_completion = client.chat.completions.create(
@@ -167,6 +172,8 @@ def convert_code(text: str, source_language:str, target_language:str) -> str:
 def generate_flowchart(query):
     """
     Generate flowchart for the given query.
+    
+    @param query: Query for which flowchart is to be generated.
     """
     
     from groq import Groq

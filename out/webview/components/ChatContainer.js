@@ -36,9 +36,29 @@ const { v4: uuidv4 } = require('uuid');
 const lucide_react_1 = require("lucide-react");
 const fc_1 = require("react-icons/fc");
 function ChatContainer(props) {
-    const { vscode, theme, user, chat, setPage, token, setChat } = props;
+    const { vscode, theme, user, chat, setPage, token, setChat, } = props;
     console.log("Container got");
-    console.log(chat);
+    console.log(props);
+    (0, react_1.useEffect)(() => {
+        const handleMessage = (event) => {
+            const message = event.data;
+            switch (message.type) {
+                case 'time-complexity':
+                    const function_data = message.function;
+                    const code = function_data.code;
+                    const language = function_data.language;
+                    console.log("Code: ");
+                    console.log(code);
+                    console.log(token);
+                    const user_message = "```" + language + "\n" + code + " \n ``` \n Explain the Time complexity and Space Complexity of the above code written in `" + language + "`. Additionally provide scope of improvement.";
+                    addMessage({ icon: 'user', message: user_message, model: { name: 'llama3-groq-70b-8192-tool-use-preview', source: 'groq' }, id: uuidv4(), references: null });
+            }
+        };
+        window.addEventListener('message', handleMessage);
+        return () => {
+            window.removeEventListener('message', handleMessage);
+        };
+    }, []);
     const { run_name, llm, chat_history = [], llm_messages = [] } = chat;
     const [messages, setMessages] = (0, react_1.useState)(chat_history);
     const [loading, setLoading] = (0, react_1.useState)(false);
@@ -52,10 +72,10 @@ function ChatContainer(props) {
             run_id: null,
             run_name: '',
             llm: {
-                name: 'mistral:latest',
-                model: ''
+                name: 'groq',
+                model: 'llama3-groq-70b-8192-tool-use-preview'
             },
-            chat_history: []
+            chat_history: [],
         });
         setMessages([]);
         setPage('chat');

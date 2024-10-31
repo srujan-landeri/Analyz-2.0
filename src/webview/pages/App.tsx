@@ -6,15 +6,15 @@ import CodeConvertor from '../components/CodeConvertor';
 import Flowchart from '../components/Flowchart';
 
 const vscode = acquireVsCodeApi();
+const { v4: uuidv4 } = require('uuid');
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FaGoogle } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 
 export const App: React.FC = () => {
     const [theme, setTheme] = useState('light');
-    const [page, setPage] = useState('loader');
+    const [page, setPage] = useState('loading');
 
     interface LLMType {
         name: string;
@@ -66,21 +66,25 @@ export const App: React.FC = () => {
                         },
                         chat_history: [],
                     })
-                    setPage('chat');
                     setUser(message.user);
                     setTokenData(message.token);
+                    setTimeout(() => {
+                        setPage('chat');
+                    }, 1000);
                     toast.success("Login Successful!");
                     break;
 
                 case 'auth-status':
                     if (message.value === true) {
-                        setPage('chat');
                         setUser(message.user);
                         setTokenData(message.token);
-                    } else if(message.value === false) {
+                        setTimeout(() => {
+                            setPage('chat');
+                        }, 1000);
+                    } else if (message.value === false) {
                         setPage('login');
                         toast.error("Session Expired! Please login again.");
-                    } else{
+                    } else {
                         setPage('login');
                         toast.success("Logged out successfully!");
                     }
@@ -91,8 +95,6 @@ export const App: React.FC = () => {
         window.addEventListener('message', handleMessage);
 
         // Check auth status on mount
-
-        //! Uncomment this line
         vscode.postMessage({ type: 'check-auth-status' });
 
         return () => {

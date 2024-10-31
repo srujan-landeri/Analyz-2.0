@@ -12,12 +12,13 @@ const History_1 = __importDefault(require("../components/History"));
 const CodeConvertor_1 = __importDefault(require("../components/CodeConvertor"));
 const Flowchart_1 = __importDefault(require("../components/Flowchart"));
 const vscode = acquireVsCodeApi();
+const { v4: uuidv4 } = require('uuid');
 const react_toastify_1 = require("react-toastify");
 require("react-toastify/dist/ReactToastify.css");
 const fc_1 = require("react-icons/fc");
 const App = () => {
     const [theme, setTheme] = (0, react_1.useState)('light');
-    const [page, setPage] = (0, react_1.useState)('loader');
+    const [page, setPage] = (0, react_1.useState)('loading');
     const [user, setUser] = (0, react_1.useState)(null);
     const [tokenData, setTokenData] = (0, react_1.useState)(null);
     const [chat, setChat] = (0, react_1.useState)({
@@ -47,16 +48,20 @@ const App = () => {
                         },
                         chat_history: [],
                     });
-                    setPage('chat');
                     setUser(message.user);
                     setTokenData(message.token);
+                    setTimeout(() => {
+                        setPage('chat');
+                    }, 1000);
                     react_toastify_1.toast.success("Login Successful!");
                     break;
                 case 'auth-status':
                     if (message.value === true) {
-                        setPage('chat');
                         setUser(message.user);
                         setTokenData(message.token);
+                        setTimeout(() => {
+                            setPage('chat');
+                        }, 1000);
                     }
                     else if (message.value === false) {
                         setPage('login');
@@ -71,7 +76,6 @@ const App = () => {
         };
         window.addEventListener('message', handleMessage);
         // Check auth status on mount
-        //! Uncomment this line
         vscode.postMessage({ type: 'check-auth-status' });
         return () => {
             window.removeEventListener('message', handleMessage);

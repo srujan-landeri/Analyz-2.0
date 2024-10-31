@@ -54,7 +54,6 @@ async def authenticate(access_token: str) -> Dict[str, Any]:
 
 async def main():
     try:
-        # user = await authenticate("ya29.a0AcM612wJTquNdxyz4A5iotR1Qd5UFq21-6TvcQyrjAdqZw3J9FjME0t6JNO_G2-Bx3fLcHOrkKPc43zocqKLcfyhbyooS-IhT5ImjHawtUcgb-ejJ52p7ABXLz8i8xee_J1BHV2YW6vSoQ4Px9bb3rZ2xTkJj_nwM9z63_M-aCgYKAdwSARASFQHGX2Mi9xjt0AoPxwU9syuJ3fZkmA0175")
         user = await authenticate("ya29.a0AcM612zKC0_XU5ASb7yX2tXckmuOmHjwl88xV9GxU4qtLi4kNxOgJmzsG31SMSwI_W2UH_PdD64tgKAVEb9Kwyx4sKaWbwOftRwOvZ_Tv3eeYZffdWj3E5d-wEr2kzp0643xyL6i8rxCgVakPLOovqbEzUnI1J97zx9v9_pSaCgYKAaQSARASFQHGX2Mia41URO8CpnItuKL60V5Bhg0175")
         print(user)
     except HTTPException as e:

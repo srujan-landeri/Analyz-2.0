@@ -1,4 +1,27 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -7,7 +30,7 @@ exports.default = ChatContainer;
 exports.Message = Message;
 exports.Logo = Logo;
 const jsx_runtime_1 = require("react/jsx-runtime");
-const react_1 = require("react");
+const react_1 = __importStar(require("react"));
 const lucide_react_1 = require("lucide-react");
 const react_spinners_1 = require("react-spinners");
 const { v4: uuidv4 } = require('uuid');
@@ -86,6 +109,16 @@ function ChatContainer(props) {
 function Message({ name, message, imageSrc, theme, animate }) {
     const loadingTexts = ["Parsing", "Interpreting", "Generating", "Loading"];
     const [loadingText, setLoadingText] = (0, react_1.useState)("Typing...");
+    react_1.default.useEffect(() => {
+        if (animate) {
+            let i = 0;
+            const interval = setInterval(() => {
+                setLoadingText(`${loadingTexts[i % 4]}...`);
+                i++;
+            }, 1000);
+            return () => clearInterval(interval);
+        }
+    }, [animate]);
     return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col w-full animate-fade-in", children: [(0, jsx_runtime_1.jsxs)("div", { className: "flex items-center", children: [(0, jsx_runtime_1.jsx)("div", { className: "flex items-center justify-center", children: name === 'Analyz' ? ((0, jsx_runtime_1.jsx)(Logo, {})) : ((0, jsx_runtime_1.jsx)("div", { className: "w-8 h-8 overflow-hidden rounded-full bg-gray-200", children: (0, jsx_runtime_1.jsx)("img", { src: imageSrc, alt: "user", className: "w-full h-full object-cover" }) })) }), (0, jsx_runtime_1.jsx)("span", { className: "ml-3 font-medium text-sm text-gray-700 dark:text-gray-300", children: name === 'Analyz' ? 'Analyz' : name })] }), (0, jsx_runtime_1.jsx)("div", { className: `font-normal rounded-md text-black mt-4`, children: animate ? ((0, jsx_runtime_1.jsxs)("div", { className: "flex items-center my-5", children: [(0, jsx_runtime_1.jsx)(react_spinners_1.MoonLoader, { color: theme === 'dark' ? '#fff' : '#000', loading: animate, size: 20, "aria-label": "Loading Spinner", "data-testid": "loader" }), (0, jsx_runtime_1.jsx)("p", { className: "ml-3 text-gray-500 dark:text-gray-400", children: loadingText })] })) : ((0, jsx_runtime_1.jsxs)("div", { className: `rounded-md bg-transparent text-black dark:text-white`, children: [message.flowchart &&
                             (0, jsx_runtime_1.jsx)(Mermaid_1.default, { chart: message.flowchart }), message.explanation && (0, jsx_runtime_1.jsx)("p", { className: "", children: message.explanation }), message.query && (0, jsx_runtime_1.jsx)("p", { className: "", children: message.query })] })) })] }));
 }

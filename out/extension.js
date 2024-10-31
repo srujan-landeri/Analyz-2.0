@@ -37,7 +37,189 @@ const GOOGLE_CLIENT_SECRET = "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";
 const REDIRECT_URI = 'http://localhost:54321/callback';
 function activate(context) {
     const analyzViewProvider = new AnalyzViewProvider(context.extensionUri, context);
+    const codeLensProvider = new ComplexityCodeLensProvider();
     context.subscriptions.push(vscode.window.registerWebviewViewProvider(AnalyzViewProvider.viewType, analyzViewProvider));
+    // Register for all file types
+    context.subscriptions.push(vscode.languages.registerCodeLensProvider({ scheme: 'file' }, codeLensProvider));
+    context.subscriptions.push(vscode.commands.registerCommand('extension.analyzeComplexity', async (document, range) => {
+        try {
+            const functionText = document.getText(range);
+            console.log("functionText", functionText);
+            // Send the function text to the webview for analysis
+            if (analyzViewProvider._view) {
+                analyzViewProvider.updateFunction(functionText, document.fileName);
+            }
+            else {
+                await vscode.commands.executeCommand('analyz.focus');
+                setTimeout(() => {
+                    analyzViewProvider.updateFunction(functionText, document.fileName);
+                }, 500);
+            }
+        }
+        catch (error) {
+            vscode.window.showErrorMessage('Failed to analyze complexity');
+        }
+    }));
+}
+class FunctionExtractor {
+    constructor() {
+        this.patterns = {
+            javascript: {
+                pattern: /(?:function\s+(\w+)\s*\([^)]*\)|(?:const|let|var)\s+(\w+)\s*=\s*(?:function|\([^)]*\)\s*=>)|\b(?:class\s+(\w+)|(\w+)\s*:\s*function))/g,
+                nameIndex: [1, 2, 3, 4]
+            },
+            typescript: {
+                pattern: /(?:function\s+(\w+)\s*\([^)]*\)|(?:const|let|var)\s+(\w+)\s*=\s*(?:function|\([^)]*\)\s*=>)|\b(?:class\s+(\w+)|(\w+)\s*:\s*function))/g,
+                nameIndex: [1, 2, 3, 4]
+            },
+            python: {
+                pattern: /(?:def\s+(\w+)\s*\([^)]*\)|class\s+(\w+))/g,
+                nameIndex: [1, 2]
+            },
+            java: {
+                pattern: /(?:(?:public|private|protected|static|\s) +(?:[a-zA-Z0-9_]+) +([a-zA-Z0-9_]+) *\([^)]*\) *(?:{|throws|$))/g,
+                nameIndex: [1]
+            },
+            cpp: {
+                pattern: /(?:(?:public|private|protected|static|\s) +(?:[a-zA-Z0-9_]+) +([a-zA-Z0-9_]+) *\([^)]*\) *(?:{|throws|$))/g,
+                nameIndex: [1]
+            }
+        };
+    }
+    extractFunctions(code, language) {
+        const results = [];
+        const langPattern = this.patterns[language.toLowerCase()];
+        if (!langPattern) {
+            return [];
+        }
+        let match;
+        while ((match = langPattern.pattern.exec(code)) !== null) {
+            const name = langPattern.nameIndex
+                .map((i) => match ? match[i] : undefined)
+                .find((n) => n !== undefined);
+            if (name) {
+                const startIndex = match.index;
+                const body = this.extractFunctionBody(code, startIndex, language);
+                results.push({
+                    name,
+                    startIndex,
+                    body,
+                    range: {
+                        start: startIndex,
+                        end: startIndex + body.length
+                    }
+                });
+            }
+        }
+        return results;
+    }
+    extractFunctionBody(code, startIndex, language) {
+        if (language === 'python') {
+            return this.extractPythonBody(code, startIndex);
+        }
+        let bracketCount = 0;
+        let inString = false;
+        let stringChar = '';
+        let bodyStart = -1;
+        let bodyEnd = -1;
+        for (let i = startIndex; i < code.length; i++) {
+            const char = code[i];
+            if ((char === '"' || char === "'" || char === '`') && code[i - 1] !== '\\') {
+                if (!inString) {
+                    inString = true;
+                    stringChar = char;
+                }
+                else if (char === stringChar) {
+                    inString = false;
+                }
+                continue;
+            }
+            if (!inString) {
+                if (char === '{') {
+                    if (bracketCount === 0) {
+                        bodyStart = i;
+                    }
+                    bracketCount++;
+                }
+                else if (char === '}') {
+                    bracketCount--;
+                    if (bracketCount === 0) {
+                        bodyEnd = i + 1;
+                        break;
+                    }
+                }
+            }
+        }
+        return bodyStart !== -1 && bodyEnd !== -1
+            ? code.substring(startIndex, bodyEnd)
+            : code.substring(startIndex);
+    }
+    extractPythonBody(code, startIndex) {
+        const lines = code.substring(startIndex).split('\n');
+        const firstLine = lines[0];
+        const baseIndent = firstLine.match(/^\s*/)?.[0].length || 0;
+        let bodyLines = [firstLine];
+        for (let i = 1; i < lines.length; i++) {
+            const line = lines[i];
+            const indent = line.match(/^\s*/)?.[0].length || 0;
+            if (line.trim().length === 0) {
+                bodyLines.push(line);
+                continue;
+            }
+            if (indent <= baseIndent && line.trim().length > 0) {
+                break;
+            }
+            bodyLines.push(line);
+        }
+        return bodyLines.join('\n');
+    }
+}
+class ComplexityCodeLensProvider {
+    constructor() {
+        this.functionExtractor = new FunctionExtractor();
+    }
+    async provideCodeLenses(document) {
+        const codeLenses = [];
+        const text = document.getText();
+        // Determine language from file extension
+        const fileName = document.fileName;
+        const fileExtension = fileName.split('.').pop()?.toLowerCase();
+        let language = 'javascript'; // default
+        switch (fileExtension) {
+            case 'py':
+                language = 'python';
+                break;
+            case 'ts':
+                language = 'typescript';
+                break;
+            case 'js':
+                language = 'javascript';
+                break;
+            case 'java':
+                language = 'java';
+                break;
+            case 'cpp':
+            case 'h':
+            case 'hpp':
+                language = 'cpp';
+                break;
+            default:
+                return []; // Return empty array for unsupported file types
+        }
+        const functions = this.functionExtractor.extractFunctions(text, language);
+        for (const func of functions) {
+            const startPos = document.positionAt(func.startIndex);
+            const endPos = document.positionAt(func.startIndex + func.body.length);
+            const range = new vscode.Range(startPos, endPos);
+            const codeLens = new vscode.CodeLens(range, {
+                title: "Get Complexity",
+                command: 'extension.analyzeComplexity',
+                arguments: [document, range]
+            });
+            codeLenses.push(codeLens);
+        }
+        return codeLenses;
+    }
 }
 class AnalyzViewProvider {
     constructor(_extensionUri, context) {
@@ -98,6 +280,40 @@ class AnalyzViewProvider {
                     return;
             }
         });
+    }
+    updateFunction(functionText, fileName) {
+        if (this._view) {
+            // Get the file extension to determine language
+            const fileExtension = fileName.split('.').pop()?.toLowerCase();
+            let language = 'javascript'; // default
+            switch (fileExtension) {
+                case 'py':
+                    language = 'python';
+                    break;
+                case 'ts':
+                    language = 'typescript';
+                    break;
+                case 'js':
+                    language = 'javascript';
+                    break;
+                case 'java':
+                    language = 'java';
+                    break;
+                case 'cpp':
+                case 'h':
+                case 'hpp':
+                    language = 'cpp';
+                    break;
+            }
+            this._view.webview.postMessage({
+                type: 'time-complexity',
+                function: {
+                    code: functionText,
+                    language: language,
+                    fileName: fileName
+                }
+            });
+        }
     }
     async handleLogout() {
         await this.context.secrets.delete('google-token');

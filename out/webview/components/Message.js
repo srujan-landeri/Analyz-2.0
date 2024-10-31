@@ -22,7 +22,6 @@ function parseReferencesString(str) {
         return JSON.parse(str);
     }
     catch (error) {
-        console.error('Error parsing references string:', error);
         return [];
     }
 }
@@ -67,8 +66,6 @@ function Message(props) {
     const imageSrc = user?.picture;
     const name = user?.name;
     const loadingTexts = ["Parsing", "Interpreting", "Generating", "Loading"];
-    console.log(message.split('\n')[0]);
-    console.log(references);
     (0, react_1.useEffect)(() => {
         if (animate) {
             let i = 0;

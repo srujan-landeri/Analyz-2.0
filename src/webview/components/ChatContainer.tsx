@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Message from './Message';
 import InputChat from './InputChat';
 import WelcomeScreen from '../pages/Welcome';
 const { v4: uuidv4 } = require('uuid');
 import { PlusCircle, History, LogOut, LayoutGrid, Code } from 'lucide-react';
 import { FcFlowChart } from "react-icons/fc";
+import { access } from 'fs';
 
 export default function ChatContainer(props: any) {
     const {
@@ -14,11 +15,11 @@ export default function ChatContainer(props: any) {
         chat,
         setPage,
         token,
-        setChat
+        setChat,
     } = props;
 
     console.log("Container got")
-    console.log(chat);
+    console.log(props);
 
     interface MessageType {
         id: string;
@@ -31,6 +32,31 @@ export default function ChatContainer(props: any) {
         name: string;
         source: string;
     }
+
+    useEffect(() => {
+        const handleMessage = (event: any) => {
+            const message = event.data;
+
+            switch (message.type) {
+                case 'time-complexity':
+                    const function_data = message.function;
+                    const code = function_data.code;
+                    const language = function_data.language;
+
+                    console.log("Code: ");
+                    console.log(code);
+                    console.log(token);
+                    const user_message = "```"+language+"\n"+code+" \n ``` \n Explain the Time complexity and Space Complexity of the above code written in `"+language+"`. Additionally provide scope of improvement.";
+                    addMessage({ icon: 'user', message: user_message, model: { name: 'llama3-groq-70b-8192-tool-use-preview', source: 'groq' }, id: uuidv4(), references: null });
+            }
+        };
+                    
+        window.addEventListener('message', handleMessage);
+
+        return () => {
+            window.removeEventListener('message', handleMessage)
+        };
+    }, []);
 
     const { run_name, llm, chat_history = [], llm_messages = [] } = chat;
     const [messages, setMessages] = useState<MessageType[]>(chat_history);
@@ -47,11 +73,11 @@ export default function ChatContainer(props: any) {
             run_id: null,
             run_name: '',
             llm: {
-                name: 'mistral:latest',
-                model: ''
+                name: 'groq',
+                model: 'llama3-groq-70b-8192-tool-use-preview'
             },
-            chat_history: []
-        })
+            chat_history: [],
+        });
         setMessages([])
         setPage('chat');
         setIsDropdownOpen(false);
@@ -65,7 +91,7 @@ export default function ChatContainer(props: any) {
         vscode.postMessage({ type: 'logout' });
     }
 
-    const completeChat = async (message: string, model: ModelType, references: string) => {
+    const completeChat = async (message: string, model: ModelType, references: string | null) => {
 
         const typingMessageId = uuidv4();
         
@@ -147,7 +173,7 @@ export default function ChatContainer(props: any) {
         }
     };
 
-    const addMessage = (newMessage: { icon: string; message: string, model: ModelType, id: string, references: string }) => {
+    const addMessage = (newMessage: { icon: string; message: string, model: ModelType, id: string, references: string | null }) => {
         setMessages(prevMessages => [...prevMessages, newMessage]);
 
         const { icon, message, model, references } = newMessage;

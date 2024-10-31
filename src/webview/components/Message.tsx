@@ -21,7 +21,6 @@ function parseReferencesString(str: any) {
         str = str.replace(/'/g, '"');
         return JSON.parse(str);
     } catch (error) {
-        console.error('Error parsing references string:', error);
         return [];
     }
 }
@@ -84,8 +83,7 @@ export default function Message(props: any) {
     const name = user?.name;
 
     const loadingTexts = ["Parsing", "Interpreting", "Generating", "Loading"];
-    console.log(message.split('\n')[0])
-    console.log(references)
+
     useEffect(() => {
         if (animate) {
             let i = 0;

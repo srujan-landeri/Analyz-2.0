@@ -206155,9 +206155,29 @@ const { v4: uuidv4 } = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist
 const lucide_react_1 = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/lucide-react.js");
 const fc_1 = __webpack_require__(/*! react-icons/fc */ "./node_modules/react-icons/fc/index.js");
 function ChatContainer(props) {
-    const { vscode, theme, user, chat, setPage, token, setChat } = props;
+    const { vscode, theme, user, chat, setPage, token, setChat, } = props;
     console.log("Container got");
-    console.log(chat);
+    console.log(props);
+    (0, react_1.useEffect)(() => {
+        const handleMessage = (event) => {
+            const message = event.data;
+            switch (message.type) {
+                case 'time-complexity':
+                    const function_data = message.function;
+                    const code = function_data.code;
+                    const language = function_data.language;
+                    console.log("Code: ");
+                    console.log(code);
+                    console.log(token);
+                    const user_message = "```" + language + "\n" + code + " \n ``` \n Explain the Time complexity and Space Complexity of the above code written in `" + language + "`. Additionally provide scope of improvement.";
+                    addMessage({ icon: 'user', message: user_message, model: { name: 'llama3-groq-70b-8192-tool-use-preview', source: 'groq' }, id: uuidv4(), references: null });
+            }
+        };
+        window.addEventListener('message', handleMessage);
+        return () => {
+            window.removeEventListener('message', handleMessage);
+        };
+    }, []);
     const { run_name, llm, chat_history = [], llm_messages = [] } = chat;
     const [messages, setMessages] = (0, react_1.useState)(chat_history);
     const [loading, setLoading] = (0, react_1.useState)(false);
@@ -206171,10 +206191,10 @@ function ChatContainer(props) {
             run_id: null,
             run_name: '',
             llm: {
-                name: 'mistral:latest',
-                model: ''
+                name: 'groq',
+                model: 'llama3-groq-70b-8192-tool-use-preview'
             },
-            chat_history: []
+            chat_history: [],
         });
         setMessages([]);
         setPage('chat');
@@ -206362,6 +206382,29 @@ function CodeConverter(props) {
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -206370,7 +206413,7 @@ exports["default"] = ChatContainer;
 exports.Message = Message;
 exports.Logo = Logo;
 const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-const react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const lucide_react_1 = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/lucide-react.js");
 const react_spinners_1 = __webpack_require__(/*! react-spinners */ "./node_modules/react-spinners/esm/index.js");
 const { v4: uuidv4 } = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/commonjs-browser/index.js");
@@ -206449,6 +206492,16 @@ function ChatContainer(props) {
 function Message({ name, message, imageSrc, theme, animate }) {
     const loadingTexts = ["Parsing", "Interpreting", "Generating", "Loading"];
     const [loadingText, setLoadingText] = (0, react_1.useState)("Typing...");
+    react_1.default.useEffect(() => {
+        if (animate) {
+            let i = 0;
+            const interval = setInterval(() => {
+                setLoadingText(`${loadingTexts[i % 4]}...`);
+                i++;
+            }, 1000);
+            return () => clearInterval(interval);
+        }
+    }, [animate]);
     return ((0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col w-full animate-fade-in", children: [(0, jsx_runtime_1.jsxs)("div", { className: "flex items-center", children: [(0, jsx_runtime_1.jsx)("div", { className: "flex items-center justify-center", children: name === 'Analyz' ? ((0, jsx_runtime_1.jsx)(Logo, {})) : ((0, jsx_runtime_1.jsx)("div", { className: "w-8 h-8 overflow-hidden rounded-full bg-gray-200", children: (0, jsx_runtime_1.jsx)("img", { src: imageSrc, alt: "user", className: "w-full h-full object-cover" }) })) }), (0, jsx_runtime_1.jsx)("span", { className: "ml-3 font-medium text-sm text-gray-700 dark:text-gray-300", children: name === 'Analyz' ? 'Analyz' : name })] }), (0, jsx_runtime_1.jsx)("div", { className: `font-normal rounded-md text-black mt-4`, children: animate ? ((0, jsx_runtime_1.jsxs)("div", { className: "flex items-center my-5", children: [(0, jsx_runtime_1.jsx)(react_spinners_1.MoonLoader, { color: theme === 'dark' ? '#fff' : '#000', loading: animate, size: 20, "aria-label": "Loading Spinner", "data-testid": "loader" }), (0, jsx_runtime_1.jsx)("p", { className: "ml-3 text-gray-500 dark:text-gray-400", children: loadingText })] })) : ((0, jsx_runtime_1.jsxs)("div", { className: `rounded-md bg-transparent text-black dark:text-white`, children: [message.flowchart &&
                             (0, jsx_runtime_1.jsx)(Mermaid_1.default, { chart: message.flowchart }), message.explanation && (0, jsx_runtime_1.jsx)("p", { className: "", children: message.explanation }), message.query && (0, jsx_runtime_1.jsx)("p", { className: "", children: message.query })] })) })] }));
 }
@@ -206827,49 +206880,55 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports["default"] = MermaidExample;
 const jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 const react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-const MermaidDiagram = ({ chart }) => {
+// Track if Mermaid is already loaded
+let mermaidLoaded = false;
+const MermaidDiagram = ({ chart, id }) => {
     const mermaidRef = (0, react_1.useRef)(null);
+    const [isScriptLoaded, setIsScriptLoaded] = (0, react_1.useState)(mermaidLoaded);
     (0, react_1.useEffect)(() => {
-        const renderDiagram = async () => {
-            try {
-                const script = document.createElement('script');
-                script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js';
-                script.async = true;
-                script.onload = () => {
-                    if (window.mermaid && mermaidRef.current) {
+        const loadMermaid = async () => {
+            if (!mermaidLoaded) {
+                return new Promise((resolve) => {
+                    const script = document.createElement('script');
+                    script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js';
+                    script.async = true;
+                    script.onload = () => {
+                        mermaidLoaded = true;
                         window.mermaid.initialize({
                             startOnLoad: false,
                             theme: 'default',
-                            securityLevel: 'strict', // Added for extra security
+                            securityLevel: 'strict',
                         });
-                        // Clear previous content
-                        mermaidRef.current.innerHTML = '';
-                        // Render new diagram
-                        window.mermaid.render('mermaid-diagram', chart).then((result) => {
-                            if (mermaidRef.current) {
-                                mermaidRef.current.innerHTML = result.svg;
-                            }
-                        });
+                        setIsScriptLoaded(true);
+                        resolve();
+                    };
+                    document.body.appendChild(script);
+                });
+            }
+            return Promise.resolve();
+        };
+        const renderDiagram = async () => {
+            try {
+                if (!mermaidLoaded) {
+                    await loadMermaid();
+                }
+                if (window.mermaid && mermaidRef.current) {
+                    const { svg } = await window.mermaid.render(`mermaid-${id}`, chart);
+                    if (mermaidRef.current) {
+                        mermaidRef.current.innerHTML = svg;
                     }
-                };
-                document.body.appendChild(script);
+                }
             }
             catch (error) {
                 console.error('Error rendering Mermaid diagram:', error);
             }
         };
         renderDiagram();
-        return () => {
-            const script = document.querySelector('script[src*="mermaid"]');
-            if (script) {
-                document.body.removeChild(script);
-            }
-        };
-    }, [chart]);
-    return (0, jsx_runtime_1.jsx)("div", { ref: mermaidRef });
+    }, [chart, id, isScriptLoaded]);
+    return (0, jsx_runtime_1.jsx)("div", { ref: mermaidRef, className: "mermaid-diagram" });
 };
 function MermaidExample({ chart }) {
-    return ((0, jsx_runtime_1.jsx)("div", { className: "p-4", children: (0, jsx_runtime_1.jsx)("div", { className: "rounded p-4 bg-transparent flex justify-center", children: (0, jsx_runtime_1.jsx)(MermaidDiagram, { chart: chart }) }) }));
+    return ((0, jsx_runtime_1.jsx)("div", { className: "p-4", children: (0, jsx_runtime_1.jsx)("div", { className: "rounded p-4 bg-transparent flex justify-center", children: (0, jsx_runtime_1.jsx)(MermaidDiagram, { chart: chart, id: crypto.randomUUID() }) }) }));
 }
 
 
@@ -206906,7 +206965,6 @@ function parseReferencesString(str) {
         return JSON.parse(str);
     }
     catch (error) {
-        console.error('Error parsing references string:', error);
         return [];
     }
 }
@@ -206951,8 +207009,6 @@ function Message(props) {
     const imageSrc = user?.picture;
     const name = user?.name;
     const loadingTexts = ["Parsing", "Interpreting", "Generating", "Loading"];
-    console.log(message.split('\n')[0]);
-    console.log(references);
     (0, react_1.useEffect)(() => {
         if (animate) {
             let i = 0;
@@ -207012,12 +207068,13 @@ const History_1 = __importDefault(__webpack_require__(/*! ../components/History 
 const CodeConvertor_1 = __importDefault(__webpack_require__(/*! ../components/CodeConvertor */ "./src/webview/components/CodeConvertor.tsx"));
 const Flowchart_1 = __importDefault(__webpack_require__(/*! ../components/Flowchart */ "./src/webview/components/Flowchart.tsx"));
 const vscode = acquireVsCodeApi();
+const { v4: uuidv4 } = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/commonjs-browser/index.js");
 const react_toastify_1 = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.js");
 __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
 const fc_1 = __webpack_require__(/*! react-icons/fc */ "./node_modules/react-icons/fc/index.js");
 const App = () => {
     const [theme, setTheme] = (0, react_1.useState)('light');
-    const [page, setPage] = (0, react_1.useState)('loader');
+    const [page, setPage] = (0, react_1.useState)('loading');
     const [user, setUser] = (0, react_1.useState)(null);
     const [tokenData, setTokenData] = (0, react_1.useState)(null);
     const [chat, setChat] = (0, react_1.useState)({
@@ -207047,16 +207104,20 @@ const App = () => {
                         },
                         chat_history: [],
                     });
-                    setPage('chat');
                     setUser(message.user);
                     setTokenData(message.token);
+                    setTimeout(() => {
+                        setPage('chat');
+                    }, 1000);
                     react_toastify_1.toast.success("Login Successful!");
                     break;
                 case 'auth-status':
                     if (message.value === true) {
-                        setPage('chat');
                         setUser(message.user);
                         setTokenData(message.token);
+                        setTimeout(() => {
+                            setPage('chat');
+                        }, 1000);
                     }
                     else if (message.value === false) {
                         setPage('login');
@@ -207071,7 +207132,6 @@ const App = () => {
         };
         window.addEventListener('message', handleMessage);
         // Check auth status on mount
-        //! Uncomment this line
         vscode.postMessage({ type: 'check-auth-status' });
         return () => {
             window.removeEventListener('message', handleMessage);

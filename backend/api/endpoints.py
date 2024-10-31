@@ -25,6 +25,7 @@ async def authenticate_user(auth: AuthenticationRequest) -> Dict[str, Any]:
     except HTTPException as e:
         raise HTTPException(status_code=e.status_code, detail=e.detail)
     
+# Database routes
 @router.post("/user/chat_history")
 async def get_user_chat_history(auth: AuthenticationRequest) -> List[Dict[str, Any]]:
     """
@@ -111,10 +112,11 @@ async def generate_response(
             
         if run_id is None:
             run_name = assistant_utils.generate_run_name(message)
+            print("Run Name:", run_name)
 
         references_for_model = {}
-        input_references = json.loads(input_references) if input_references else None      
-    
+        input_references = json.loads(input_references) if input_references else None     
+            
         if input_references:    
             # process input_references
             image_description = None
@@ -140,7 +142,7 @@ async def generate_response(
         
         response = assistant_utils.generate_response(assistant, message, inference_engine, model)
         from rich.pretty import pprint
-        pprint("Call History " + assistant.get_tool_call_history())
+
         return {
             "response": response,
             "run_id": current_run_id,
