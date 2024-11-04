@@ -1,10 +1,7 @@
 # 📘 Analyz
 
-**Analyz** is a powerful, LLM-powered Visual Studio Code extension designed to provide developers with instant insights, assistance, and educational resources for a wide range of programming tasks. Whether it's troubleshooting code, translating algorithms across languages, or gaining insights from research papers, **Analyz** supports developers at every step.
+**Analyz** is a powerful, LLM-powered Visual Studio Code extension designed to provide developers with instant insights, assistance, and educational resources for a wide range of programming tasks. Whether it's troubleshooting code, converting across languages, or gaining insights from research papers, **Analyz** supports developers at every step. Anlyze has access to both open-source and pro language models—such as **LLaMA**, **Gemma**, **Mistral**, and **OpenAI**—**Analyz** is your go-to tool for smart, secure, and intuitive programming support. With user-friendly features, including secure Google OAuth2.0 authentication, **Analyz** ensures that every session is personalized, safe, and effective.
 
-Leveraging both open-source and premium language models—such as **LLaMA**, **Gemma**, **Mistral**, and **OpenAI**—**Analyz** is your go-to tool for smart, secure, and intuitive programming support. With user-friendly features, including secure Google OAuth2.0 authentication, **Analyz** ensures that every session is personalized, safe, and effective.
-
----
 ## ✨ Key Features
 
 - 🌐 **Multi-Model Support**:  
@@ -23,18 +20,30 @@ Leveraging both open-source and premium language models—such as **LLaMA**, **G
   Allows users to input YouTube URLs, generating responses to questions related to the video content, providing insights without needing to watch entire videos.
 
 - 🔄 **Code Translation & Conversion**:  
-  Translates code across 70+ programming languages, helping users understand and utilize algorithms in their preferred language or framework.
+  Translates code across programming languages, helping users understand and utilize algorithms in their preferred language or framework.
 
 - 📑 **Research Paper Search**:  
   Enables efficient search and analysis of research papers, allowing developers to stay informed with the latest advancements in their field.
 
 - 📊 **Flowchart Generation**:  
-  Automatically generates flowcharts from code, simplifying complex algorithms and enhancing understanding.
+  Automatically generates flowcharts simplifying complex algorithms and enhancing understanding using `Mermaid`.
 
 ---
 
 > 🚀 **Note**: The voice input feature is currently under development and will be available in future releases.
 
+<br>
+
+## 🗂️ Supported Models
+
+- **Gemma**: 9B
+- **Mistral**: Latest
+- **GPT-4**: Latest
+- **GPT-4o-mini**: Latest
+- **llama3-groq-70b-8192-tool-use-preview**: Latest
+- **llama-3.1-70b-versatile**: Latest
+
+<br>
 
 ## 🛠️ Installation
 
@@ -50,7 +59,7 @@ Follow these steps to clone and run **Analyz** on your local system.
 Clone the **Analyz** repository to your local system using the following command:
 
 ```bash
-git clone https://github.com/yourusername/analyz-vscode-extension.git
+git clone https://github.com/srujan-landeri/Analyz-2.0.git
 ```
 
 ### 3. Navigate to the Project Directory
