@@ -3,7 +3,8 @@ import {
     Image, X, ImageIcon, Upload, Send, PlusIcon,
     ChevronUp, ChevronDown, Globe, Search, Link,
     Text,
-    Layers
+    Layers,
+    Book
 } from 'lucide-react';
 import { FaMicrophone, FaYoutube } from "react-icons/fa";
 const { v4: uuidv4 } = require('uuid');
@@ -23,8 +24,26 @@ export default function Chat(props: any) {
     }
 
     const modelsMap: ModelsMap = {
-        ollama: [{ icon: 'text', model: 'deepseek-coder-v2:16b' }, { icon: 'text', model: 'codestral:22b' }, { icon: 'text', model: 'gemma2:9b' }, { icon: 'text', model: 'mistral:latest' }],
-        groq: [{ icon: 'text', model: 'llama3-groq-70b-8192-tool-use-preview' }, { icon: 'text', model: 'llama-3.1-70b-versatile' }, { icon: 'image', model: 'llama-3.2-11b-vision-preview' }],
+        ollama: [
+            {
+                icon: 'text', model: 'mistral:latest'
+            }, {
+                icon: 'text', model: 'gemma2:9b'
+            }],
+        groq: [
+            { 
+                icon: 'text', model: 'llama3-groq-70b-8192-tool-use-preview' 
+            }, { 
+                icon: 'text', model: 'llama-3.1-70b-versatile' 
+            }
+        ],
+        openai:[
+            {
+                icon: 'text', model: 'gpt-4o'
+            }, {
+                icon: 'text', model: 'gpt-4o-mini'
+            }
+        ]
     };
 
     const [selectedSource, setSelectedSource] = useState(props.llm.name);
@@ -32,7 +51,6 @@ export default function Chat(props: any) {
     const [openKey, setOpenKey] = useState(null); // State for the open accordion
 
     // Add these to your existing state declarations
-    const [fileModal, setFileModal] = useState<any>(false);
     const [websiteModal, setWebsiteModal] = useState<any>(false);
     const [youtubeModal, setYoutubeModal] = useState<any>(false);
 
@@ -40,7 +58,8 @@ export default function Chat(props: any) {
     const [pastedImage, setPastedImage] = useState<string | null>(null); // State for pasted image
     const [websites, setWebsites] = useState<any>([]);
     const [youtubeUrls, setYoutubeUrls] = useState<any>([]);
-
+    const [webSearch, setWebSearch] = useState<boolean>(false);
+    const [researchPapers, setResearchPapers] = useState<boolean>(false);
 
     const vscode = props.vscode;
     const disabled = props.disabled;
@@ -61,9 +80,17 @@ export default function Chat(props: any) {
             references = { ...references, image: pastedImage };
         }
 
+        if (webSearch) {
+            references = { ...references, websearch: webSearch };
+        }
+
+        if (researchPapers) {
+            references = { ...references, research_papers: researchPapers };
+        }
+
         // Add websites if any exist
         if (websites.length > 0) {
-            references = { ...references, websites: websites }; 
+            references = { ...references, websites: websites };
         }
 
         // Add YouTube references if they exist
@@ -72,7 +99,7 @@ export default function Chat(props: any) {
         }
 
         // If references object exists, convert it to a string; otherwise, set referencesString to null
-        if(Object.keys(references).length === 0) {
+        if (Object.keys(references).length === 0) {
             references = null;
         }
 
@@ -158,8 +185,6 @@ export default function Chat(props: any) {
     const handlePaste = (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
         const items = e.clipboardData.items;
 
-        // Loop through clipboard items
-        console.log(items)
         for (const item of items) {
             if (item.type.indexOf('image') !== -1) {
                 const file = item.getAsFile();
@@ -226,12 +251,18 @@ export default function Chat(props: any) {
                                 onRemove={() => setPastedImage(null)}
                             />
                         )}
-                        {websites.length > 0 && (
+                        {researchPapers && (
+                            <ResourceChip
+                                icon={Book}
+                                label="Research Papers"
+                                onRemove={() => setResearchPapers(false)}
+                            />
+                        )}
+                        {webSearch && (
                             <ResourceChip
                                 icon={Globe}
-                                label="Websites"
-                                count={websites.length}
-                                onRemove={() => setWebsites([])}
+                                label="Web Search"
+                                onRemove={() => setWebSearch(false)}
                             />
                         )}
                         {youtubeUrls.length > 0 && (
@@ -291,23 +322,21 @@ export default function Chat(props: any) {
                 <div
                     className='flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700'
                     onClick={() => {
-                        setFileModal(true);
-                        setChatDropdown(false);
+                        setWebSearch(true);
                     }}
                 >
-                    <Upload size={18} className='text-black dark:text-white' />
-                    <p className='text-xs'>Upload file</p>
+                    <Globe size={18} className='text-black dark:text-white' />
+                    <p className='text-xs'>Search Web</p>
                 </div>
 
                 <div
                     className='flex gap-3 p-2 items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700'
                     onClick={() => {
-                        setWebsiteModal(true);
-                        setChatDropdown(false);
+                        setResearchPapers(true);
                     }}
                 >
-                    <Globe size={18} className='text-black dark:text-white' />
-                    <p className='text-xs'>Scrape Website</p>
+                    <Book size={18} className='text-black dark:text-white' />
+                    <p className='text-xs'>Research Papers</p>
                 </div>
 
                 <div
@@ -321,24 +350,6 @@ export default function Chat(props: any) {
                     <p className='text-xs'>Youtube URL</p>
                 </div>
             </div>
-
-            <Modal
-                isOpen={websiteModal}
-                onClose={() => setWebsiteModal(false)}
-                title="Add Website URL"
-            >
-                <input
-                    type="text"
-                    placeholder="Enter website URL"
-                    className="w-full p-2 border rounded-md dark:bg-zinc-700 dark:border-zinc-600"
-                    onKeyDown={(e: any) => {
-                        if (e.key === 'Enter') {
-                            setWebsites([...websites, e.target.value]);
-                            setWebsiteModal(false);
-                        }
-                    }}
-                />
-            </Modal>
 
             <Modal
                 isOpen={youtubeModal}
@@ -359,14 +370,14 @@ export default function Chat(props: any) {
             </Modal>
 
             { /* Model Dropdown */}
-            <div className={`absolute left-0 bottom-[110%] w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${modelDropdown ? 'block' : 'hidden'}`}>
+            <div className={`absolute w-[300px] left-0 bottom-[110%] bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${modelDropdown ? 'block' : 'hidden'}`}>
                 <h4 className='text-xs p-2 italic flex gap-1 items-center'>
                     <Layers size={18} className='text-black dark:text-white' />
                     Choose a model
                 </h4>
 
                 {modelDropdown && (
-                    <div className="rounded">
+                    <div className="rounded ">
                         {Object.keys(modelsMap).map((key) => (
                             <div key={key}>
                                 <div

@@ -1,71 +1,116 @@
-# analyz README
+# 📘 Analyz
 
-This is the README for your extension "analyz". After writing up a brief description, we recommend including the following sections.
+**Analyz** is a powerful, LLM-powered Visual Studio Code extension designed to provide developers with instant insights, assistance, and educational resources for a wide range of programming tasks. Whether it's troubleshooting code, translating algorithms across languages, or gaining insights from research papers, **Analyz** supports developers at every step.
 
-## Features
+Leveraging both open-source and premium language models—such as **LLaMA**, **Gemma**, **Mistral**, and **OpenAI**—**Analyz** is your go-to tool for smart, secure, and intuitive programming support. With user-friendly features, including secure Google OAuth2.0 authentication, **Analyz** ensures that every session is personalized, safe, and effective.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+---
+## ✨ Key Features
 
-For example if there is an image subfolder under your extension project workspace:
+- 🌐 **Multi-Model Support**:  
+  Access a variety of LLMs, including open-source models (e.g., **LLaMA** and **Mistral**) and premium models (**OpenAI**), enabling flexible, tailored responses based on user preference.
 
-\!\[feature X\]\(images/feature-x.png\)
+- 🔒 **Secure Authentication**:  
+  Supports Google OAuth 2.0 for safe and easy user authentication, ensuring secure access to your personalized environment.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- 📝 **Enhanced Query Support**:  
+  Responds to queries on various data inputs, including text, images, and (coming soon) voice, for a versatile and interactive experience.
 
-## Requirements
+- 🔍 **Web Search Integration**:  
+  Improves accuracy and relevance by retrieving additional information through real-time web searches to supplement model-generated responses.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- 🎥 **YouTube Video Analysis**:  
+  Allows users to input YouTube URLs, generating responses to questions related to the video content, providing insights without needing to watch entire videos.
 
-## Extension Settings
+- 🔄 **Code Translation & Conversion**:  
+  Translates code across 70+ programming languages, helping users understand and utilize algorithms in their preferred language or framework.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+- 📑 **Research Paper Search**:  
+  Enables efficient search and analysis of research papers, allowing developers to stay informed with the latest advancements in their field.
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+- 📊 **Flowchart Generation**:  
+  Automatically generates flowcharts from code, simplifying complex algorithms and enhancing understanding.
 
 ---
 
-## Following extension guidelines
+> 🚀 **Note**: The voice input feature is currently under development and will be available in future releases.
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+## 🛠️ Installation
 
-## Working with Markdown
+Follow these steps to clone and run **Analyz** on your local system.
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+### 1. Prerequisites
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+- **Visual Studio Code**: Ensure you have the latest version installed. [Download VS Code](https://code.visualstudio.com/Download)
+- **Node.js**: Required for running the extension. [Download Node.js](https://nodejs.org/)
 
-## For more information
+### 2. Clone the Repository
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+Clone the **Analyz** repository to your local system using the following command:
 
-**Enjoy!**
+```bash
+git clone https://github.com/yourusername/analyz-vscode-extension.git
+```
+
+### 3. Navigate to the Project Directory
+
+Move into the project directory:
+
+```bash
+cd analyz-vscode-extension
+```
+
+### 4. Install Dependencies
+
+Install the necessary dependencies using npm:
+
+```bash
+npm install
+```
+
+### 5. Set the Environment Variables
+
+```bash
+setx GROK_API_KEY "your_grok_api_key"
+setx OPENAI_API_KEY "your_openai_api_key"
+setx OAUTH_GOOGLE_CLIENT_ID "your_google_client_id"
+setx OAUTH_GOOGLE_CLIENT_SECRET "your_google_client_secret"
+setx TAVILY_API_KEY "your_tavily_api_key"
+```
+
+### 6. Setup the Storage
+
+- Download and install Docker Desktop from the [official Docker website](https://www.docker.com/products/docker-desktop).
+
+- Once Docker is installed, you can run the PgVector container using the following command:
+
+```bash
+docker run -d \
+  -e POSTGRES_DB=ai \
+  -e POSTGRES_USER=ai \
+  -e POSTGRES_PASSWORD=ai \
+  -e PGDATA=/var/lib/postgresql/data/pgdata \
+  -v pgvolume:/var/lib/postgresql/data \
+  -p 5532:5432 \
+  --name pgvector \
+  phidata/pgvector:16
+```
+
+### 7. Run the Backend
+
+Start the backend server:
+
+```bash
+cd backend
+uvicorn app:app --reload
+```
+
+### 8. Run the Extension
+
+Open the project in Visual Studio Code and run the extension using the following command:
+
+```bash
+F5
+```
+

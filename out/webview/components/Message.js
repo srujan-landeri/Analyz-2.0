@@ -47,6 +47,12 @@ function ReferenceTabs({ referencesString }) {
                     count: websitesCount > 1 ? websitesCount : null
                 });
             }
+            else if (key === "websearch") {
+                tabs.push({ icon: lucide_react_1.Globe, text: 'Web Search' });
+            }
+            else if (key === "research_papers") {
+                tabs.push({ icon: lucide_react_1.Book, text: 'Research Papers' });
+            }
         });
         return tabs;
     };

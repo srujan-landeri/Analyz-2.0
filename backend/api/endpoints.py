@@ -110,9 +110,9 @@ async def generate_response(
         identifier = "srujanlanderi@gmail.com"
         run_name = None
             
-        # if run_id is None:
-        #     run_name = assistant_utils.generate_run_name(message)
-        #     print("Run Name:", run_name)
+        if run_id is None:
+            run_name = assistant_utils.generate_run_name(message)
+            print("Run Name:", run_name)
 
         references_for_model = {}
         input_references = json.loads(input_references) if input_references else None     

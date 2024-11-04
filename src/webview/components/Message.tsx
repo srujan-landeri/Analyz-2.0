@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MoonLoader from "react-spinners/MoonLoader";
-import { Globe, Image } from 'lucide-react';
+import { Book, Globe, Image } from 'lucide-react';
 import { FaYoutube } from 'react-icons/fa';
 import Markdown from './Markdown';
 
@@ -45,6 +45,10 @@ function ReferenceTabs({ referencesString }: any) {
                     text: 'Websites',
                     count: websitesCount > 1 ? websitesCount : null
                 });
+            } else if(key === "websearch"){
+                tabs.push({ icon: Globe, text: 'Web Search' });
+            } else if(key === "research_papers"){
+                tabs.push({ icon: Book, text: 'Research Papers' });
             }
         });
 
