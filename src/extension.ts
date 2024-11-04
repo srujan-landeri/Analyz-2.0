@@ -3,8 +3,8 @@ import polka from 'polka';
 import { URLSearchParams } from 'url';
 
 // Add to your imports
-const GOOGLE_CLIENT_ID = "944125795870-j1vgdubdra1njjjq7t8sumjrn0p1fj3i.apps.googleusercontent.com";
-const GOOGLE_CLIENT_SECRET = "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";
+const GOOGLE_CLIENT_ID = "xxxxx";
+const GOOGLE_CLIENT_SECRET = "xxxxx";
 const REDIRECT_URI = 'http://localhost:54321/callback';
 
 export function activate(context: vscode.ExtensionContext) {
