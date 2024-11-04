@@ -11,6 +11,7 @@ const { v4: uuidv4 } = require('uuid');
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FcGoogle } from 'react-icons/fc';
+import { userInfo } from 'os';
 
 export const App: React.FC = () => {
     const [theme, setTheme] = useState('light');
@@ -89,6 +90,24 @@ export const App: React.FC = () => {
                         toast.success("Logged out successfully!");
                     }
                     break;
+
+                case 'open-page':
+
+                    if(message.name == 'chat'){
+                        // new chat instance
+                        console.log("Creating new instance of chat");
+                        setChat({
+                            run_id: null,
+                            run_name: '',
+                            llm: {
+                                name: 'groq',
+                                model: 'llama3-groq-70b-8192-tool-use-preview'
+                            },
+                            chat_history: [],
+                        })
+                        setPage('chat');
+                        break;
+                    }
             }
         };
 

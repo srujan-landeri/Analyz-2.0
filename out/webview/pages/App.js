@@ -72,6 +72,22 @@ const App = () => {
                         react_toastify_1.toast.success("Logged out successfully!");
                     }
                     break;
+                case 'open-page':
+                    if (message.name == 'chat') {
+                        // new chat instance
+                        console.log("Creating new instance of chat");
+                        setChat({
+                            run_id: null,
+                            run_name: '',
+                            llm: {
+                                name: 'groq',
+                                model: 'llama3-groq-70b-8192-tool-use-preview'
+                            },
+                            chat_history: [],
+                        });
+                        setPage('chat');
+                        break;
+                    }
             }
         };
         window.addEventListener('message', handleMessage);

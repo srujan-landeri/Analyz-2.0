@@ -16,8 +16,6 @@ function Logo() {
 }
 function parseReferencesString(str) {
     try {
-        // Convert the string to valid JSON format
-        console.log("Parsing references string", str);
         str = str.replace(/'/g, '"');
         return JSON.parse(str);
     }
@@ -29,7 +27,6 @@ function ReferenceTabs({ referencesString }) {
     if (!referencesString)
         return null;
     const references = parseReferencesString(referencesString);
-    console.log("References to be rendered", references);
     if (references.length === 0)
         return null;
     const getTabs = () => {
@@ -51,7 +48,6 @@ function ReferenceTabs({ referencesString }) {
                 });
             }
         });
-        console.log("Tabs to be rendered", tabs);
         return tabs;
     };
     const tabs = getTabs();

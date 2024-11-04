@@ -352,14 +352,27 @@ class AnalyzViewProvider implements vscode.WebviewViewProvider {
                     break;
             }
 
-            this._view.webview.postMessage({
-                type: 'time-complexity',
-                function: {
-                    code: functionText,
-                    language: language,
-                    fileName: fileName
-                }
+            const view = this._view;
+
+            view.webview.postMessage({
+                type: 'open-page',
+                name: 'chat',
             });
+
+            vscode.window.showInformationMessage('Created new chat...');
+            
+            
+            setTimeout(() => {
+                vscode.window.showInformationMessage('Analysing...');
+                view.webview.postMessage({
+                    type: 'time-complexity',
+                    function: {
+                        code: functionText,
+                        language: language,
+                        fileName: fileName
+                    }
+                });
+            }, 1000);
         }
     }
 
