@@ -30,7 +30,7 @@
 
 ---
 
-> 🚀 **Note**: The voice input feature is currently under development and will be available in future releases.
+> 🚀 **Note**: Images and Voice input features are currently under development and will be available in future releases.
 
 <br>
 
@@ -123,3 +123,39 @@ Open the project in Visual Studio Code and run the extension using the following
 F5
 ```
 
+## 🎥 User Conversation with Analyz
+
+https://github.com/user-attachments/assets/862cb642-e366-4294-89f0-42b766cdbce6
+
+- 🔒 **Secure Google OAuth Login**: Experience seamless and secure authentication to protect your data.
+- 🎛️ **Choose the Model of Your Own**: Select from various supported models to tailor your experience.
+- ⚡ **Fast Inference Using Groq**: Experience rapid responses powered by Groq’s inference capabilities.
+- 📝 **Interactive Markdown Format**: Outputs are displayed in an interactive Markdown format, complete with copy features for easy usability.
+
+## 📹 Chat History and Memory Retrieval
+
+https://github.com/user-attachments/assets/a2e40d9c-3faf-4078-a7f1-08983c08ec32
+
+### Key Points:
+- 🗄️ **Session History Retrieval**: **Analyz** is capable of retrieving the history of all unique sessions, allowing users to revisit past interactions.
+- 🗃️ **Database Storage**: All chats are securely stored in a PostgreSQL database, ensuring data integrity and accessibility.
+- 🔄 **Chat Management**: Users can easily maintain their chat history by creating, deleting, and searching for chats, offering flexibility in managing their conversations.
+- 📝 **Auto-Generated Chat Names**: Each newly created chat session automatically receives a unique name, making it easy for users to identify and manage their conversations.
+
+## 🛠️ External Tools Use
+
+https://github.com/user-attachments/assets/d601d15e-ea85-4901-9698-fabb7b479997
+
+### Key Points:
+- 🎥 **YouTube URL Analysis**: **Analyz** can analyze given YouTube URLs, providing insights and answers related to video content.
+- 🔍 **Web Search Capability**: It can search the web for accurate information, enhancing the quality of responses with real-time data.
+- 📚 **Research Paper Search**: **Analyz** supports searches on Arxiv and PubMed for research papers, assisting research students in accessing relevant literature efficiently.
+
+## 📹 Additional Tools
+
+https://github.com/user-attachments/assets/6f95093c-35b5-493f-8d73-7f86b2381f56
+
+### Key Points:
+- 🔄 **Code Conversion**: **Analyz** can convert code across various programming languages, aiding in understanding and application across different platforms.
+- 📊 **Flowchart Generation**: It can generate detailed flowcharts, making complex concepts clearer and more accessible for users.
+- 📈 **Complexity Analysis**: **Analyz** analyzes the complexity of different functions and provides insights for potential improvements, helping developers optimize their code.
