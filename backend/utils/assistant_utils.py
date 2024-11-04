@@ -61,10 +61,9 @@ def get_assistant(
     """
     
     from phi.storage.assistant.postgres import PgAssistantStorage
-    from tools.scrape_website import WebsiteScrapperToolKit
     from tools.search_arxiv import ArxivAssistant 
-    from tools.search_google import SerpApiToolKit
-    from tools.search_pumbed import PumberAssistant
+    from tools.search_google import TavilyApiToolKit
+    from tools.search_pumbed import PumbedAssistant
     from tools.search_youtube import YotubeSummarizerToolKit
     
     storage = PgAssistantStorage(table_name=TABLE_NAME, db_url=DB_URL)
@@ -79,9 +78,10 @@ def get_assistant(
         add_chat_history_to_messages=True,
         num_history_messages=3,   
         instructions = [
-            "For tasks related to youtube, work only with transcripts.",
-            "Your responses should be clear and concise.",
-            "Always format your responses in markdown format, with heading, bullet points, numbered lists, etc.",
+            "Remember: Always call `get_youtube_video_captions` if youtube video urls are provided and use them as reference.",
+            "Remember: Your responses should be clear and concise.",
+            "Remember: Always format your responses in markdown format, with heading, bullet points, numbered lists, etc.",
+            "Remember: Always provide references to the sources you used to answer the query.",
         ],
         tools=[],
         debug_mode=True
@@ -90,25 +90,33 @@ def get_assistant(
     if run_name:
         assistant.run_name = run_name
 
+    from rich.pretty import pprint
+    pprint("References: ")
+    pprint(references)
     if references:
         user_prompt = ""
         
         if references.get("image_description"):
             user_prompt += f"\nImage Description: {references.get('image_description')}\n"
         
-        if references.get("websites"):
-            assistant.tools.append(WebsiteScrapperToolKit().website_client)
-            user_prompt += f"\n Scrape the following websites to answer user query: {references.get('websites')}\n"
-        
         if references.get("youtube"):
             assistant.tools.append(YotubeSummarizerToolKit().youtube_client)
-            user_prompt += f"\n You can refer the following youtube videos: {references.get('youtube')}\n"
+            user_prompt += f"\nYou can refer the following youtube videos: {references.get('youtube')}\n"
         
+        if references.get("websearch"):
+            assistant.tools.append(TavilyApiToolKit().tavily_client)
+            user_prompt += f"\nYou are allowed to search the web for the query.\n"
+        
+        if references.get("research_papers"):
+            assistant.tools.append(ArxivAssistant().arxiv_client)
+            assistant.tools.append(PumbedAssistant().pumbed_client)
+            user_prompt += f"\nYou can refer the research papers for the query.\n"
+
         if message:
-            user_prompt += f"\n Your are responsible to answer this question `{message}`"
+            user_prompt += f"\nUse the above references if needed to answer this query: `{message}`"
             
         assistant.user_prompt = "References : " + reference_string + '\n' + user_prompt if len(user_prompt) > 0 else None + f"\nAnswer this query {message}"
-    
+
     current_run_id = assistant.run_id if current_run_id is None else current_run_id
     return assistant, current_run_id
 
@@ -123,6 +131,14 @@ def generate_response(assistant: Assistant, message:str, inference_engine, model
     @param model: Model to use.
     """
     set_model(assistant, inference_engine, model)
+    from rich.pretty import pprint
+    pprint("Assistant User Prompt: ")
+    pprint(assistant.user_prompt)
+    pprint("Answering the query: ")
+    pprint(message)    
+    pprint("Tools: ")
+    pprint(assistant.tools)
+    
     return assistant.run(message, stream=False)
 
 def convert_code(text: str, source_language:str, target_language:str) -> str:

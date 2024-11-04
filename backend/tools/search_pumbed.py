@@ -1,6 +1,6 @@
 from phi.tools.pubmed import PubmedTools
 
-class PumberAssistant():
+class PumbedAssistant():
     def __init__(self):
         self.pumbed_client = PubmedTools()
     

@@ -38,7 +38,6 @@ export default function Chat(props: any) {
 
     // Add these to your existing state declarations
     const [pastedImage, setPastedImage] = useState<string | null>(null); // State for pasted image
-    const [uploadedFile, setUploadedFile] = useState<File | null>(null);
     const [websites, setWebsites] = useState<any>([]);
     const [youtubeUrls, setYoutubeUrls] = useState<any>([]);
 
@@ -227,13 +226,6 @@ export default function Chat(props: any) {
                                 onRemove={() => setPastedImage(null)}
                             />
                         )}
-                        {uploadedFile && (
-                            <ResourceChip
-                                icon={Upload}
-                                label="File"
-                                onRemove={() => setUploadedFile(null)}
-                            />
-                        )}
                         {websites.length > 0 && (
                             <ResourceChip
                                 icon={Globe}
@@ -330,39 +322,6 @@ export default function Chat(props: any) {
                 </div>
             </div>
 
-            {/* Add these modal components at the end of your return statement */}
-            <Modal
-                isOpen={fileModal}
-                onClose={() => setFileModal(false)}
-                title="Upload File"
-            >
-                <div className="relative flex items-center w-full">
-                    <input
-                        type="file"
-                        onChange={(e) => {
-                            if (e.target.files?.[0]) {
-                                setUploadedFile(e.target.files[0]);
-                                setFileModal(false);
-                            }
-                        }}
-                        className="sr-only"
-                        id="file-upload"
-                    />
-                    <label
-                        htmlFor="file-upload"
-                        className="flex items-center justify-between w-full p-2 bg-gray-100 dark:bg-zinc-700 rounded-md cursor-pointer border border-gray-200 dark:border-zinc-600 hover:bg-gray-200 dark:hover:bg-zinc-600 transition-colors"
-                    >
-                        <span className="text-sm text-gray-500 dark:text-gray-400 flex-grow text-center">
-                            {uploadedFile ? uploadedFile.name : "No file chosen"}
-                        </span>
-                        <Upload
-                            size={18}
-                            className="text-gray-500 dark:text-gray-400 ml-2"
-                        />
-                    </label>
-                </div>
-            </Modal>
-
             <Modal
                 isOpen={websiteModal}
                 onClose={() => setWebsiteModal(false)}
@@ -400,7 +359,7 @@ export default function Chat(props: any) {
             </Modal>
 
             { /* Model Dropdown */}
-            <div className={`absolute w-[300px] left-0 bottom-[110%] w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${modelDropdown ? 'block' : 'hidden'}`}>
+            <div className={`absolute left-0 bottom-[110%] w-40 bg-white dark:bg-zinc-800 rounded-sm shadow-lg ${modelDropdown ? 'block' : 'hidden'}`}>
                 <h4 className='text-xs p-2 italic flex gap-1 items-center'>
                     <Layers size={18} className='text-black dark:text-white' />
                     Choose a model

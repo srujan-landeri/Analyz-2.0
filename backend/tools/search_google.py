@@ -1,7 +1,9 @@
-from phi.tools.serpapi_tools import SerpApiTools
+from phi.tools.tavily import TavilyTools
+from phi.assistant import Assistant 
 import os
+from phi.llm.groq import Groq
 
-class SerpApiToolKit():
+class TavilyApiToolKit():
     def __init__(self):
-        self.api_key = os.getenv("SERPAPI_KEY")
-        self.serpapi_client = SerpApiTools(api_key=self.api_key, search_youtube=False)
+        print(os.getenv("TAVILY_API_KEY"))
+        self.tavily_client = TavilyTools(api_key=os.getenv("TAVILY_API_KEY"), search_depth="basic", format="json")

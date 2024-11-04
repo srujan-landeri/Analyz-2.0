@@ -110,9 +110,9 @@ async def generate_response(
         identifier = "srujanlanderi@gmail.com"
         run_name = None
             
-        if run_id is None:
-            run_name = assistant_utils.generate_run_name(message)
-            print("Run Name:", run_name)
+        # if run_id is None:
+        #     run_name = assistant_utils.generate_run_name(message)
+        #     print("Run Name:", run_name)
 
         references_for_model = {}
         input_references = json.loads(input_references) if input_references else None     
@@ -125,12 +125,15 @@ async def generate_response(
                 references_for_model["image_description"] = image_description
                 del input_references["image"]
                 
-            if input_references.get("websites"):
-                references_for_model["websites"] = input_references["websites"]
+            if input_references.get("websearch"):
+                references_for_model["websearch"] = True
                 
             if input_references.get("youtube"):
                 references_for_model["youtube"] = input_references["youtube"]
             
+            if input_references.get("research_papers"):
+                references_for_model["research_papers"] = True
+        
         assistant, current_run_id = assistant_utils.get_assistant(
             user=identifier, 
             run_id=run_id, 
@@ -140,8 +143,8 @@ async def generate_response(
             reference_string=json.dumps(input_references)
         )
         
+        
         response = assistant_utils.generate_response(assistant, message, inference_engine, model)
-        from rich.pretty import pprint
 
         return {
             "response": response,
@@ -161,6 +164,8 @@ def convert_code(
     @param code: Code to convert.
     @param source_language: Source language of the code.
     @param target_language: Target language to convert the code.
+    
+    @return: dict with the converted code as `code` key.
     """
     import utils.assistant_utils as assistant_utils
     
@@ -181,6 +186,10 @@ def generate_flowchart(
 ) -> Dict[str, Any]:
     """
     Generate flowchart for the given code.
+    
+    @param query: Query to generate flowchart.
+    
+    @return: dict with the generated flowchart as `flowchart` and `explanation` key.
     """
     
     import utils.assistant_utils as assistant_utils
